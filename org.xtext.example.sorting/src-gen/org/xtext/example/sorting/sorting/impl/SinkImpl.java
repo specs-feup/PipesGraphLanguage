@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.sorting.sorting.Sink;
 import org.xtext.example.sorting.sorting.SortingPackage;
@@ -24,35 +23,13 @@ import org.xtext.example.sorting.sorting.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sorting.sorting.impl.SinkImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.SinkImpl#getInType <em>In Type</em>}</li>
- *   <li>{@link org.xtext.example.sorting.sorting.impl.SinkImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
+public class SinkImpl extends ComponentImpl implements Sink
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getInType() <em>In Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -62,26 +39,6 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
    * @ordered
    */
   protected Type inType;
-
-  /**
-   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected static final String METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected String method = METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -102,29 +59,6 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
   protected EClass eStaticClass()
   {
     return SortingPackage.Literals.SINK;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.SINK__NAME, oldName, name));
   }
 
   /**
@@ -180,29 +114,6 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethod()
-  {
-    return method;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMethod(String newMethod)
-  {
-    String oldMethod = method;
-    method = newMethod;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.SINK__METHOD, oldMethod, method));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -224,12 +135,8 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
   {
     switch (featureID)
     {
-      case SortingPackage.SINK__NAME:
-        return getName();
       case SortingPackage.SINK__IN_TYPE:
         return getInType();
-      case SortingPackage.SINK__METHOD:
-        return getMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -244,14 +151,8 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
   {
     switch (featureID)
     {
-      case SortingPackage.SINK__NAME:
-        setName((String)newValue);
-        return;
       case SortingPackage.SINK__IN_TYPE:
         setInType((Type)newValue);
-        return;
-      case SortingPackage.SINK__METHOD:
-        setMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -267,14 +168,8 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
   {
     switch (featureID)
     {
-      case SortingPackage.SINK__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case SortingPackage.SINK__IN_TYPE:
         setInType((Type)null);
-        return;
-      case SortingPackage.SINK__METHOD:
-        setMethod(METHOD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -290,33 +185,10 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink
   {
     switch (featureID)
     {
-      case SortingPackage.SINK__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SortingPackage.SINK__IN_TYPE:
         return inType != null;
-      case SortingPackage.SINK__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", method: ");
-    result.append(method);
-    result.append(')');
-    return result.toString();
   }
 
 } //SinkImpl

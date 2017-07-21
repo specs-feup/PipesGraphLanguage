@@ -27,7 +27,7 @@ public class SortingParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Type";
+		return "Config";
 	}
 
 	public SortingGrammarAccess getGrammarAccess() {

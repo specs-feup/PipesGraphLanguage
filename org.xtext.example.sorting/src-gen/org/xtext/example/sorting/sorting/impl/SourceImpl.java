@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.sorting.sorting.SortingPackage;
 import org.xtext.example.sorting.sorting.Source;
@@ -24,35 +23,13 @@ import org.xtext.example.sorting.sorting.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sorting.sorting.impl.SourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.SourceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.example.sorting.sorting.impl.SourceImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SourceImpl extends MinimalEObjectImpl.Container implements Source
+public class SourceImpl extends ComponentImpl implements Source
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -62,26 +39,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
    * @ordered
    */
   protected Type type;
-
-  /**
-   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected static final String METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected String method = METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -102,29 +59,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
   protected EClass eStaticClass()
   {
     return SortingPackage.Literals.SOURCE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.SOURCE__NAME, oldName, name));
   }
 
   /**
@@ -180,29 +114,6 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethod()
-  {
-    return method;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMethod(String newMethod)
-  {
-    String oldMethod = method;
-    method = newMethod;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.SOURCE__METHOD, oldMethod, method));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -224,12 +135,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
   {
     switch (featureID)
     {
-      case SortingPackage.SOURCE__NAME:
-        return getName();
       case SortingPackage.SOURCE__TYPE:
         return getType();
-      case SortingPackage.SOURCE__METHOD:
-        return getMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -244,14 +151,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
   {
     switch (featureID)
     {
-      case SortingPackage.SOURCE__NAME:
-        setName((String)newValue);
-        return;
       case SortingPackage.SOURCE__TYPE:
         setType((Type)newValue);
-        return;
-      case SortingPackage.SOURCE__METHOD:
-        setMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -267,14 +168,8 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
   {
     switch (featureID)
     {
-      case SortingPackage.SOURCE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case SortingPackage.SOURCE__TYPE:
         setType((Type)null);
-        return;
-      case SortingPackage.SOURCE__METHOD:
-        setMethod(METHOD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -290,33 +185,10 @@ public class SourceImpl extends MinimalEObjectImpl.Container implements Source
   {
     switch (featureID)
     {
-      case SortingPackage.SOURCE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SortingPackage.SOURCE__TYPE:
         return type != null;
-      case SortingPackage.SOURCE__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", method: ");
-    result.append(method);
-    result.append(')');
-    return result.toString();
   }
 
 } //SourceImpl

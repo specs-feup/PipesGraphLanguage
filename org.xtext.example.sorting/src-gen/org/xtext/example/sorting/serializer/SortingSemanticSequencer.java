@@ -11,12 +11,17 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.sorting.services.SortingGrammarAccess;
+import org.xtext.example.sorting.sorting.Config;
 import org.xtext.example.sorting.sorting.Filter;
+import org.xtext.example.sorting.sorting.Instance;
 import org.xtext.example.sorting.sorting.Sink;
 import org.xtext.example.sorting.sorting.SortingPackage;
 import org.xtext.example.sorting.sorting.Source;
+import org.xtext.example.sorting.sorting.Transition;
 import org.xtext.example.sorting.sorting.Type;
 
 @SuppressWarnings("all")
@@ -33,14 +38,23 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SortingPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SortingPackage.CONFIG:
+				sequence_Config(context, (Config) semanticObject); 
+				return; 
 			case SortingPackage.FILTER:
 				sequence_Filter(context, (Filter) semanticObject); 
+				return; 
+			case SortingPackage.INSTANCE:
+				sequence_Instance(context, (Instance) semanticObject); 
 				return; 
 			case SortingPackage.SINK:
 				sequence_Sink(context, (Sink) semanticObject); 
 				return; 
 			case SortingPackage.SOURCE:
 				sequence_Source(context, (Source) semanticObject); 
+				return; 
+			case SortingPackage.TRANSITION:
+				sequence_Transition(context, (Transition) semanticObject); 
 				return; 
 			case SortingPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -52,6 +66,19 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Config returns Config
+	 *
+	 * Constraint:
+	 *     (name=ID components+=Component transitions+=Transition)
+	 */
+	protected void sequence_Config(ISerializationContext context, Config semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Component returns Filter
 	 *     Filter returns Filter
 	 *
 	 * Constraint:
@@ -64,6 +91,20 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Component returns Instance
+	 *     Instance returns Instance
+	 *
+	 * Constraint:
+	 *     (component=[Component|ID] name=ID (method=STRING | args+=STRING+)?)
+	 */
+	protected void sequence_Instance(ISerializationContext context, Instance semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Component returns Sink
 	 *     Sink returns Sink
 	 *
 	 * Constraint:
@@ -76,6 +117,7 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Component returns Source
 	 *     Source returns Source
 	 *
 	 * Constraint:
@@ -83,6 +125,27 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_Source(ISerializationContext context, Source semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Transition returns Transition
+	 *
+	 * Constraint:
+	 *     (source=[Component|ID] target=[Component|ID])
+	 */
+	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.TRANSITION__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.TRANSITION__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.TRANSITION__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.TRANSITION__TARGET));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTransitionAccess().getSourceComponentIDTerminalRuleCall_0_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__SOURCE, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getTargetComponentIDTerminalRuleCall_2_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__TARGET, false));
+		feeder.finish();
 	}
 	
 	

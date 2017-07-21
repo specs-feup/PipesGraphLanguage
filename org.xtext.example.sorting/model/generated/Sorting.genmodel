@@ -6,24 +6,35 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
   <genPackages prefix="Sorting" basePackage="org.xtext.example.sorting" disposableProviderFactory="true"
       fileExtensions="sortex" ecorePackage="Sorting.ecore#/">
+    <genClasses ecoreClass="Sorting.ecore#//Config">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Config/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Config/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Config/transitions"/>
+    </genClasses>
     <genClasses ecoreClass="Sorting.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Type/type"/>
     </genClasses>
+    <genClasses ecoreClass="Sorting.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Component/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Component/method"/>
+    </genClasses>
     <genClasses ecoreClass="Sorting.ecore#//Source">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Source/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Source/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Source/method"/>
     </genClasses>
     <genClasses ecoreClass="Sorting.ecore#//Filter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Filter/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Filter/inType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Filter/outType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Filter/method"/>
     </genClasses>
     <genClasses ecoreClass="Sorting.ecore#//Sink">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Sink/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Sink/inType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Sink/method"/>
+    </genClasses>
+    <genClasses ecoreClass="Sorting.ecore#//Instance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sorting.ecore#//Instance/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Instance/args"/>
+    </genClasses>
+    <genClasses ecoreClass="Sorting.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sorting.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sorting.ecore#//Transition/target"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

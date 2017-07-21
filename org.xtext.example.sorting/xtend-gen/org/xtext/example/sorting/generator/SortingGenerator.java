@@ -3,7 +3,9 @@
  */
 package org.xtext.example.sorting.generator;
 
+import com.google.common.collect.Iterators;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -17,5 +19,12 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SortingGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    fsa.generateFile("greetings.txt", this.generate(resource));
+    /* Iterators.<Integer>filter(resource.getAllContents(), int.class); */
+  }
+  
+  public CharSequence generate(final Resource resource) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
   }
 }

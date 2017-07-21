@@ -24,6 +24,15 @@ public interface SortingFactory extends EFactory
   SortingFactory eINSTANCE = org.xtext.example.sorting.sorting.impl.SortingFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Config</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Config</em>'.
+   * @generated
+   */
+  Config createConfig();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -31,6 +40,15 @@ public interface SortingFactory extends EFactory
    * @generated
    */
   Type createType();
+
+  /**
+   * Returns a new object of class '<em>Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Component</em>'.
+   * @generated
+   */
+  Component createComponent();
 
   /**
    * Returns a new object of class '<em>Source</em>'.
@@ -58,6 +76,24 @@ public interface SortingFactory extends EFactory
    * @generated
    */
   Sink createSink();
+
+  /**
+   * Returns a new object of class '<em>Instance</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Instance</em>'.
+   * @generated
+   */
+  Instance createInstance();
+
+  /**
+   * Returns a new object of class '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition</em>'.
+   * @generated
+   */
+  Transition createTransition();
 
   /**
    * Returns the package supported by this factory.

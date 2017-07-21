@@ -76,9 +76,19 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
     new SortingSwitch<Adapter>()
     {
       @Override
+      public Adapter caseConfig(Config object)
+      {
+        return createConfigAdapter();
+      }
+      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
+      }
+      @Override
+      public Adapter caseComponent(Component object)
+      {
+        return createComponentAdapter();
       }
       @Override
       public Adapter caseSource(Source object)
@@ -94,6 +104,16 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSink(Sink object)
       {
         return createSinkAdapter();
+      }
+      @Override
+      public Adapter caseInstance(Instance object)
+      {
+        return createInstanceAdapter();
+      }
+      @Override
+      public Adapter caseTransition(Transition object)
+      {
+        return createTransitionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -118,6 +138,21 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
 
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Config <em>Config</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sorting.sorting.Config
+   * @generated
+   */
+  public Adapter createConfigAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -128,6 +163,21 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Component <em>Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sorting.sorting.Component
+   * @generated
+   */
+  public Adapter createComponentAdapter()
   {
     return null;
   }
@@ -173,6 +223,36 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSinkAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Instance <em>Instance</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sorting.sorting.Instance
+   * @generated
+   */
+  public Adapter createInstanceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sorting.sorting.Transition
+   * @generated
+   */
+  public Adapter createTransitionAdapter()
   {
     return null;
   }

@@ -73,6 +73,13 @@ public class SortingSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case SortingPackage.CONFIG:
+      {
+        Config config = (Config)theEObject;
+        T result = caseConfig(config);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SortingPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -80,10 +87,18 @@ public class SortingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SortingPackage.COMPONENT:
+      {
+        Component component = (Component)theEObject;
+        T result = caseComponent(component);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SortingPackage.SOURCE:
       {
         Source source = (Source)theEObject;
         T result = caseSource(source);
+        if (result == null) result = caseComponent(source);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,6 +106,7 @@ public class SortingSwitch<T> extends Switch<T>
       {
         Filter filter = (Filter)theEObject;
         T result = caseFilter(filter);
+        if (result == null) result = caseComponent(filter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -98,11 +114,43 @@ public class SortingSwitch<T> extends Switch<T>
       {
         Sink sink = (Sink)theEObject;
         T result = caseSink(sink);
+        if (result == null) result = caseComponent(sink);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SortingPackage.INSTANCE:
+      {
+        Instance instance = (Instance)theEObject;
+        T result = caseInstance(instance);
+        if (result == null) result = caseComponent(instance);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SortingPackage.TRANSITION:
+      {
+        Transition transition = (Transition)theEObject;
+        T result = caseTransition(transition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Config</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Config</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConfig(Config object)
+  {
+    return null;
   }
 
   /**
@@ -117,6 +165,22 @@ public class SortingSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComponent(Component object)
   {
     return null;
   }
@@ -165,6 +229,38 @@ public class SortingSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSink(Sink object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Instance</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Instance</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInstance(Instance object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTransition(Transition object)
   {
     return null;
   }

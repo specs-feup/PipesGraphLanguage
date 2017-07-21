@@ -32,6 +32,9 @@ public class SortingParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getTypeAccess().getTypeAlternatives_0_0(), "rule__Type__TypeAlternatives_0_0");
+					put(grammarAccess.getComponentAccess().getAlternatives(), "rule__Component__Alternatives");
+					put(grammarAccess.getInstanceAccess().getAlternatives_3(), "rule__Instance__Alternatives_3");
+					put(grammarAccess.getConfigAccess().getGroup(), "rule__Config__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
 					put(grammarAccess.getSourceAccess().getGroup(), "rule__Source__Group__0");
@@ -43,6 +46,14 @@ public class SortingParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSinkAccess().getGroup(), "rule__Sink__Group__0");
 					put(grammarAccess.getSinkAccess().getGroup_5(), "rule__Sink__Group_5__0");
 					put(grammarAccess.getSinkAccess().getGroup_5_2(), "rule__Sink__Group_5_2__0");
+					put(grammarAccess.getInstanceAccess().getGroup(), "rule__Instance__Group__0");
+					put(grammarAccess.getInstanceAccess().getGroup_3_0(), "rule__Instance__Group_3_0__0");
+					put(grammarAccess.getInstanceAccess().getGroup_3_0_2(), "rule__Instance__Group_3_0_2__0");
+					put(grammarAccess.getInstanceAccess().getGroup_3_1(), "rule__Instance__Group_3_1__0");
+					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
+					put(grammarAccess.getConfigAccess().getNameAssignment_1(), "rule__Config__NameAssignment_1");
+					put(grammarAccess.getConfigAccess().getComponentsAssignment_3(), "rule__Config__ComponentsAssignment_3");
+					put(grammarAccess.getConfigAccess().getTransitionsAssignment_5(), "rule__Config__TransitionsAssignment_5");
 					put(grammarAccess.getTypeAccess().getTypeAssignment_0(), "rule__Type__TypeAssignment_0");
 					put(grammarAccess.getSourceAccess().getNameAssignment_1(), "rule__Source__NameAssignment_1");
 					put(grammarAccess.getSourceAccess().getTypeAssignment_4(), "rule__Source__TypeAssignment_4");
@@ -54,6 +65,12 @@ public class SortingParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSinkAccess().getNameAssignment_1(), "rule__Sink__NameAssignment_1");
 					put(grammarAccess.getSinkAccess().getInTypeAssignment_4(), "rule__Sink__InTypeAssignment_4");
 					put(grammarAccess.getSinkAccess().getMethodAssignment_5_1(), "rule__Sink__MethodAssignment_5_1");
+					put(grammarAccess.getInstanceAccess().getComponentAssignment_1(), "rule__Instance__ComponentAssignment_1");
+					put(grammarAccess.getInstanceAccess().getNameAssignment_2(), "rule__Instance__NameAssignment_2");
+					put(grammarAccess.getInstanceAccess().getMethodAssignment_3_0_1(), "rule__Instance__MethodAssignment_3_0_1");
+					put(grammarAccess.getInstanceAccess().getArgsAssignment_3_1_1(), "rule__Instance__ArgsAssignment_3_1_1");
+					put(grammarAccess.getTransitionAccess().getSourceAssignment_0(), "rule__Transition__SourceAssignment_0");
+					put(grammarAccess.getTransitionAccess().getTargetAssignment_2(), "rule__Transition__TargetAssignment_2");
 				}
 			};
 		}

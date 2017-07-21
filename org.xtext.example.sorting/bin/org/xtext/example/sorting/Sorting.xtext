@@ -2,12 +2,18 @@ grammar org.xtext.example.sorting.Sorting with org.eclipse.xtext.common.Terminal
 
 generate sorting "http://www.xtext.org/example/sorting/Sorting"
 
+Config:
+	'config:' name=ID
+	'components:' components+=Component
+	'transitions:' transitions+=Transition
+;
+
 Type:
 	type=('int'|'String'|'double'|'long') ('['']')?
 	;
 
 Component:
-	Source|Sink|Filter
+	Source|Sink|Filter|Instance
 ;	
 	
 Source:
@@ -33,11 +39,12 @@ Sink:
 ;	
 
 Instance:
-	component=[Component] name=ID 
-	('call:' method=STRING('.'STRING)*|'args:' args+=STRING*)
+	'inst:' component=[Component] name=ID 
+	('call:' method=STRING('.'STRING)*|'args:' args+=STRING*)?
 ;
 
 Transition:
-	(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
-	source=[Instance] "=>" target=[Instance]
+	//(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
+	//source=[Instance] "=>" target=[Instance] /*sem Instance no Component*/
+	source=[Component] "=>" target=[Component]
 ;

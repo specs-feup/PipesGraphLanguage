@@ -10,11 +10,15 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.sorting.sorting.Component;
+import org.xtext.example.sorting.sorting.Config;
 import org.xtext.example.sorting.sorting.Filter;
+import org.xtext.example.sorting.sorting.Instance;
 import org.xtext.example.sorting.sorting.Sink;
 import org.xtext.example.sorting.sorting.SortingFactory;
 import org.xtext.example.sorting.sorting.SortingPackage;
 import org.xtext.example.sorting.sorting.Source;
+import org.xtext.example.sorting.sorting.Transition;
 import org.xtext.example.sorting.sorting.Type;
 
 /**
@@ -30,7 +34,21 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass configEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass componentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -52,6 +70,20 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * @generated
    */
   private EClass sinkEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass instanceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass transitionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -121,6 +153,46 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConfig()
+  {
+    return configEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConfig_Name()
+  {
+    return (EAttribute)configEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConfig_Components()
+  {
+    return (EReference)configEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConfig_Transitions()
+  {
+    return (EReference)configEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getType()
   {
     return typeEClass;
@@ -141,6 +213,36 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getComponent()
+  {
+    return componentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getComponent_Name()
+  {
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getComponent_Method()
+  {
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSource()
   {
     return sourceEClass;
@@ -151,29 +253,9 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSource_Name()
-  {
-    return (EAttribute)sourceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getSource_Type()
   {
-    return (EReference)sourceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSource_Method()
-  {
-    return (EAttribute)sourceEClass.getEStructuralFeatures().get(2);
+    return (EReference)sourceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -191,19 +273,9 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFilter_Name()
-  {
-    return (EAttribute)filterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getFilter_InType()
   {
-    return (EReference)filterEClass.getEStructuralFeatures().get(1);
+    return (EReference)filterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -213,17 +285,7 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    */
   public EReference getFilter_OutType()
   {
-    return (EReference)filterEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFilter_Method()
-  {
-    return (EAttribute)filterEClass.getEStructuralFeatures().get(3);
+    return (EReference)filterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -241,19 +303,9 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSink_Name()
-  {
-    return (EAttribute)sinkEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getSink_InType()
   {
-    return (EReference)sinkEClass.getEStructuralFeatures().get(1);
+    return (EReference)sinkEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -261,9 +313,59 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSink_Method()
+  public EClass getInstance()
   {
-    return (EAttribute)sinkEClass.getEStructuralFeatures().get(2);
+    return instanceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInstance_Component()
+  {
+    return (EReference)instanceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInstance_Args()
+  {
+    return (EAttribute)instanceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTransition()
+  {
+    return transitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransition_Source()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransition_Target()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -296,24 +398,35 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
     isCreated = true;
 
     // Create classes and their features
+    configEClass = createEClass(CONFIG);
+    createEAttribute(configEClass, CONFIG__NAME);
+    createEReference(configEClass, CONFIG__COMPONENTS);
+    createEReference(configEClass, CONFIG__TRANSITIONS);
+
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__TYPE);
 
+    componentEClass = createEClass(COMPONENT);
+    createEAttribute(componentEClass, COMPONENT__NAME);
+    createEAttribute(componentEClass, COMPONENT__METHOD);
+
     sourceEClass = createEClass(SOURCE);
-    createEAttribute(sourceEClass, SOURCE__NAME);
     createEReference(sourceEClass, SOURCE__TYPE);
-    createEAttribute(sourceEClass, SOURCE__METHOD);
 
     filterEClass = createEClass(FILTER);
-    createEAttribute(filterEClass, FILTER__NAME);
     createEReference(filterEClass, FILTER__IN_TYPE);
     createEReference(filterEClass, FILTER__OUT_TYPE);
-    createEAttribute(filterEClass, FILTER__METHOD);
 
     sinkEClass = createEClass(SINK);
-    createEAttribute(sinkEClass, SINK__NAME);
     createEReference(sinkEClass, SINK__IN_TYPE);
-    createEAttribute(sinkEClass, SINK__METHOD);
+
+    instanceEClass = createEClass(INSTANCE);
+    createEReference(instanceEClass, INSTANCE__COMPONENT);
+    createEAttribute(instanceEClass, INSTANCE__ARGS);
+
+    transitionEClass = createEClass(TRANSITION);
+    createEReference(transitionEClass, TRANSITION__SOURCE);
+    createEReference(transitionEClass, TRANSITION__TARGET);
   }
 
   /**
@@ -345,26 +458,41 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    sourceEClass.getESuperTypes().add(this.getComponent());
+    filterEClass.getESuperTypes().add(this.getComponent());
+    sinkEClass.getESuperTypes().add(this.getComponent());
+    instanceEClass.getESuperTypes().add(this.getComponent());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(configEClass, Config.class, "Config", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConfig_Name(), ecorePackage.getEString(), "name", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConfig_Components(), this.getComponent(), null, "components", null, 0, -1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConfig_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Type(), ecorePackage.getEString(), "type", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComponent_Method(), ecorePackage.getEString(), "method", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSource_Type(), this.getType(), null, "type", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSource_Method(), ecorePackage.getEString(), "method", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFilter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFilter_InType(), this.getType(), null, "inType", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFilter_OutType(), this.getType(), null, "outType", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFilter_Method(), ecorePackage.getEString(), "method", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sinkEClass, Sink.class, "Sink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSink_Name(), ecorePackage.getEString(), "name", null, 0, 1, Sink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSink_InType(), this.getType(), null, "inType", null, 0, 1, Sink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSink_Method(), ecorePackage.getEString(), "method", null, 0, 1, Sink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(instanceEClass, Instance.class, "Instance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInstance_Component(), this.getComponent(), null, "component", null, 0, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInstance_Args(), ecorePackage.getEString(), "args", null, 0, -1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTransition_Source(), this.getComponent(), null, "source", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Target(), this.getComponent(), null, "target", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

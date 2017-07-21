@@ -65,13 +65,28 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
   {
     switch (eClass.getClassifierID())
     {
+      case SortingPackage.CONFIG: return createConfig();
       case SortingPackage.TYPE: return createType();
+      case SortingPackage.COMPONENT: return createComponent();
       case SortingPackage.SOURCE: return createSource();
       case SortingPackage.FILTER: return createFilter();
       case SortingPackage.SINK: return createSink();
+      case SortingPackage.INSTANCE: return createInstance();
+      case SortingPackage.TRANSITION: return createTransition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Config createConfig()
+  {
+    ConfigImpl config = new ConfigImpl();
+    return config;
   }
 
   /**
@@ -83,6 +98,17 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
   {
     TypeImpl type = new TypeImpl();
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Component createComponent()
+  {
+    ComponentImpl component = new ComponentImpl();
+    return component;
   }
 
   /**
@@ -116,6 +142,28 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
   {
     SinkImpl sink = new SinkImpl();
     return sink;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Instance createInstance()
+  {
+    InstanceImpl instance = new InstanceImpl();
+    return instance;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Transition createTransition()
+  {
+    TransitionImpl transition = new TransitionImpl();
+    return transition;
   }
 
   /**

@@ -16,10 +16,15 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SortingGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
+		fsa.generateFile('greetings.txt', resource.generate); 
+		resource.allContents.filter(typeof(int));
 //			resource.allContents
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
 	}
+	
+	def CharSequence generate(Resource resource)'''
+	'''
+	
 }
