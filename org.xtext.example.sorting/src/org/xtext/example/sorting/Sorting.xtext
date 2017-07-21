@@ -1,0 +1,43 @@
+grammar org.xtext.example.sorting.Sorting with org.eclipse.xtext.common.Terminals
+
+generate sorting "http://www.xtext.org/example/sorting/Sorting"
+
+Type:
+	type=('int'|'String'|'double'|'long') ('['']')?
+	;
+
+Component:
+	Source|Sink|Filter
+;	
+	
+Source:
+	'source' name=ID '{'
+	'out:' type=Type
+	('input-method:' method=STRING('.'STRING)*)? //default and optional
+	'}'
+;
+	
+Filter:
+	'filter' name=ID '{'
+	'in:' inType=Type
+	'out:' outType=Type
+	('method:' method=STRING('.'STRING)*)? //default and optional
+	'}'
+;	
+
+Sink:
+	'sink' name=ID '{'
+	'in:' inType=Type
+	('output-method:' method=STRING('.'STRING)*)? //default and optional
+	'}'
+;	
+
+Instance:
+	component=[Component] name=ID 
+	('call:' method=STRING('.'STRING)*|'args:' args+=STRING*)
+;
+
+Transition:
+	(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
+	source=[Instance] "=>" target=[Instance]
+;
