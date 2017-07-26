@@ -6,6 +6,7 @@ package org.xtext.example.sorting.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -26,51 +27,139 @@ public class SortingGrammarAccess extends AbstractGrammarElementFinder {
 	public class ConfigElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sorting.Sorting.Config");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cConfigKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cComponentsKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cComponentsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cComponentsComponentParserRuleCall_3_0 = (RuleCall)cComponentsAssignment_3.eContents().get(0);
-		private final Keyword cTransitionsKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTransitionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTransitionsTransitionParserRuleCall_5_0 = (RuleCall)cTransitionsAssignment_5.eContents().get(0);
+		private final Action cConfigAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cConfigKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cImportsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cImportsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cImportsImportParserRuleCall_4_0 = (RuleCall)cImportsAssignment_4.eContents().get(0);
+		private final Keyword cComponentsKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cComponentsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cComponentsComponentParserRuleCall_6_0 = (RuleCall)cComponentsAssignment_6.eContents().get(0);
+		private final Keyword cTransitionsKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cTransitionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cTransitionsTransitionParserRuleCall_8_0 = (RuleCall)cTransitionsAssignment_8.eContents().get(0);
 		
 		//Config:
+		//	{Config}
 		//	'config:' name=ID
+		//	'imports:' imports+=Import
 		//	'components:' components+=Component
 		//	'transitions:' transitions+=Transition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'config:' name=ID 'components:' components+=Component 'transitions:' transitions+=Transition
+		//{Config} 'config:' name=ID 'imports:' imports+=Import 'components:' components+=Component 'transitions:'
+		//transitions+=Transition
 		public Group getGroup() { return cGroup; }
 		
+		//{Config}
+		public Action getConfigAction_0() { return cConfigAction_0; }
+		
 		//'config:'
-		public Keyword getConfigKeyword_0() { return cConfigKeyword_0; }
+		public Keyword getConfigKeyword_1() { return cConfigKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
+		//'imports:'
+		public Keyword getImportsKeyword_3() { return cImportsKeyword_3; }
+		
+		//imports+=Import
+		public Assignment getImportsAssignment_4() { return cImportsAssignment_4; }
+		
+		//Import
+		public RuleCall getImportsImportParserRuleCall_4_0() { return cImportsImportParserRuleCall_4_0; }
 		
 		//'components:'
-		public Keyword getComponentsKeyword_2() { return cComponentsKeyword_2; }
+		public Keyword getComponentsKeyword_5() { return cComponentsKeyword_5; }
 		
 		//components+=Component
-		public Assignment getComponentsAssignment_3() { return cComponentsAssignment_3; }
+		public Assignment getComponentsAssignment_6() { return cComponentsAssignment_6; }
 		
 		//Component
-		public RuleCall getComponentsComponentParserRuleCall_3_0() { return cComponentsComponentParserRuleCall_3_0; }
+		public RuleCall getComponentsComponentParserRuleCall_6_0() { return cComponentsComponentParserRuleCall_6_0; }
 		
 		//'transitions:'
-		public Keyword getTransitionsKeyword_4() { return cTransitionsKeyword_4; }
+		public Keyword getTransitionsKeyword_7() { return cTransitionsKeyword_7; }
 		
 		//transitions+=Transition
-		public Assignment getTransitionsAssignment_5() { return cTransitionsAssignment_5; }
+		public Assignment getTransitionsAssignment_8() { return cTransitionsAssignment_8; }
 		
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_5_0() { return cTransitionsTransitionParserRuleCall_5_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_8_0() { return cTransitionsTransitionParserRuleCall_8_0; }
+	}
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sorting.Sorting.QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID ('.' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sorting.Sorting.Import");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameWithWildcardParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Import:
+		//	'import' name=QualifiedNameWithWildcard;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'import' name=QualifiedNameWithWildcard
+		public Group getGroup() { return cGroup; }
+		
+		//'import'
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
+		
+		//name=QualifiedNameWithWildcard
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//QualifiedNameWithWildcard
+		public RuleCall getNameQualifiedNameWithWildcardParserRuleCall_1_0() { return cNameQualifiedNameWithWildcardParserRuleCall_1_0; }
+	}
+	public class QualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sorting.Sorting.QualifiedNameWithWildcard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//QualifiedNameWithWildcard:
+		//	QualifiedName '.*'?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//QualifiedName '.*'?
+		public Group getGroup() { return cGroup; }
+		
+		//QualifiedName
+		public RuleCall getQualifiedNameParserRuleCall_0() { return cQualifiedNameParserRuleCall_0; }
+		
+		//'.*'?
+		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sorting.Sorting.Type");
@@ -482,11 +571,13 @@ public class SortingGrammarAccess extends AbstractGrammarElementFinder {
 		//	source=[Component] "=>" target=[Component];
 		@Override public ParserRule getRule() { return rule; }
 		
-		////	(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
+		////(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
+		////source=[Instance] "=>" target=[Instance] /*sem Instance no Component*/
 		//source=[Component] "=>" target=[Component]
 		public Group getGroup() { return cGroup; }
 		
-		////	(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
+		////(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
+		////source=[Instance] "=>" target=[Instance] /*sem Instance no Component*/
 		//source=[Component]
 		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
 		
@@ -511,6 +602,9 @@ public class SortingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final ConfigElements pConfig;
+	private final QualifiedNameElements pQualifiedName;
+	private final ImportElements pImport;
+	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private final TypeElements pType;
 	private final ComponentElements pComponent;
 	private final SourceElements pSource;
@@ -529,6 +623,9 @@ public class SortingGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pConfig = new ConfigElements();
+		this.pQualifiedName = new QualifiedNameElements();
+		this.pImport = new ImportElements();
+		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
 		this.pType = new TypeElements();
 		this.pComponent = new ComponentElements();
 		this.pSource = new SourceElements();
@@ -566,7 +663,9 @@ public class SortingGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Config:
+	//	{Config}
 	//	'config:' name=ID
+	//	'imports:' imports+=Import
 	//	'components:' components+=Component
 	//	'transitions:' transitions+=Transition;
 	public ConfigElements getConfigAccess() {
@@ -575,6 +674,36 @@ public class SortingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getConfigRule() {
 		return getConfigAccess().getRule();
+	}
+	
+	//QualifiedName:
+	//	ID ('.' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+	
+	//Import:
+	//	'import' name=QualifiedNameWithWildcard;
+	public ImportElements getImportAccess() {
+		return pImport;
+	}
+	
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
+	}
+	
+	//QualifiedNameWithWildcard:
+	//	QualifiedName '.*'?;
+	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
+		return pQualifiedNameWithWildcard;
+	}
+	
+	public ParserRule getQualifiedNameWithWildcardRule() {
+		return getQualifiedNameWithWildcardAccess().getRule();
 	}
 	
 	//Type:

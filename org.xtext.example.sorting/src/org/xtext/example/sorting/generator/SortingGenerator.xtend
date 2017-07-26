@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.sorting.sorting.*
 
 /**
  * Generates code from your model files on save.
@@ -16,15 +17,23 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SortingGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile('greetings.txt', resource.generate); 
-		resource.allContents.filter(typeof(int));
+		fsa.generateFile(resource.className+".java", generate(resource.contents.head as Config)); 
 //			resource.allContents
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
 	}
 	
-	def CharSequence generate(Resource resource)'''
+	def className(Resource res) {
+		var name = res.URI.lastSegment
+		return name.substring(0, name.indexOf('.'))
+	}
+	
+	def CharSequence generate(Config config)'''
+		«FOR imports : config.imports»
+			import «imports.name»
+		«ENDFOR»
+		
 	'''
 	
 }

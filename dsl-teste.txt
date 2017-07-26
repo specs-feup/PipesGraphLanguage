@@ -1,0 +1,54 @@
+config: teste
+
+imports: 
+
+import java.util.Arrays
+
+components:
+
+source File{
+out: String[]
+method: readFile
+}
+
+filter Avg{
+in: int[]
+out: int
+method: avg
+}
+
+filter Sort{
+in: int[]
+out: int[]
+method: bubbleSort
+}
+
+filter FirstN{
+in: int[]
+out: int[]
+method: filter(in=10, args[0])
+}
+
+sink Display{
+in: String
+method: System.out.println
+}
+
+vars:
+
+File test{
+args: teste.txt
+}
+
+FirstN first10{
+args: 10
+}
+
+Display cmdLine
+Avg avg
+Sort bubble
+
+transitions:
+test -> bubble -> avg -> cmdLine
+test -> bubble -> cmdLine
+

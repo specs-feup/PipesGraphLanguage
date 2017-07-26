@@ -3,12 +3,16 @@
  */
 package org.xtext.example.sorting.generator;
 
-import com.google.common.collect.Iterators;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.example.sorting.sorting.Config;
+import org.xtext.example.sorting.sorting.Import;
 
 /**
  * Generates code from your model files on save.
@@ -19,12 +23,29 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SortingGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    fsa.generateFile("greetings.txt", this.generate(resource));
-    /* Iterators.<Integer>filter(resource.getAllContents(), int.class); */
+    String _className = this.className(resource);
+    String _plus = (_className + ".java");
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    fsa.generateFile(_plus, this.generate(((Config) _head)));
   }
   
-  public CharSequence generate(final Resource resource) {
+  public String className(final Resource res) {
+    String name = res.getURI().lastSegment();
+    return name.substring(0, name.indexOf("."));
+  }
+  
+  public CharSequence generate(final Config config) {
     StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Import> _imports = config.getImports();
+      for(final Import imports : _imports) {
+        _builder.append("import ");
+        String _name = imports.getName();
+        _builder.append(_name);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
     return _builder;
   }
 }

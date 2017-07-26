@@ -66,6 +66,7 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
     switch (eClass.getClassifierID())
     {
       case SortingPackage.CONFIG: return createConfig();
+      case SortingPackage.IMPORT: return createImport();
       case SortingPackage.TYPE: return createType();
       case SortingPackage.COMPONENT: return createComponent();
       case SortingPackage.SOURCE: return createSource();
@@ -87,6 +88,17 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
   {
     ConfigImpl config = new ConfigImpl();
     return config;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**

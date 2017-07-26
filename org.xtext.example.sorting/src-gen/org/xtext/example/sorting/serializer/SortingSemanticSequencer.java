@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.example.sorting.services.SortingGrammarAccess;
 import org.xtext.example.sorting.sorting.Config;
 import org.xtext.example.sorting.sorting.Filter;
+import org.xtext.example.sorting.sorting.Import;
 import org.xtext.example.sorting.sorting.Instance;
 import org.xtext.example.sorting.sorting.Sink;
 import org.xtext.example.sorting.sorting.SortingPackage;
@@ -44,6 +45,9 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case SortingPackage.FILTER:
 				sequence_Filter(context, (Filter) semanticObject); 
 				return; 
+			case SortingPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
+				return; 
 			case SortingPackage.INSTANCE:
 				sequence_Instance(context, (Instance) semanticObject); 
 				return; 
@@ -69,7 +73,7 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Config returns Config
 	 *
 	 * Constraint:
-	 *     (name=ID components+=Component transitions+=Transition)
+	 *     (name=ID imports+=Import components+=Component transitions+=Transition)
 	 */
 	protected void sequence_Config(ISerializationContext context, Config semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -86,6 +90,24 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_Filter(ISerializationContext context, Filter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Import returns Import
+	 *
+	 * Constraint:
+	 *     name=QualifiedNameWithWildcard
+	 */
+	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.IMPORT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.IMPORT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getImportAccess().getNameQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

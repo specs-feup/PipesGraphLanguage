@@ -35,6 +35,10 @@ public class SortingParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComponentAccess().getAlternatives(), "rule__Component__Alternatives");
 					put(grammarAccess.getInstanceAccess().getAlternatives_3(), "rule__Instance__Alternatives_3");
 					put(grammarAccess.getConfigAccess().getGroup(), "rule__Config__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
+					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
+					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
 					put(grammarAccess.getSourceAccess().getGroup(), "rule__Source__Group__0");
@@ -51,9 +55,11 @@ public class SortingParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInstanceAccess().getGroup_3_0_2(), "rule__Instance__Group_3_0_2__0");
 					put(grammarAccess.getInstanceAccess().getGroup_3_1(), "rule__Instance__Group_3_1__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
-					put(grammarAccess.getConfigAccess().getNameAssignment_1(), "rule__Config__NameAssignment_1");
-					put(grammarAccess.getConfigAccess().getComponentsAssignment_3(), "rule__Config__ComponentsAssignment_3");
-					put(grammarAccess.getConfigAccess().getTransitionsAssignment_5(), "rule__Config__TransitionsAssignment_5");
+					put(grammarAccess.getConfigAccess().getNameAssignment_2(), "rule__Config__NameAssignment_2");
+					put(grammarAccess.getConfigAccess().getImportsAssignment_4(), "rule__Config__ImportsAssignment_4");
+					put(grammarAccess.getConfigAccess().getComponentsAssignment_6(), "rule__Config__ComponentsAssignment_6");
+					put(grammarAccess.getConfigAccess().getTransitionsAssignment_8(), "rule__Config__TransitionsAssignment_8");
+					put(grammarAccess.getImportAccess().getNameAssignment_1(), "rule__Import__NameAssignment_1");
 					put(grammarAccess.getTypeAccess().getTypeAssignment_0(), "rule__Type__TypeAssignment_0");
 					put(grammarAccess.getSourceAccess().getNameAssignment_1(), "rule__Source__NameAssignment_1");
 					put(grammarAccess.getSourceAccess().getTypeAssignment_4(), "rule__Source__TypeAssignment_4");

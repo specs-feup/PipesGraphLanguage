@@ -3,48 +3,71 @@ grammar org.xtext.example.sorting.Sorting with org.eclipse.xtext.common.Terminal
 generate sorting "http://www.xtext.org/example/sorting/Sorting"
 
 Config:
-	'config:' name=ID
-	'components:' components+=Component
-	'transitions:' transitions+=Transition
+	{Config}
+	'config''{' name=ID
+	imports+=Import
+	components+=Component
+	instances+=Instance
+	transitions+=Transition '}'
 ;
 
-Type:
-	type=('int'|'String'|'double'|'long') ('['']')?
+Param:
+	name='@' ('=' (int=INT|string=STRING))?
+;
+
+QualifiedNameWithWildcard:
+  QualifiedName '.*'?
+;
+
+QualifiedName:
+  ID ('.' ID)*
+;
+
+Import:
+  'import' name = QualifiedNameWithWildcard
+;
+
+Port:
+	name=ID type=('int'|'String'|'double'|'long') ('['']')?
 	;
 
 Component:
-	Source|Sink|Filter|Instance
+	Source|Sink|Filter
 ;	
 	
 Source:
 	'source' name=ID '{'
-	'out:' type=Type
-	('input-method:' method=STRING('.'STRING)*)? //default and optional
+	'out:' ports+=Port
+	('method:' method=STRING('.'STRING)*)? //default and optional
 	'}'
+	//TODO foreach N (param ou unknown)
 ;
 	
 Filter:
 	'filter' name=ID '{'
-	'in:' inType=Type
-	'out:' outType=Type
+	'in:' inPort+=Port
+	'out:' outPort+=Port
 	('method:' method=STRING('.'STRING)*)? //default and optional
+	//TODO adicionar codigo ao método
 	'}'
 ;	
 
 Sink:
 	'sink' name=ID '{'
-	'in:' inType=Type
-	('output-method:' method=STRING('.'STRING)*)? //default and optional
+	'in:' inPort+=Port
+	('method:' method=STRING('.'STRING)*)? //default and optional
 	'}'
 ;	
 
 Instance:
-	'inst:' component=[Component] name=ID 
-	('call:' method=STRING('.'STRING)*|'args:' args+=STRING*)?
+	component=[Component] name=ID 
+	('{'('call:' method= STRING('.'STRING)*'('STRING('.'STRING)*')'|'args:' args+=STRING*) '}')?
 ;
 
 Transition:
 	//(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
 	//source=[Instance] "=>" target=[Instance] /*sem Instance no Component*/
-	source=[Component] "=>" target=[Component]
+	source=[Instance] '->' (target=[Instance] | transition=Transition)  
 ;
+
+//TODO dot

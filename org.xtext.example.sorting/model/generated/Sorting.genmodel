@@ -8,8 +8,12 @@
       fileExtensions="sortex" ecorePackage="Sorting.ecore#/">
     <genClasses ecoreClass="Sorting.ecore#//Config">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Config/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Config/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Config/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sorting.ecore#//Config/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="Sorting.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Import/name"/>
     </genClasses>
     <genClasses ecoreClass="Sorting.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sorting.ecore#//Type/type"/>
