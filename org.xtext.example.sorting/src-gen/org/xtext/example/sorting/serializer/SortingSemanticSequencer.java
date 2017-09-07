@@ -19,11 +19,12 @@ import org.xtext.example.sorting.sorting.Config;
 import org.xtext.example.sorting.sorting.Filter;
 import org.xtext.example.sorting.sorting.Import;
 import org.xtext.example.sorting.sorting.Instance;
+import org.xtext.example.sorting.sorting.Param;
+import org.xtext.example.sorting.sorting.Port;
 import org.xtext.example.sorting.sorting.Sink;
 import org.xtext.example.sorting.sorting.SortingPackage;
 import org.xtext.example.sorting.sorting.Source;
 import org.xtext.example.sorting.sorting.Transition;
-import org.xtext.example.sorting.sorting.Type;
 
 @SuppressWarnings("all")
 public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -51,6 +52,12 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case SortingPackage.INSTANCE:
 				sequence_Instance(context, (Instance) semanticObject); 
 				return; 
+			case SortingPackage.PARAM:
+				sequence_Param(context, (Param) semanticObject); 
+				return; 
+			case SortingPackage.PORT:
+				sequence_Port(context, (Port) semanticObject); 
+				return; 
 			case SortingPackage.SINK:
 				sequence_Sink(context, (Sink) semanticObject); 
 				return; 
@@ -59,9 +66,6 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case SortingPackage.TRANSITION:
 				sequence_Transition(context, (Transition) semanticObject); 
-				return; 
-			case SortingPackage.TYPE:
-				sequence_Type(context, (Type) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -73,7 +77,14 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Config returns Config
 	 *
 	 * Constraint:
-	 *     (name=ID imports+=Import components+=Component transitions+=Transition)
+	 *     (
+	 *         name=ID 
+	 *         params+=Param* 
+	 *         imports+=Import* 
+	 *         components+=Component+ 
+	 *         instances+=Instance+ 
+	 *         transitions+=Transition+
+	 *     )
 	 */
 	protected void sequence_Config(ISerializationContext context, Config semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -86,7 +97,7 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Filter returns Filter
 	 *
 	 * Constraint:
-	 *     (name=ID inType=Type outType=Type method=STRING?)
+	 *     (name=ID inPorts+=Port+ outPorts+=Port+ code=CODE?)
 	 */
 	protected void sequence_Filter(ISerializationContext context, Filter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -98,7 +109,7 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Import returns Import
 	 *
 	 * Constraint:
-	 *     name=QualifiedNameWithWildcard
+	 *     name=Anything
 	 */
 	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
 		if (errorAcceptor != null) {
@@ -106,21 +117,71 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.IMPORT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getImportAccess().getNameQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getImportAccess().getNameAnythingParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Component returns Instance
 	 *     Instance returns Instance
 	 *
 	 * Constraint:
-	 *     (component=[Component|ID] name=ID (method=STRING | args+=STRING+)?)
+	 *     (component=[Component|ID] name=ID code=CODE)
 	 */
 	protected void sequence_Instance(ISerializationContext context, Instance semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.INSTANCE__COMPONENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.INSTANCE__COMPONENT));
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.INSTANCE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.INSTANCE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.INSTANCE__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.INSTANCE__CODE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInstanceAccess().getComponentComponentIDTerminalRuleCall_0_0_1(), semanticObject.eGet(SortingPackage.Literals.INSTANCE__COMPONENT, false));
+		feeder.accept(grammarAccess.getInstanceAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_3_0(), semanticObject.getCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Param returns Param
+	 *
+	 * Constraint:
+	 *     value=Anything
+	 */
+	protected void sequence_Param(ISerializationContext context, Param semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.PARAM__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.PARAM__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParamAccess().getValueAnythingParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Port returns Port
+	 *
+	 * Constraint:
+	 *     (name=ID type=Anything)
+	 */
+	protected void sequence_Port(ISerializationContext context, Port semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.PORT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.PORT__NAME));
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.PORT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.PORT__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPortAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPortAccess().getTypeAnythingParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	
@@ -130,7 +191,7 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Sink returns Sink
 	 *
 	 * Constraint:
-	 *     (name=ID inType=Type method=STRING?)
+	 *     (name=ID inPorts+=Port+ outPorts+=Port* code=CODE?)
 	 */
 	protected void sequence_Sink(ISerializationContext context, Sink semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -143,7 +204,7 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Source returns Source
 	 *
 	 * Constraint:
-	 *     (name=ID type=Type method=STRING?)
+	 *     (name=ID inPorts+=Port* outPorts+=Port+ code=CODE?)
 	 */
 	protected void sequence_Source(ISerializationContext context, Source semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -155,31 +216,25 @@ public class SortingSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     (source=[Component|ID] target=[Component|ID])
+	 *     (source=[Instance|ID] targetPort=[Port|ID] target=[Instance|ID] sourcePort=[Port|ID])
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.TRANSITION__SOURCE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.TRANSITION__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.TRANSITION__TARGET_PORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.TRANSITION__TARGET_PORT));
 			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.TRANSITION__TARGET) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.TRANSITION__TARGET));
+			if (transientValues.isValueTransient(semanticObject, SortingPackage.Literals.TRANSITION__SOURCE_PORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SortingPackage.Literals.TRANSITION__SOURCE_PORT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTransitionAccess().getSourceComponentIDTerminalRuleCall_0_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__SOURCE, false));
-		feeder.accept(grammarAccess.getTransitionAccess().getTargetComponentIDTerminalRuleCall_2_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__TARGET, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getSourceInstanceIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__SOURCE, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getTargetPortPortIDTerminalRuleCall_3_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__TARGET_PORT, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getTargetInstanceIDTerminalRuleCall_7_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__TARGET, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getSourcePortPortIDTerminalRuleCall_9_0_1(), semanticObject.eGet(SortingPackage.Literals.TRANSITION__SOURCE_PORT, false));
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns Type
-	 *
-	 * Constraint:
-	 *     (type='int' | type='String' | type='double' | type='long')
-	 */
-	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

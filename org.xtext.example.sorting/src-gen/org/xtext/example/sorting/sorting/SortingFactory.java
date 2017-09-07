@@ -33,6 +33,15 @@ public interface SortingFactory extends EFactory
   Config createConfig();
 
   /**
+   * Returns a new object of class '<em>Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Param</em>'.
+   * @generated
+   */
+  Param createParam();
+
+  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -42,13 +51,13 @@ public interface SortingFactory extends EFactory
   Import createImport();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>Port</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>Port</em>'.
    * @generated
    */
-  Type createType();
+  Port createPort();
 
   /**
    * Returns a new object of class '<em>Component</em>'.

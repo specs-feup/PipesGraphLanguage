@@ -17,8 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sorting.sorting.Config#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.Config#getParams <em>Params</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.Config#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.Config#getComponents <em>Components</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.Config#getInstances <em>Instances</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.Config#getTransitions <em>Transitions</em>}</li>
  * </ul>
  *
@@ -55,6 +57,22 @@ public interface Config extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.sorting.sorting.Param}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see org.xtext.example.sorting.sorting.SortingPackage#getConfig_Params()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Param> getParams();
+
+  /**
    * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.sorting.sorting.Import}.
    * <!-- begin-user-doc -->
@@ -85,6 +103,22 @@ public interface Config extends EObject
    * @generated
    */
   EList<Component> getComponents();
+
+  /**
+   * Returns the value of the '<em><b>Instances</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.sorting.sorting.Instance}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Instances</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Instances</em>' containment reference list.
+   * @see org.xtext.example.sorting.sorting.SortingPackage#getConfig_Instances()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Instance> getInstances();
 
   /**
    * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.

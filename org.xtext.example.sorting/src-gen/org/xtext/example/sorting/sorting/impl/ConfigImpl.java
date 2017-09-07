@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.sorting.sorting.Component;
 import org.xtext.example.sorting.sorting.Config;
 import org.xtext.example.sorting.sorting.Import;
+import org.xtext.example.sorting.sorting.Instance;
+import org.xtext.example.sorting.sorting.Param;
 import org.xtext.example.sorting.sorting.SortingPackage;
 import org.xtext.example.sorting.sorting.Transition;
 
@@ -34,8 +36,10 @@ import org.xtext.example.sorting.sorting.Transition;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.ConfigImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.impl.ConfigImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.ConfigImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.ConfigImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.impl.ConfigImpl#getInstances <em>Instances</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.ConfigImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
  *
@@ -64,6 +68,16 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParams()
+   * @generated
+   * @ordered
+   */
+  protected EList<Param> params;
+
+  /**
    * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -82,6 +96,16 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
    * @ordered
    */
   protected EList<Component> components;
+
+  /**
+   * The cached value of the '{@link #getInstances() <em>Instances</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInstances()
+   * @generated
+   * @ordered
+   */
+  protected EList<Instance> instances;
 
   /**
    * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
@@ -142,6 +166,20 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Param> getParams()
+  {
+    if (params == null)
+    {
+      params = new EObjectContainmentEList<Param>(Param.class, this, SortingPackage.CONFIG__PARAMS);
+    }
+    return params;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Import> getImports()
   {
     if (imports == null)
@@ -170,6 +208,20 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Instance> getInstances()
+  {
+    if (instances == null)
+    {
+      instances = new EObjectContainmentEList<Instance>(Instance.class, this, SortingPackage.CONFIG__INSTANCES);
+    }
+    return instances;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Transition> getTransitions()
   {
     if (transitions == null)
@@ -189,10 +241,14 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
   {
     switch (featureID)
     {
+      case SortingPackage.CONFIG__PARAMS:
+        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
       case SortingPackage.CONFIG__IMPORTS:
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case SortingPackage.CONFIG__COMPONENTS:
         return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
+      case SortingPackage.CONFIG__INSTANCES:
+        return ((InternalEList<?>)getInstances()).basicRemove(otherEnd, msgs);
       case SortingPackage.CONFIG__TRANSITIONS:
         return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
     }
@@ -211,10 +267,14 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
     {
       case SortingPackage.CONFIG__NAME:
         return getName();
+      case SortingPackage.CONFIG__PARAMS:
+        return getParams();
       case SortingPackage.CONFIG__IMPORTS:
         return getImports();
       case SortingPackage.CONFIG__COMPONENTS:
         return getComponents();
+      case SortingPackage.CONFIG__INSTANCES:
+        return getInstances();
       case SortingPackage.CONFIG__TRANSITIONS:
         return getTransitions();
     }
@@ -235,6 +295,10 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
       case SortingPackage.CONFIG__NAME:
         setName((String)newValue);
         return;
+      case SortingPackage.CONFIG__PARAMS:
+        getParams().clear();
+        getParams().addAll((Collection<? extends Param>)newValue);
+        return;
       case SortingPackage.CONFIG__IMPORTS:
         getImports().clear();
         getImports().addAll((Collection<? extends Import>)newValue);
@@ -242,6 +306,10 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
       case SortingPackage.CONFIG__COMPONENTS:
         getComponents().clear();
         getComponents().addAll((Collection<? extends Component>)newValue);
+        return;
+      case SortingPackage.CONFIG__INSTANCES:
+        getInstances().clear();
+        getInstances().addAll((Collection<? extends Instance>)newValue);
         return;
       case SortingPackage.CONFIG__TRANSITIONS:
         getTransitions().clear();
@@ -264,11 +332,17 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
       case SortingPackage.CONFIG__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case SortingPackage.CONFIG__PARAMS:
+        getParams().clear();
+        return;
       case SortingPackage.CONFIG__IMPORTS:
         getImports().clear();
         return;
       case SortingPackage.CONFIG__COMPONENTS:
         getComponents().clear();
+        return;
+      case SortingPackage.CONFIG__INSTANCES:
+        getInstances().clear();
         return;
       case SortingPackage.CONFIG__TRANSITIONS:
         getTransitions().clear();
@@ -289,10 +363,14 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
     {
       case SortingPackage.CONFIG__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SortingPackage.CONFIG__PARAMS:
+        return params != null && !params.isEmpty();
       case SortingPackage.CONFIG__IMPORTS:
         return imports != null && !imports.isEmpty();
       case SortingPackage.CONFIG__COMPONENTS:
         return components != null && !components.isEmpty();
+      case SortingPackage.CONFIG__INSTANCES:
+        return instances != null && !instances.isEmpty();
       case SortingPackage.CONFIG__TRANSITIONS:
         return transitions != null && !transitions.isEmpty();
     }

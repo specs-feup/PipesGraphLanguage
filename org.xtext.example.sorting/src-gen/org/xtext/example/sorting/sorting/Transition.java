@@ -15,7 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sorting.sorting.Transition#getSource <em>Source</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.Transition#getTargetPort <em>Target Port</em>}</li>
  *   <li>{@link org.xtext.example.sorting.sorting.Transition#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.Transition#getSourcePort <em>Source Port</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.sorting.sorting.SortingPackage#getTransition()
@@ -33,12 +35,12 @@ public interface Transition extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Source</em>' reference.
-   * @see #setSource(Component)
+   * @see #setSource(Instance)
    * @see org.xtext.example.sorting.sorting.SortingPackage#getTransition_Source()
    * @model
    * @generated
    */
-  Component getSource();
+  Instance getSource();
 
   /**
    * Sets the value of the '{@link org.xtext.example.sorting.sorting.Transition#getSource <em>Source</em>}' reference.
@@ -48,7 +50,33 @@ public interface Transition extends EObject
    * @see #getSource()
    * @generated
    */
-  void setSource(Component value);
+  void setSource(Instance value);
+
+  /**
+   * Returns the value of the '<em><b>Target Port</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Target Port</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target Port</em>' reference.
+   * @see #setTargetPort(Port)
+   * @see org.xtext.example.sorting.sorting.SortingPackage#getTransition_TargetPort()
+   * @model
+   * @generated
+   */
+  Port getTargetPort();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.sorting.sorting.Transition#getTargetPort <em>Target Port</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Target Port</em>' reference.
+   * @see #getTargetPort()
+   * @generated
+   */
+  void setTargetPort(Port value);
 
   /**
    * Returns the value of the '<em><b>Target</b></em>' reference.
@@ -59,12 +87,12 @@ public interface Transition extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Target</em>' reference.
-   * @see #setTarget(Component)
+   * @see #setTarget(Instance)
    * @see org.xtext.example.sorting.sorting.SortingPackage#getTransition_Target()
    * @model
    * @generated
    */
-  Component getTarget();
+  Instance getTarget();
 
   /**
    * Sets the value of the '{@link org.xtext.example.sorting.sorting.Transition#getTarget <em>Target</em>}' reference.
@@ -74,6 +102,32 @@ public interface Transition extends EObject
    * @see #getTarget()
    * @generated
    */
-  void setTarget(Component value);
+  void setTarget(Instance value);
+
+  /**
+   * Returns the value of the '<em><b>Source Port</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Source Port</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Source Port</em>' reference.
+   * @see #setSourcePort(Port)
+   * @see org.xtext.example.sorting.sorting.SortingPackage#getTransition_SourcePort()
+   * @model
+   * @generated
+   */
+  Port getSourcePort();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.sorting.sorting.Transition#getSourcePort <em>Source Port</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Source Port</em>' reference.
+   * @see #getSourcePort()
+   * @generated
+   */
+  void setSourcePort(Port value);
 
 } // Transition

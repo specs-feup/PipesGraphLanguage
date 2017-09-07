@@ -9,12 +9,6 @@ package org.xtext.example.sorting.sorting;
  * A representation of the model object '<em><b>Sink</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.sorting.sorting.Sink#getInType <em>In Type</em>}</li>
- * </ul>
  *
  * @see org.xtext.example.sorting.sorting.SortingPackage#getSink()
  * @model
@@ -22,30 +16,4 @@ package org.xtext.example.sorting.sorting;
  */
 public interface Sink extends Component
 {
-  /**
-   * Returns the value of the '<em><b>In Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>In Type</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>In Type</em>' containment reference.
-   * @see #setInType(Type)
-   * @see org.xtext.example.sorting.sorting.SortingPackage#getSink_InType()
-   * @model containment="true"
-   * @generated
-   */
-  Type getInType();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.sorting.sorting.Sink#getInType <em>In Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>In Type</em>' containment reference.
-   * @see #getInType()
-   * @generated
-   */
-  void setInType(Type value);
-
 } // Sink

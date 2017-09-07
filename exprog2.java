@@ -1,7 +1,6 @@
 
-interface Source<O>{
-    O getOut();
-	void invoke();
+interface Source{
+	void invoke(); //guarda out
 }
 
 File extends Source<String[]>{
@@ -22,7 +21,7 @@ private String[] out;
 }
 
 interface Filter<I,O> {
-previous;
+previous; //instância e porto?
 next;
 	String[] out(String[] in);
 }
@@ -32,6 +31,14 @@ class Sort extends Filter<int[],int[]> {
 	int[] out(int[] in){
 	
 		return bubble(in);
+	}
+}
+
+class X {
+	int out1;
+	int[] out2;
+	
+	invoke(in0,in1){
 	}
 }
 
@@ -45,15 +52,18 @@ sort.invoke(test.getOut());
 
 //
 public class Node<T>{
-	List<Port>;
+	List<Port> ins; //HashMap(nome,Port)
+	List<Port> out;	
+	int level;
+
 }
 
-public class Edge{
-	Node source;
-	Node target;
+public class Edge<Port p1,Port p2>{
+	Port source; // <n1.get(p1),n2.get(p2)> 
+	Port target;
 }
 
 public class Port{
 	Node node;
-	List<Edges>;
+	List<Edges> edges;
 }

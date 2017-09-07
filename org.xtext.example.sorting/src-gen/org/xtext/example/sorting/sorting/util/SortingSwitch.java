@@ -80,6 +80,13 @@ public class SortingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SortingPackage.PARAM:
+      {
+        Param param = (Param)theEObject;
+        T result = caseParam(param);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SortingPackage.IMPORT:
       {
         Import import_ = (Import)theEObject;
@@ -87,10 +94,10 @@ public class SortingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SortingPackage.TYPE:
+      case SortingPackage.PORT:
       {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
+        Port port = (Port)theEObject;
+        T result = casePort(port);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -129,7 +136,6 @@ public class SortingSwitch<T> extends Switch<T>
       {
         Instance instance = (Instance)theEObject;
         T result = caseInstance(instance);
-        if (result == null) result = caseComponent(instance);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -161,6 +167,22 @@ public class SortingSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Param</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Param</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParam(Param object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -177,17 +199,17 @@ public class SortingSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Port</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Port</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseType(Type object)
+  public T casePort(Port object)
   {
     return null;
   }

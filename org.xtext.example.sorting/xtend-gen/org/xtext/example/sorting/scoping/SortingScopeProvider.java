@@ -3,7 +3,16 @@
  */
 package org.xtext.example.sorting.scoping;
 
+import com.google.common.base.Objects;
+import java.util.List;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import org.xtext.example.sorting.scoping.AbstractSortingScopeProvider;
+import org.xtext.example.sorting.sorting.Port;
+import org.xtext.example.sorting.sorting.SortingPackage;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +22,14 @@ import org.xtext.example.sorting.scoping.AbstractSortingScopeProvider;
  */
 @SuppressWarnings("all")
 public class SortingScopeProvider extends AbstractSortingScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    if ((Objects.equal(reference, SortingPackage.Literals.TRANSITION__SOURCE_PORT) || 
+      Objects.equal(reference, SortingPackage.Literals.TRANSITION__TARGET_PORT))) {
+      final EObject rootElement = EcoreUtil2.getRootContainer(context);
+      final List<Port> candidates = EcoreUtil2.<Port>getAllContentsOfType(rootElement, Port.class);
+      return Scopes.scopeFor(candidates);
+    }
+    return super.getScope(context, reference);
+  }
 }

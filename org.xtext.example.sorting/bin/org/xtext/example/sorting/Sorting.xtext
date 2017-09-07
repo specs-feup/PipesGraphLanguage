@@ -5,69 +5,78 @@ generate sorting "http://www.xtext.org/example/sorting/Sorting"
 Config:
 	{Config}
 	'config''{' name=ID
-	imports+=Import
-	components+=Component
-	instances+=Instance
-	transitions+=Transition '}'
+	('params' '{' (params+=Param)+ '}')?
+	('imports''{' (imports+=Import)+ '}')?
+	'components''{' (components+=Component)+ '}'
+	'instances' '{'(instances+=Instance)+ '}'
+	'transitions' '{' (transitions+=Transition)+ '}' '}'
 ;
 
 Param:
-	name='@' ('=' (int=INT|string=STRING))?
+	'param' '{' value=Anything '}'
 ;
 
-QualifiedNameWithWildcard:
-  QualifiedName '.*'?
+Anything:
+	(ID | INT | STRING | WS | '(' | ')' | ',' | '.' | '!' | '?' | '[' | ']' | '+' | '-' | '/' | '*' | '<' | '>' | ':' | '=' | '%')+
 ;
 
-QualifiedName:
-  ID ('.' ID)*
+terminal CODE:
+	'/#' -> '#/'
+	/*'%{' (~['}'])* '}' ('}' | ~['}','%'] (~['}'])* '}')* '%'*/
 ;
 
 Import:
-  'import' name = QualifiedNameWithWildcard
+  'import' name = Anything
 ;
 
 Port:
-	name=ID type=('int'|'String'|'double'|'long') ('['']')?
+	'port' '{' name=ID type=Anything '}'
 	;
+
 
 Component:
 	Source|Sink|Filter
-;	
-	
+;
+
 Source:
 	'source' name=ID '{'
-	'out:' ports+=Port
-	('method:' method=STRING('.'STRING)*)? //default and optional
+	('in:' inPorts+=Port+)?
+	'out:' outPorts+=Port+
+	('method:' code=CODE)?
 	'}'
 	//TODO foreach N (param ou unknown)
 ;
 	
 Filter:
 	'filter' name=ID '{'
-	'in:' inPort+=Port
-	'out:' outPort+=Port
-	('method:' method=STRING('.'STRING)*)? //default and optional
-	//TODO adicionar codigo ao método
+	'in:' inPorts+=Port+
+	'out:' outPorts+=Port+
+	('method:' code=CODE)?
 	'}'
 ;	
 
 Sink:
 	'sink' name=ID '{'
-	'in:' inPort+=Port
-	('method:' method=STRING('.'STRING)*)? //default and optional
+	'in:' inPorts+=Port+
+	('out:' outPorts+=Port+)?
+	('method:' code=CODE)?
 	'}'
-;	
+;
+	
 
 Instance:
 	component=[Component] name=ID 
-	('{'('call:' method= STRING('.'STRING)*'('STRING('.'STRING)*')'|'args:' args+=STRING*) '}')?
+	'call:'  code=CODE 
+	
 ;
-
 Transition:
 	//(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
 	//source=[Instance] "=>" target=[Instance] /*sem Instance no Component*/
-	source=[Instance] '->' (target=[Instance] | transition=Transition)  
+	'['source=[Instance]',' targetPort=[Port]']''->' '['target=[Instance] ',' sourcePort=[Port]']'  
 ;
 
+//TODO name da port único?
 //TODO dot
+//TODO type das ports
+//TODO params
+//TODO método e result - onde guardar? como ir buscar? atualiza em todas as portas?

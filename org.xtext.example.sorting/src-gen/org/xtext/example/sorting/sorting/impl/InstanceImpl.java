@@ -3,18 +3,13 @@
  */
 package org.xtext.example.sorting.sorting.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.sorting.sorting.Component;
 import org.xtext.example.sorting.sorting.Instance;
@@ -29,12 +24,13 @@ import org.xtext.example.sorting.sorting.SortingPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sorting.sorting.impl.InstanceImpl#getComponent <em>Component</em>}</li>
- *   <li>{@link org.xtext.example.sorting.sorting.impl.InstanceImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.impl.InstanceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.sorting.sorting.impl.InstanceImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InstanceImpl extends ComponentImpl implements Instance
+public class InstanceImpl extends MinimalEObjectImpl.Container implements Instance
 {
   /**
    * The cached value of the '{@link #getComponent() <em>Component</em>}' reference.
@@ -47,14 +43,44 @@ public class InstanceImpl extends ComponentImpl implements Instance
   protected Component component;
 
   /**
-   * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArgs()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<String> args;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCode()
+   * @generated
+   * @ordered
+   */
+  protected static final String CODE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCode()
+   * @generated
+   * @ordered
+   */
+  protected String code = CODE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -125,13 +151,45 @@ public class InstanceImpl extends ComponentImpl implements Instance
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getArgs()
+  public String getName()
   {
-    if (args == null)
-    {
-      args = new EDataTypeEList<String>(String.class, this, SortingPackage.INSTANCE__ARGS);
-    }
-    return args;
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.INSTANCE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getCode()
+  {
+    return code;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCode(String newCode)
+  {
+    String oldCode = code;
+    code = newCode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.INSTANCE__CODE, oldCode, code));
   }
 
   /**
@@ -147,8 +205,10 @@ public class InstanceImpl extends ComponentImpl implements Instance
       case SortingPackage.INSTANCE__COMPONENT:
         if (resolve) return getComponent();
         return basicGetComponent();
-      case SortingPackage.INSTANCE__ARGS:
-        return getArgs();
+      case SortingPackage.INSTANCE__NAME:
+        return getName();
+      case SortingPackage.INSTANCE__CODE:
+        return getCode();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -158,7 +218,6 @@ public class InstanceImpl extends ComponentImpl implements Instance
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -167,9 +226,11 @@ public class InstanceImpl extends ComponentImpl implements Instance
       case SortingPackage.INSTANCE__COMPONENT:
         setComponent((Component)newValue);
         return;
-      case SortingPackage.INSTANCE__ARGS:
-        getArgs().clear();
-        getArgs().addAll((Collection<? extends String>)newValue);
+      case SortingPackage.INSTANCE__NAME:
+        setName((String)newValue);
+        return;
+      case SortingPackage.INSTANCE__CODE:
+        setCode((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,8 +249,11 @@ public class InstanceImpl extends ComponentImpl implements Instance
       case SortingPackage.INSTANCE__COMPONENT:
         setComponent((Component)null);
         return;
-      case SortingPackage.INSTANCE__ARGS:
-        getArgs().clear();
+      case SortingPackage.INSTANCE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case SortingPackage.INSTANCE__CODE:
+        setCode(CODE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -207,8 +271,10 @@ public class InstanceImpl extends ComponentImpl implements Instance
     {
       case SortingPackage.INSTANCE__COMPONENT:
         return component != null;
-      case SortingPackage.INSTANCE__ARGS:
-        return args != null && !args.isEmpty();
+      case SortingPackage.INSTANCE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SortingPackage.INSTANCE__CODE:
+        return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
     }
     return super.eIsSet(featureID);
   }
@@ -224,8 +290,10 @@ public class InstanceImpl extends ComponentImpl implements Instance
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (args: ");
-    result.append(args);
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", code: ");
+    result.append(code);
     result.append(')');
     return result.toString();
   }

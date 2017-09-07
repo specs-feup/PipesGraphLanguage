@@ -66,8 +66,9 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
     switch (eClass.getClassifierID())
     {
       case SortingPackage.CONFIG: return createConfig();
+      case SortingPackage.PARAM: return createParam();
       case SortingPackage.IMPORT: return createImport();
-      case SortingPackage.TYPE: return createType();
+      case SortingPackage.PORT: return createPort();
       case SortingPackage.COMPONENT: return createComponent();
       case SortingPackage.SOURCE: return createSource();
       case SortingPackage.FILTER: return createFilter();
@@ -95,6 +96,17 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Param createParam()
+  {
+    ParamImpl param = new ParamImpl();
+    return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Import createImport()
   {
     ImportImpl import_ = new ImportImpl();
@@ -106,10 +118,10 @@ public class SortingFactoryImpl extends EFactoryImpl implements SortingFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
+  public Port createPort()
   {
-    TypeImpl type = new TypeImpl();
-    return type;
+    PortImpl port = new PortImpl();
+    return port;
   }
 
   /**

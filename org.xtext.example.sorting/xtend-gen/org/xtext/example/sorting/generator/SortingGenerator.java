@@ -3,6 +3,10 @@
  */
 package org.xtext.example.sorting.generator;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Iterators;
+import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -10,9 +14,18 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.sorting.sorting.Config;
+import org.xtext.example.sorting.sorting.Filter;
 import org.xtext.example.sorting.sorting.Import;
+import org.xtext.example.sorting.sorting.Instance;
+import org.xtext.example.sorting.sorting.Param;
+import org.xtext.example.sorting.sorting.Port;
+import org.xtext.example.sorting.sorting.Sink;
+import org.xtext.example.sorting.sorting.Source;
+import org.xtext.example.sorting.sorting.Transition;
 
 /**
  * Generates code from your model files on save.
@@ -21,12 +34,738 @@ import org.xtext.example.sorting.sorting.Import;
  */
 @SuppressWarnings("all")
 public class SortingGenerator extends AbstractGenerator {
+  private String packname = "pipesgraph";
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    String _className = this.className(resource);
-    String _plus = (_className + ".java");
+    fsa.generateFile("PipeStages.java", this.generatePipeStages(resource));
+    final Function1<Config, String> _function = (Config it) -> {
+      return it.getName();
+    };
+    Iterator<String> _map = IteratorExtensions.<Config, String>map(Iterators.<Config>filter(resource.getAllContents(), Config.class), _function);
+    String _plus = (_map + ".java");
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
-    fsa.generateFile(_plus, this.generate(((Config) _head)));
+    fsa.generateFile(_plus, this.generateClass(((Config) _head)));
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(this.packname);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("import java.util.HashMap;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public abstract class Component extends PipeStages implements Comparable<Component>{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("protected int level = 0;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Runnable call;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("protected HashMap<String, Port> inPorts = new HashMap<String, Port>();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("protected HashMap<String, Port> outPorts = new HashMap<String, Port>();\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Port getPort(String name){");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(inPorts.get(name) != null) ");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return inPorts.get(name);");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("return outPorts.get(name);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public int getLevel() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return level;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void checkLevel(Component c){");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(level<c.getLevel())");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("level = c.getLevel()+1;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public int compareTo(Component c) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return Integer.compare(this.level, c.getLevel());");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void invoke(){");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("call.run();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void setCall(Runnable r) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("call=r;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    fsa.generateFile("Component.java", _builder);
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("package ");
+    _builder_1.append(this.packname);
+    _builder_1.append(";");
+    _builder_1.newLineIfNotEmpty();
+    _builder_1.append("\t\t \t");
+    _builder_1.newLine();
+    _builder_1.append("public abstract class Source extends Component{");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    fsa.generateFile("Source.java", _builder_1);
+    StringConcatenation _builder_2 = new StringConcatenation();
+    _builder_2.append("package ");
+    _builder_2.append(this.packname);
+    _builder_2.append(";");
+    _builder_2.newLineIfNotEmpty();
+    _builder_2.newLine();
+    _builder_2.newLine();
+    _builder_2.append("import java.util.HashMap;");
+    _builder_2.newLine();
+    _builder_2.newLine();
+    _builder_2.append("public abstract class Filter extends Component{");
+    _builder_2.newLine();
+    _builder_2.newLine();
+    _builder_2.append("}");
+    _builder_2.newLine();
+    fsa.generateFile("Filter.java", _builder_2);
+    StringConcatenation _builder_3 = new StringConcatenation();
+    _builder_3.append("package ");
+    _builder_3.append(this.packname);
+    _builder_3.append(";");
+    _builder_3.newLineIfNotEmpty();
+    _builder_3.append("\t\t \t");
+    _builder_3.newLine();
+    _builder_3.append("public abstract class Sink extends Component{");
+    _builder_3.newLine();
+    _builder_3.newLine();
+    _builder_3.append("}");
+    fsa.generateFile("Sink.java", _builder_3);
+    StringConcatenation _builder_4 = new StringConcatenation();
+    _builder_4.append("package ");
+    _builder_4.append(this.packname);
+    _builder_4.append(";");
+    _builder_4.newLineIfNotEmpty();
+    _builder_4.append("import java.util.ArrayList;");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("public class Port{");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("protected Component component;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("protected String name;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("protected ArrayList<Edge> edges = new ArrayList<Edge>();");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public Port(String name, Component component){");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("this.name = name;");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("this.component = component;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public Component getComponent() {");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("return component;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public void setComponent(Component component) {");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("this.component = component;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public String getName() {");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("return name;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public void setName(String name) {");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("this.name = name;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public ArrayList<Edge> getEdges() {");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("return edges;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public void setEdges(ArrayList<Edge> edges) {");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("this.edges = edges;");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("public void addEdge(Edge edge){");
+    _builder_4.newLine();
+    _builder_4.append("\t\t");
+    _builder_4.append("this.edges.add(edge);");
+    _builder_4.newLine();
+    _builder_4.append("\t");
+    _builder_4.append("}");
+    _builder_4.newLine();
+    _builder_4.append("}");
+    _builder_4.newLine();
+    fsa.generateFile("Port.java", _builder_4);
+    StringConcatenation _builder_5 = new StringConcatenation();
+    _builder_5.append("package ");
+    _builder_5.append(this.packname);
+    _builder_5.append(";");
+    _builder_5.newLineIfNotEmpty();
+    _builder_5.append("public class Edge{");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("protected Port source; // <n1.get(p1),n2.get(p2)> ");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("protected Port target;");
+    _builder_5.newLine();
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("public Edge(Port source, Port target){");
+    _builder_5.newLine();
+    _builder_5.append("\t\t");
+    _builder_5.append("this.source = source;");
+    _builder_5.newLine();
+    _builder_5.append("\t\t");
+    _builder_5.append("this.target = target;");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("}");
+    _builder_5.newLine();
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("public Port getSource() {");
+    _builder_5.newLine();
+    _builder_5.append("\t\t");
+    _builder_5.append("return source;");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("}");
+    _builder_5.newLine();
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("public void setSource(Port source) {");
+    _builder_5.newLine();
+    _builder_5.append("\t\t");
+    _builder_5.append("this.source = source;");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("}");
+    _builder_5.newLine();
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("public Port getTarget() {");
+    _builder_5.newLine();
+    _builder_5.append("\t\t");
+    _builder_5.append("return target;");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("}");
+    _builder_5.newLine();
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("public void setTarget(Port target) {");
+    _builder_5.newLine();
+    _builder_5.append("\t\t");
+    _builder_5.append("this.target = target;");
+    _builder_5.newLine();
+    _builder_5.append("\t");
+    _builder_5.append("}");
+    _builder_5.newLine();
+    _builder_5.append("}");
+    _builder_5.newLine();
+    fsa.generateFile("Edge.java", _builder_5);
+    Iterable<Source> _filter = Iterables.<Source>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Source.class);
+    for (final Source source : _filter) {
+      String _name = source.getName();
+      String _plus_1 = (_name + ".java");
+      StringConcatenation _builder_6 = new StringConcatenation();
+      _builder_6.append("package ");
+      _builder_6.append(this.packname);
+      _builder_6.append(";");
+      _builder_6.newLineIfNotEmpty();
+      _builder_6.newLine();
+      _builder_6.append("public class ");
+      String _name_1 = source.getName();
+      _builder_6.append(_name_1);
+      _builder_6.append(" extends Source{");
+      _builder_6.newLineIfNotEmpty();
+      {
+        EList<Port> _inPorts = source.getInPorts();
+        for(final Port port : _inPorts) {
+          _builder_6.append("private ");
+          String _type = port.getType();
+          _builder_6.append(_type);
+          _builder_6.append(" ");
+          String _name_2 = port.getName();
+          _builder_6.append(_name_2);
+          _builder_6.append(";");
+          _builder_6.newLineIfNotEmpty();
+        }
+      }
+      {
+        EList<Port> _outPorts = source.getOutPorts();
+        for(final Port port_1 : _outPorts) {
+          _builder_6.append("private ");
+          String _type_1 = port_1.getType();
+          _builder_6.append(_type_1);
+          _builder_6.append(" ");
+          String _name_3 = port_1.getName();
+          _builder_6.append(_name_3);
+          _builder_6.append(";");
+          _builder_6.newLineIfNotEmpty();
+        }
+      }
+      _builder_6.append("\t");
+      _builder_6.append("public ");
+      String _name_4 = source.getName();
+      _builder_6.append(_name_4, "\t");
+      _builder_6.append("(String name){");
+      _builder_6.newLineIfNotEmpty();
+      _builder_6.append("\t\t");
+      _builder_6.append("switch (name) {");
+      _builder_6.newLine();
+      {
+        Iterable<Instance> _filter_1 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+        for(final Instance instance : _filter_1) {
+          {
+            String _name_5 = instance.getComponent().getName();
+            String _name_6 = source.getName();
+            boolean _equals = Objects.equal(_name_5, _name_6);
+            if (_equals) {
+              _builder_6.append("\t\t");
+              _builder_6.append("case \"");
+              String _name_7 = instance.getName();
+              _builder_6.append(_name_7, "\t\t");
+              _builder_6.append("\":");
+              _builder_6.newLineIfNotEmpty();
+              _builder_6.append("\t\t");
+              _builder_6.append("call = () -> {");
+              String _code = instance.getCode();
+              int _length = instance.getCode().length();
+              int _minus = (_length - 2);
+              String _substring = _code.substring(2, _minus);
+              _builder_6.append(_substring, "\t\t");
+              _builder_6.append("};");
+              _builder_6.newLineIfNotEmpty();
+              _builder_6.append("\t\t");
+              _builder_6.append("break;");
+              _builder_6.newLine();
+            }
+          }
+        }
+      }
+      _builder_6.append("\t\t");
+      _builder_6.append("}");
+      _builder_6.newLine();
+      {
+        EList<Port> _inPorts_1 = source.getInPorts();
+        for(final Port port_2 : _inPorts_1) {
+          _builder_6.append("\t\t");
+          _builder_6.append("inPorts.put(\"");
+          String _name_8 = port_2.getName();
+          _builder_6.append(_name_8, "\t\t");
+          _builder_6.append("\", new Port(\"");
+          String _name_9 = port_2.getName();
+          _builder_6.append(_name_9, "\t\t");
+          _builder_6.append("\",this));");
+          _builder_6.newLineIfNotEmpty();
+        }
+      }
+      {
+        EList<Port> _outPorts_1 = source.getOutPorts();
+        for(final Port port_3 : _outPorts_1) {
+          _builder_6.append("\t\t");
+          _builder_6.append("outPorts.put(\"");
+          String _name_10 = port_3.getName();
+          _builder_6.append(_name_10, "\t\t");
+          _builder_6.append("\", new Port(\"");
+          String _name_11 = port_3.getName();
+          _builder_6.append(_name_11, "\t\t");
+          _builder_6.append("\",this));");
+          _builder_6.newLineIfNotEmpty();
+        }
+      }
+      _builder_6.append("\t");
+      _builder_6.append("}");
+      _builder_6.newLine();
+      _builder_6.append("\t");
+      String _code_1 = source.getCode();
+      int _length_1 = source.getCode().length();
+      int _minus_1 = (_length_1 - 2);
+      String _substring_1 = _code_1.substring(2, _minus_1);
+      _builder_6.append(_substring_1, "\t");
+      _builder_6.newLineIfNotEmpty();
+      _builder_6.newLine();
+      _builder_6.append("} ");
+      fsa.generateFile(_plus_1, _builder_6);
+    }
+    Iterable<Filter> _filter_2 = Iterables.<Filter>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Filter.class);
+    for (final Filter filter : _filter_2) {
+      String _name_12 = filter.getName();
+      String _plus_2 = (_name_12 + ".java");
+      StringConcatenation _builder_7 = new StringConcatenation();
+      _builder_7.append("package ");
+      _builder_7.append(this.packname);
+      _builder_7.append(";");
+      _builder_7.newLineIfNotEmpty();
+      _builder_7.append("public class ");
+      String _name_13 = filter.getName();
+      _builder_7.append(_name_13);
+      _builder_7.append(" extends Filter{");
+      _builder_7.newLineIfNotEmpty();
+      {
+        EList<Port> _inPorts_2 = filter.getInPorts();
+        for(final Port port_4 : _inPorts_2) {
+          _builder_7.append("private ");
+          String _type_2 = port_4.getType();
+          _builder_7.append(_type_2);
+          _builder_7.append(" ");
+          String _name_14 = port_4.getName();
+          _builder_7.append(_name_14);
+          _builder_7.append(";");
+          _builder_7.newLineIfNotEmpty();
+        }
+      }
+      {
+        EList<Port> _outPorts_2 = filter.getOutPorts();
+        for(final Port port_5 : _outPorts_2) {
+          _builder_7.append("private ");
+          String _type_3 = port_5.getType();
+          _builder_7.append(_type_3);
+          _builder_7.append(" ");
+          String _name_15 = port_5.getName();
+          _builder_7.append(_name_15);
+          _builder_7.append(";");
+          _builder_7.newLineIfNotEmpty();
+        }
+      }
+      _builder_7.append("public ");
+      String _name_16 = filter.getName();
+      _builder_7.append(_name_16);
+      _builder_7.append("(String name){");
+      _builder_7.newLineIfNotEmpty();
+      _builder_7.append("\t");
+      _builder_7.append("switch (name) {");
+      _builder_7.newLine();
+      {
+        Iterable<Instance> _filter_3 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+        for(final Instance instance_1 : _filter_3) {
+          {
+            String _name_17 = instance_1.getComponent().getName();
+            String _name_18 = filter.getName();
+            boolean _equals_1 = Objects.equal(_name_17, _name_18);
+            if (_equals_1) {
+              _builder_7.append("\t");
+              _builder_7.append("case \"");
+              String _name_19 = instance_1.getName();
+              _builder_7.append(_name_19, "\t");
+              _builder_7.append("\":");
+              _builder_7.newLineIfNotEmpty();
+              _builder_7.append("\t");
+              _builder_7.append("call = () -> {");
+              String _code_2 = instance_1.getCode();
+              int _length_2 = instance_1.getCode().length();
+              int _minus_2 = (_length_2 - 2);
+              String _substring_2 = _code_2.substring(2, _minus_2);
+              _builder_7.append(_substring_2, "\t");
+              _builder_7.append("};");
+              _builder_7.newLineIfNotEmpty();
+              _builder_7.append("\t");
+              _builder_7.append("break;");
+              _builder_7.newLine();
+            }
+          }
+        }
+      }
+      _builder_7.append("\t");
+      _builder_7.append("}");
+      _builder_7.newLine();
+      {
+        EList<Port> _inPorts_3 = filter.getInPorts();
+        for(final Port port_6 : _inPorts_3) {
+          _builder_7.append("\t");
+          _builder_7.append("inPorts.put(\"");
+          String _name_20 = port_6.getName();
+          _builder_7.append(_name_20, "\t");
+          _builder_7.append("\", new Port(\"");
+          String _name_21 = port_6.getName();
+          _builder_7.append(_name_21, "\t");
+          _builder_7.append("\",this));");
+          _builder_7.newLineIfNotEmpty();
+        }
+      }
+      {
+        EList<Port> _outPorts_3 = filter.getOutPorts();
+        for(final Port port_7 : _outPorts_3) {
+          _builder_7.append("\t");
+          _builder_7.append("outPorts.put(\"");
+          String _name_22 = port_7.getName();
+          _builder_7.append(_name_22, "\t");
+          _builder_7.append("\", new Port(\"");
+          String _name_23 = port_7.getName();
+          _builder_7.append(_name_23, "\t");
+          _builder_7.append("\",this));");
+          _builder_7.newLineIfNotEmpty();
+        }
+      }
+      _builder_7.append("\t");
+      _builder_7.append("}");
+      _builder_7.newLine();
+      _builder_7.append("\t");
+      String _code_3 = filter.getCode();
+      int _length_3 = filter.getCode().length();
+      int _minus_3 = (_length_3 - 2);
+      String _substring_3 = _code_3.substring(2, _minus_3);
+      _builder_7.append(_substring_3, "\t");
+      _builder_7.newLineIfNotEmpty();
+      _builder_7.newLine();
+      _builder_7.append("}");
+      fsa.generateFile(_plus_2, _builder_7);
+    }
+    Iterable<Sink> _filter_4 = Iterables.<Sink>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Sink.class);
+    for (final Sink sink : _filter_4) {
+      {
+        String _name_24 = sink.getName();
+        String _plus_3 = (_name_24 + ".java");
+        StringConcatenation _builder_8 = new StringConcatenation();
+        _builder_8.append("package ");
+        _builder_8.append(this.packname);
+        _builder_8.append(";");
+        _builder_8.newLineIfNotEmpty();
+        _builder_8.append("public class ");
+        String _name_25 = sink.getName();
+        _builder_8.append(_name_25);
+        _builder_8.append(" extends Sink{");
+        _builder_8.newLineIfNotEmpty();
+        {
+          EList<Port> _inPorts_4 = sink.getInPorts();
+          for(final Port port_8 : _inPorts_4) {
+            _builder_8.append("private ");
+            String _type_4 = port_8.getType();
+            _builder_8.append(_type_4);
+            _builder_8.append(" ");
+            String _name_26 = port_8.getName();
+            _builder_8.append(_name_26);
+            _builder_8.append(";");
+            _builder_8.newLineIfNotEmpty();
+          }
+        }
+        {
+          EList<Port> _outPorts_4 = sink.getOutPorts();
+          for(final Port port_9 : _outPorts_4) {
+            _builder_8.append("private ");
+            String _type_5 = port_9.getType();
+            _builder_8.append(_type_5);
+            _builder_8.append(" ");
+            String _name_27 = port_9.getName();
+            _builder_8.append(_name_27);
+            _builder_8.append(";");
+            _builder_8.newLineIfNotEmpty();
+          }
+        }
+        _builder_8.append("\t");
+        _builder_8.append("public ");
+        String _name_28 = sink.getName();
+        _builder_8.append(_name_28, "\t");
+        _builder_8.append("(String name){");
+        _builder_8.newLineIfNotEmpty();
+        _builder_8.append("\t");
+        _builder_8.append("switch (name) {");
+        _builder_8.newLine();
+        {
+          Iterable<Instance> _filter_5 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+          for(final Instance instance_2 : _filter_5) {
+            {
+              String _name_29 = instance_2.getComponent().getName();
+              String _name_30 = sink.getName();
+              boolean _equals_2 = Objects.equal(_name_29, _name_30);
+              if (_equals_2) {
+                _builder_8.append("\t");
+                _builder_8.append("case \"");
+                String _name_31 = instance_2.getName();
+                _builder_8.append(_name_31, "\t");
+                _builder_8.append("\":");
+                _builder_8.newLineIfNotEmpty();
+                _builder_8.append("\t");
+                _builder_8.append("call = () -> {");
+                String _code_4 = instance_2.getCode();
+                int _length_4 = instance_2.getCode().length();
+                int _minus_4 = (_length_4 - 2);
+                String _substring_4 = _code_4.substring(2, _minus_4);
+                _builder_8.append(_substring_4, "\t");
+                _builder_8.append("};");
+                _builder_8.newLineIfNotEmpty();
+                _builder_8.append("\t");
+                _builder_8.append("break;");
+                _builder_8.newLine();
+              }
+            }
+          }
+        }
+        _builder_8.append("\t");
+        _builder_8.append("}");
+        _builder_8.newLine();
+        {
+          EList<Port> _inPorts_5 = sink.getInPorts();
+          for(final Port port_10 : _inPorts_5) {
+            _builder_8.append("inPorts.put(\"");
+            String _name_32 = port_10.getName();
+            _builder_8.append(_name_32);
+            _builder_8.append("\", new Port(\"");
+            String _name_33 = port_10.getName();
+            _builder_8.append(_name_33);
+            _builder_8.append("\",this));");
+            _builder_8.newLineIfNotEmpty();
+          }
+        }
+        {
+          EList<Port> _outPorts_5 = sink.getOutPorts();
+          for(final Port port_11 : _outPorts_5) {
+            _builder_8.append("outPorts.put(\"");
+            String _name_34 = port_11.getName();
+            _builder_8.append(_name_34);
+            _builder_8.append("\", new Port(\"");
+            String _name_35 = port_11.getName();
+            _builder_8.append(_name_35);
+            _builder_8.append("\",this));");
+            _builder_8.newLineIfNotEmpty();
+          }
+        }
+        _builder_8.append("}");
+        _builder_8.newLine();
+        String _code_5 = sink.getCode();
+        int _length_5 = sink.getCode().length();
+        int _minus_5 = (_length_5 - 2);
+        String _substring_5 = _code_5.substring(2, _minus_5);
+        _builder_8.append(_substring_5);
+        _builder_8.newLineIfNotEmpty();
+        _builder_8.newLine();
+        _builder_8.append("}");
+        _builder_8.newLine();
+        fsa.generateFile(_plus_3, _builder_8);
+        EObject _head_1 = IterableExtensions.<EObject>head(resource.getContents());
+        fsa.generateFile("Graph.java", this.generate(((Config) _head_1)));
+      }
+    }
+  }
+  
+  public CharSequence generateClass(final Config config) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence generatePipeStages(final Resource resource) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(this.packname);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    {
+      Iterable<Import> _filter = Iterables.<Import>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Import.class);
+      for(final Import imp : _filter) {
+        _builder.append("\t");
+        _builder.append("import ");
+        String _name = imp.getName();
+        _builder.append(_name, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("public abstract class PipeStages{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/*Vars*/");
+    _builder.newLine();
+    {
+      Iterable<Param> _filter_1 = Iterables.<Param>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Param.class);
+      for(final Param par : _filter_1) {
+        _builder.append("\t");
+        String _value = par.getValue();
+        _builder.append(_value, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
   }
   
   public String className(final Resource res) {
@@ -36,15 +775,141 @@ public class SortingGenerator extends AbstractGenerator {
   
   public CharSequence generate(final Config config) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(this.packname);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
     {
       EList<Import> _imports = config.getImports();
-      for(final Import imports : _imports) {
+      for(final Import imp : _imports) {
         _builder.append("import ");
-        String _name = imports.getName();
+        String _name = imp.getName();
         _builder.append(_name);
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("import java.util.ArrayList;");
+    _builder.newLine();
+    _builder.append("import java.util.HashMap;");
+    _builder.newLine();
+    _builder.append("import java.util.PriorityQueue;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("class Graph extends PipeStages{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private ArrayList<Edge> edges = new ArrayList<Edge>();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private HashMap<String,Component> nodes = new HashMap<String,Component>();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private PriorityQueue<Component> components = new PriorityQueue<Component>();\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void addEdge(String from, String pfrom, String to, String pto){");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Component csource = nodes.get(from);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Component ctarget = nodes.get(to);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Port source = csource.getPort(pfrom);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Port target = ctarget.getPort(pto);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Edge edge = new Edge(source, target);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("edges.add(edge);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("ctarget.checkLevel(csource);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Graph() {");
+    _builder.newLine();
+    {
+      EList<Instance> _instances = config.getInstances();
+      for(final Instance instance : _instances) {
+        _builder.append("\t\t");
+        _builder.append("nodes.put(\"");
+        String _name_1 = instance.getName();
+        _builder.append(_name_1, "\t\t");
+        _builder.append("\", new ");
+        String _name_2 = instance.getComponent().getName();
+        _builder.append(_name_2, "\t\t");
+        _builder.append("(\"");
+        String _name_3 = instance.getName();
+        _builder.append(_name_3, "\t\t");
+        _builder.append("\"));");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("components.add(nodes.get(\"");
+        String _name_4 = instance.getName();
+        _builder.append(_name_4, "\t\t");
+        _builder.append("\"));");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Transition> _transitions = config.getTransitions();
+      for(final Transition t : _transitions) {
+        _builder.append("\t\t");
+        _builder.append("addEdge(\"");
+        String _name_5 = t.getSource().getName();
+        _builder.append(_name_5, "\t\t");
+        _builder.append("\",\"");
+        String _name_6 = t.getTargetPort().getName();
+        _builder.append(_name_6, "\t\t");
+        _builder.append("\",\"");
+        String _name_7 = t.getTarget().getName();
+        _builder.append(_name_7, "\t\t");
+        _builder.append("\",\"");
+        String _name_8 = t.getSourcePort().getName();
+        _builder.append(_name_8, "\t\t");
+        _builder.append("\");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void invoke(){");
+    _builder.newLine();
+    _builder.append("\t\t ");
+    _builder.append("for(Component c: components) {");
+    _builder.newLine();
+    _builder.append("\t\t\t ");
+    _builder.append("c.invoke();");
+    _builder.newLine();
+    _builder.append("\t\t ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     return _builder;
   }

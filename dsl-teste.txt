@@ -1,54 +1,60 @@
-config: teste
-
-imports: 
-
-import java.util.Arrays
-
-components:
-
-source File{
-out: String[]
-method: readFile
+config { teste
+	
+	params { 
+	param {int a = 3}
+	param {double n = 2}
+	param {String x = 2}
+	}
+	
+	imports{
+	import x
+	import z}
+	
+	components{
+		
+	source File{
+	out:
+	port {file_out1 String[]} 
+	port {file_out2 String[]}
+	method: {  void readFile(int readFilex, int readFiley) }
+	}
+	
+	filter Avg{
+	in: 
+	port {avg_in1 int[]} 
+	port {avg_in2 int}
+	out: 
+	port {avg_out1 int}
+	method: {int avg(int x, int y)}
+	}
+	
+	filter Sort{
+	in: 
+	port {sort_in1 int[]}
+	out: 
+	port {sort_out1 int[]}
+	method: {int[] bubbleSort(in1,out1)}
+	}
+	
+	sink Display{
+	in: 
+	port {display_in1 String}
+	method: {System.out.println(String display1)}
+	}
+	}
+	
+	intances{
+	File f1
+	call: {readFile(file_out1, file_out2)}
+	Avg filter1
+	call: {avg(avg_in1, avg_out1)}
+	Display sink1
+	call: {System.out.println(display_in1)}
+	}
+	transitions{
+	[f1,file_out1]->[filter1,avg_in1]
+	[filter1,avg_out1]->[sink1,display_in1]
+	}
+	
+	
 }
-
-filter Avg{
-in: int[]
-out: int
-method: avg
-}
-
-filter Sort{
-in: int[]
-out: int[]
-method: bubbleSort
-}
-
-filter FirstN{
-in: int[]
-out: int[]
-method: filter(in=10, args[0])
-}
-
-sink Display{
-in: String
-method: System.out.println
-}
-
-vars:
-
-File test{
-args: teste.txt
-}
-
-FirstN first10{
-args: 10
-}
-
-Display cmdLine
-Avg avg
-Sort bubble
-
-transitions:
-test -> bubble -> avg -> cmdLine
-test -> bubble -> cmdLine
-

@@ -3,43 +3,20 @@
  */
 package org.xtext.example.sorting.sorting.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.sorting.sorting.Sink;
 import org.xtext.example.sorting.sorting.SortingPackage;
-import org.xtext.example.sorting.sorting.Type;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Sink</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.sorting.sorting.impl.SinkImpl#getInType <em>In Type</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class SinkImpl extends ComponentImpl implements Sink
 {
-  /**
-   * The cached value of the '{@link #getInType() <em>In Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInType()
-   * @generated
-   * @ordered
-   */
-  protected Type inType;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -59,136 +36,6 @@ public class SinkImpl extends ComponentImpl implements Sink
   protected EClass eStaticClass()
   {
     return SortingPackage.Literals.SINK;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type getInType()
-  {
-    return inType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetInType(Type newInType, NotificationChain msgs)
-  {
-    Type oldInType = inType;
-    inType = newInType;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SortingPackage.SINK__IN_TYPE, oldInType, newInType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInType(Type newInType)
-  {
-    if (newInType != inType)
-    {
-      NotificationChain msgs = null;
-      if (inType != null)
-        msgs = ((InternalEObject)inType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SortingPackage.SINK__IN_TYPE, null, msgs);
-      if (newInType != null)
-        msgs = ((InternalEObject)newInType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SortingPackage.SINK__IN_TYPE, null, msgs);
-      msgs = basicSetInType(newInType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SortingPackage.SINK__IN_TYPE, newInType, newInType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case SortingPackage.SINK__IN_TYPE:
-        return basicSetInType(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case SortingPackage.SINK__IN_TYPE:
-        return getInType();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case SortingPackage.SINK__IN_TYPE:
-        setInType((Type)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case SortingPackage.SINK__IN_TYPE:
-        setInType((Type)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case SortingPackage.SINK__IN_TYPE:
-        return inType != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //SinkImpl

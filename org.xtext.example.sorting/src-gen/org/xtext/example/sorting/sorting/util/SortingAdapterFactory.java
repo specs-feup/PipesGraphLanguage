@@ -81,14 +81,19 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
         return createConfigAdapter();
       }
       @Override
+      public Adapter caseParam(Param object)
+      {
+        return createParamAdapter();
+      }
+      @Override
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
+      public Adapter casePort(Port object)
       {
-        return createTypeAdapter();
+        return createPortAdapter();
       }
       @Override
       public Adapter caseComponent(Component object)
@@ -158,6 +163,21 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Param <em>Param</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sorting.sorting.Param
+   * @generated
+   */
+  public Adapter createParamAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -173,16 +193,16 @@ public class SortingAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Type <em>Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sorting.sorting.Port <em>Port</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.sorting.sorting.Type
+   * @see org.xtext.example.sorting.sorting.Port
    * @generated
    */
-  public Adapter createTypeAdapter()
+  public Adapter createPortAdapter()
   {
     return null;
   }
