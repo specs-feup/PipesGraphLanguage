@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSortingParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_WS", "RULE_CODE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_ANY_OTHER", "'('", "')'", "','", "'.'", "'!'", "'?'", "'['", "']'", "'+'", "'-'", "'/'", "'*'", "'<'", "'>'", "':'", "'='", "'%'", "'config'", "'{'", "'components'", "'}'", "'instances'", "'transitions'", "'params'", "'imports'", "'param'", "'import'", "'port'", "'source'", "'out:'", "'in:'", "'method:'", "'filter'", "'sink'", "'call:'", "'->'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_WS", "RULE_CODE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_ANY_OTHER", "'('", "')'", "','", "'.'", "'!'", "'?'", "'['", "']'", "'+'", "'-'", "'/'", "'*'", "'<'", "'>'", "':'", "'='", "'%'", "'config'", "'{'", "'components'", "'}'", "'instances'", "'transitions'", "'params'", "'imports'", "'param'", "'import'", "'port'", "'source'", "'out:'", "'method:'", "'in:'", "'filter'", "'sink'", "'->'"
     };
     public static final int T__19=19;
     public static final int T__15=15;
@@ -64,7 +64,6 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__46=46;
-    public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -5025,7 +5024,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==42) ) {
+            if ( (LA11_0==43) ) {
                 alt11=1;
             }
             switch (alt11) {
@@ -5278,7 +5277,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             // InternalSorting.g:1730:1: ( rule__Source__Group__6__Impl rule__Source__Group__7 )
             // InternalSorting.g:1731:2: rule__Source__Group__6__Impl rule__Source__Group__7
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__Source__Group__6__Impl();
 
             state._fsp--;
@@ -5307,42 +5306,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__Group__6__Impl"
-    // InternalSorting.g:1738:1: rule__Source__Group__6__Impl : ( ( rule__Source__Group_6__0 )? ) ;
+    // InternalSorting.g:1738:1: rule__Source__Group__6__Impl : ( 'method:' ) ;
     public final void rule__Source__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1742:1: ( ( ( rule__Source__Group_6__0 )? ) )
-            // InternalSorting.g:1743:1: ( ( rule__Source__Group_6__0 )? )
+            // InternalSorting.g:1742:1: ( ( 'method:' ) )
+            // InternalSorting.g:1743:1: ( 'method:' )
             {
-            // InternalSorting.g:1743:1: ( ( rule__Source__Group_6__0 )? )
-            // InternalSorting.g:1744:2: ( rule__Source__Group_6__0 )?
+            // InternalSorting.g:1743:1: ( 'method:' )
+            // InternalSorting.g:1744:2: 'method:'
             {
-             before(grammarAccess.getSourceAccess().getGroup_6()); 
-            // InternalSorting.g:1745:2: ( rule__Source__Group_6__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
-
-            if ( (LA13_0==43) ) {
-                alt13=1;
-            }
-            switch (alt13) {
-                case 1 :
-                    // InternalSorting.g:1745:3: rule__Source__Group_6__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Source__Group_6__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getSourceAccess().getGroup_6()); 
+             before(grammarAccess.getSourceAccess().getMethodKeyword_6()); 
+            match(input,42,FOLLOW_2); 
+             after(grammarAccess.getSourceAccess().getMethodKeyword_6()); 
 
             }
 
@@ -5365,17 +5343,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__Group__7"
-    // InternalSorting.g:1753:1: rule__Source__Group__7 : rule__Source__Group__7__Impl ;
+    // InternalSorting.g:1753:1: rule__Source__Group__7 : rule__Source__Group__7__Impl rule__Source__Group__8 ;
     public final void rule__Source__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1757:1: ( rule__Source__Group__7__Impl )
-            // InternalSorting.g:1758:2: rule__Source__Group__7__Impl
+            // InternalSorting.g:1757:1: ( rule__Source__Group__7__Impl rule__Source__Group__8 )
+            // InternalSorting.g:1758:2: rule__Source__Group__7__Impl rule__Source__Group__8
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_9);
             rule__Source__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Source__Group__8();
 
             state._fsp--;
 
@@ -5398,21 +5381,31 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__Group__7__Impl"
-    // InternalSorting.g:1764:1: rule__Source__Group__7__Impl : ( '}' ) ;
+    // InternalSorting.g:1765:1: rule__Source__Group__7__Impl : ( ( rule__Source__CodeAssignment_7 ) ) ;
     public final void rule__Source__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1768:1: ( ( '}' ) )
-            // InternalSorting.g:1769:1: ( '}' )
+            // InternalSorting.g:1769:1: ( ( ( rule__Source__CodeAssignment_7 ) ) )
+            // InternalSorting.g:1770:1: ( ( rule__Source__CodeAssignment_7 ) )
             {
-            // InternalSorting.g:1769:1: ( '}' )
-            // InternalSorting.g:1770:2: '}'
+            // InternalSorting.g:1770:1: ( ( rule__Source__CodeAssignment_7 ) )
+            // InternalSorting.g:1771:2: ( rule__Source__CodeAssignment_7 )
             {
-             before(grammarAccess.getSourceAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getSourceAccess().getRightCurlyBracketKeyword_7()); 
+             before(grammarAccess.getSourceAccess().getCodeAssignment_7()); 
+            // InternalSorting.g:1772:2: ( rule__Source__CodeAssignment_7 )
+            // InternalSorting.g:1772:3: rule__Source__CodeAssignment_7
+            {
+            pushFollow(FOLLOW_2);
+            rule__Source__CodeAssignment_7();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSourceAccess().getCodeAssignment_7()); 
 
             }
 
@@ -5434,15 +5427,85 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Source__Group__7__Impl"
 
 
+    // $ANTLR start "rule__Source__Group__8"
+    // InternalSorting.g:1780:1: rule__Source__Group__8 : rule__Source__Group__8__Impl ;
+    public final void rule__Source__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSorting.g:1784:1: ( rule__Source__Group__8__Impl )
+            // InternalSorting.g:1785:2: rule__Source__Group__8__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Source__Group__8__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Source__Group__8"
+
+
+    // $ANTLR start "rule__Source__Group__8__Impl"
+    // InternalSorting.g:1791:1: rule__Source__Group__8__Impl : ( '}' ) ;
+    public final void rule__Source__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSorting.g:1795:1: ( ( '}' ) )
+            // InternalSorting.g:1796:1: ( '}' )
+            {
+            // InternalSorting.g:1796:1: ( '}' )
+            // InternalSorting.g:1797:2: '}'
+            {
+             before(grammarAccess.getSourceAccess().getRightCurlyBracketKeyword_8()); 
+            match(input,32,FOLLOW_2); 
+             after(grammarAccess.getSourceAccess().getRightCurlyBracketKeyword_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Source__Group__8__Impl"
+
+
     // $ANTLR start "rule__Source__Group_3__0"
-    // InternalSorting.g:1780:1: rule__Source__Group_3__0 : rule__Source__Group_3__0__Impl rule__Source__Group_3__1 ;
+    // InternalSorting.g:1807:1: rule__Source__Group_3__0 : rule__Source__Group_3__0__Impl rule__Source__Group_3__1 ;
     public final void rule__Source__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1784:1: ( rule__Source__Group_3__0__Impl rule__Source__Group_3__1 )
-            // InternalSorting.g:1785:2: rule__Source__Group_3__0__Impl rule__Source__Group_3__1
+            // InternalSorting.g:1811:1: ( rule__Source__Group_3__0__Impl rule__Source__Group_3__1 )
+            // InternalSorting.g:1812:2: rule__Source__Group_3__0__Impl rule__Source__Group_3__1
             {
             pushFollow(FOLLOW_22);
             rule__Source__Group_3__0__Impl();
@@ -5473,20 +5536,20 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__Group_3__0__Impl"
-    // InternalSorting.g:1792:1: rule__Source__Group_3__0__Impl : ( 'in:' ) ;
+    // InternalSorting.g:1819:1: rule__Source__Group_3__0__Impl : ( 'in:' ) ;
     public final void rule__Source__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1796:1: ( ( 'in:' ) )
-            // InternalSorting.g:1797:1: ( 'in:' )
+            // InternalSorting.g:1823:1: ( ( 'in:' ) )
+            // InternalSorting.g:1824:1: ( 'in:' )
             {
-            // InternalSorting.g:1797:1: ( 'in:' )
-            // InternalSorting.g:1798:2: 'in:'
+            // InternalSorting.g:1824:1: ( 'in:' )
+            // InternalSorting.g:1825:2: 'in:'
             {
              before(grammarAccess.getSourceAccess().getInKeyword_3_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getSourceAccess().getInKeyword_3_0()); 
 
             }
@@ -5510,14 +5573,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__Group_3__1"
-    // InternalSorting.g:1807:1: rule__Source__Group_3__1 : rule__Source__Group_3__1__Impl ;
+    // InternalSorting.g:1834:1: rule__Source__Group_3__1 : rule__Source__Group_3__1__Impl ;
     public final void rule__Source__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1811:1: ( rule__Source__Group_3__1__Impl )
-            // InternalSorting.g:1812:2: rule__Source__Group_3__1__Impl
+            // InternalSorting.g:1838:1: ( rule__Source__Group_3__1__Impl )
+            // InternalSorting.g:1839:2: rule__Source__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Source__Group_3__1__Impl();
@@ -5543,24 +5606,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__Group_3__1__Impl"
-    // InternalSorting.g:1818:1: rule__Source__Group_3__1__Impl : ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) ) ;
+    // InternalSorting.g:1845:1: rule__Source__Group_3__1__Impl : ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) ) ;
     public final void rule__Source__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1822:1: ( ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) ) )
-            // InternalSorting.g:1823:1: ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) )
+            // InternalSorting.g:1849:1: ( ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) ) )
+            // InternalSorting.g:1850:1: ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) )
             {
-            // InternalSorting.g:1823:1: ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) )
-            // InternalSorting.g:1824:2: ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* )
+            // InternalSorting.g:1850:1: ( ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* ) )
+            // InternalSorting.g:1851:2: ( ( rule__Source__InPortsAssignment_3_1 ) ) ( ( rule__Source__InPortsAssignment_3_1 )* )
             {
-            // InternalSorting.g:1824:2: ( ( rule__Source__InPortsAssignment_3_1 ) )
-            // InternalSorting.g:1825:3: ( rule__Source__InPortsAssignment_3_1 )
+            // InternalSorting.g:1851:2: ( ( rule__Source__InPortsAssignment_3_1 ) )
+            // InternalSorting.g:1852:3: ( rule__Source__InPortsAssignment_3_1 )
             {
              before(grammarAccess.getSourceAccess().getInPortsAssignment_3_1()); 
-            // InternalSorting.g:1826:3: ( rule__Source__InPortsAssignment_3_1 )
-            // InternalSorting.g:1826:4: rule__Source__InPortsAssignment_3_1
+            // InternalSorting.g:1853:3: ( rule__Source__InPortsAssignment_3_1 )
+            // InternalSorting.g:1853:4: rule__Source__InPortsAssignment_3_1
             {
             pushFollow(FOLLOW_24);
             rule__Source__InPortsAssignment_3_1();
@@ -5574,24 +5637,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalSorting.g:1829:2: ( ( rule__Source__InPortsAssignment_3_1 )* )
-            // InternalSorting.g:1830:3: ( rule__Source__InPortsAssignment_3_1 )*
+            // InternalSorting.g:1856:2: ( ( rule__Source__InPortsAssignment_3_1 )* )
+            // InternalSorting.g:1857:3: ( rule__Source__InPortsAssignment_3_1 )*
             {
              before(grammarAccess.getSourceAccess().getInPortsAssignment_3_1()); 
-            // InternalSorting.g:1831:3: ( rule__Source__InPortsAssignment_3_1 )*
-            loop14:
+            // InternalSorting.g:1858:3: ( rule__Source__InPortsAssignment_3_1 )*
+            loop13:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA14_0==39) ) {
-                    alt14=1;
+                if ( (LA13_0==39) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalSorting.g:1831:4: rule__Source__InPortsAssignment_3_1
+            	    // InternalSorting.g:1858:4: rule__Source__InPortsAssignment_3_1
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__Source__InPortsAssignment_3_1();
@@ -5603,7 +5666,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop13;
                 }
             } while (true);
 
@@ -5632,170 +5695,15 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Source__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__Source__Group_6__0"
-    // InternalSorting.g:1841:1: rule__Source__Group_6__0 : rule__Source__Group_6__0__Impl rule__Source__Group_6__1 ;
-    public final void rule__Source__Group_6__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:1845:1: ( rule__Source__Group_6__0__Impl rule__Source__Group_6__1 )
-            // InternalSorting.g:1846:2: rule__Source__Group_6__0__Impl rule__Source__Group_6__1
-            {
-            pushFollow(FOLLOW_25);
-            rule__Source__Group_6__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Source__Group_6__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Source__Group_6__0"
-
-
-    // $ANTLR start "rule__Source__Group_6__0__Impl"
-    // InternalSorting.g:1853:1: rule__Source__Group_6__0__Impl : ( 'method:' ) ;
-    public final void rule__Source__Group_6__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:1857:1: ( ( 'method:' ) )
-            // InternalSorting.g:1858:1: ( 'method:' )
-            {
-            // InternalSorting.g:1858:1: ( 'method:' )
-            // InternalSorting.g:1859:2: 'method:'
-            {
-             before(grammarAccess.getSourceAccess().getMethodKeyword_6_0()); 
-            match(input,43,FOLLOW_2); 
-             after(grammarAccess.getSourceAccess().getMethodKeyword_6_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Source__Group_6__0__Impl"
-
-
-    // $ANTLR start "rule__Source__Group_6__1"
-    // InternalSorting.g:1868:1: rule__Source__Group_6__1 : rule__Source__Group_6__1__Impl ;
-    public final void rule__Source__Group_6__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:1872:1: ( rule__Source__Group_6__1__Impl )
-            // InternalSorting.g:1873:2: rule__Source__Group_6__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Source__Group_6__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Source__Group_6__1"
-
-
-    // $ANTLR start "rule__Source__Group_6__1__Impl"
-    // InternalSorting.g:1879:1: rule__Source__Group_6__1__Impl : ( ( rule__Source__CodeAssignment_6_1 ) ) ;
-    public final void rule__Source__Group_6__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:1883:1: ( ( ( rule__Source__CodeAssignment_6_1 ) ) )
-            // InternalSorting.g:1884:1: ( ( rule__Source__CodeAssignment_6_1 ) )
-            {
-            // InternalSorting.g:1884:1: ( ( rule__Source__CodeAssignment_6_1 ) )
-            // InternalSorting.g:1885:2: ( rule__Source__CodeAssignment_6_1 )
-            {
-             before(grammarAccess.getSourceAccess().getCodeAssignment_6_1()); 
-            // InternalSorting.g:1886:2: ( rule__Source__CodeAssignment_6_1 )
-            // InternalSorting.g:1886:3: rule__Source__CodeAssignment_6_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Source__CodeAssignment_6_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSourceAccess().getCodeAssignment_6_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Source__Group_6__1__Impl"
-
-
     // $ANTLR start "rule__Filter__Group__0"
-    // InternalSorting.g:1895:1: rule__Filter__Group__0 : rule__Filter__Group__0__Impl rule__Filter__Group__1 ;
+    // InternalSorting.g:1868:1: rule__Filter__Group__0 : rule__Filter__Group__0__Impl rule__Filter__Group__1 ;
     public final void rule__Filter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1899:1: ( rule__Filter__Group__0__Impl rule__Filter__Group__1 )
-            // InternalSorting.g:1900:2: rule__Filter__Group__0__Impl rule__Filter__Group__1
+            // InternalSorting.g:1872:1: ( rule__Filter__Group__0__Impl rule__Filter__Group__1 )
+            // InternalSorting.g:1873:2: rule__Filter__Group__0__Impl rule__Filter__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Filter__Group__0__Impl();
@@ -5826,17 +5734,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__0__Impl"
-    // InternalSorting.g:1907:1: rule__Filter__Group__0__Impl : ( 'filter' ) ;
+    // InternalSorting.g:1880:1: rule__Filter__Group__0__Impl : ( 'filter' ) ;
     public final void rule__Filter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1911:1: ( ( 'filter' ) )
-            // InternalSorting.g:1912:1: ( 'filter' )
+            // InternalSorting.g:1884:1: ( ( 'filter' ) )
+            // InternalSorting.g:1885:1: ( 'filter' )
             {
-            // InternalSorting.g:1912:1: ( 'filter' )
-            // InternalSorting.g:1913:2: 'filter'
+            // InternalSorting.g:1885:1: ( 'filter' )
+            // InternalSorting.g:1886:2: 'filter'
             {
              before(grammarAccess.getFilterAccess().getFilterKeyword_0()); 
             match(input,44,FOLLOW_2); 
@@ -5863,14 +5771,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__1"
-    // InternalSorting.g:1922:1: rule__Filter__Group__1 : rule__Filter__Group__1__Impl rule__Filter__Group__2 ;
+    // InternalSorting.g:1895:1: rule__Filter__Group__1 : rule__Filter__Group__1__Impl rule__Filter__Group__2 ;
     public final void rule__Filter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1926:1: ( rule__Filter__Group__1__Impl rule__Filter__Group__2 )
-            // InternalSorting.g:1927:2: rule__Filter__Group__1__Impl rule__Filter__Group__2
+            // InternalSorting.g:1899:1: ( rule__Filter__Group__1__Impl rule__Filter__Group__2 )
+            // InternalSorting.g:1900:2: rule__Filter__Group__1__Impl rule__Filter__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Filter__Group__1__Impl();
@@ -5901,21 +5809,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__1__Impl"
-    // InternalSorting.g:1934:1: rule__Filter__Group__1__Impl : ( ( rule__Filter__NameAssignment_1 ) ) ;
+    // InternalSorting.g:1907:1: rule__Filter__Group__1__Impl : ( ( rule__Filter__NameAssignment_1 ) ) ;
     public final void rule__Filter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1938:1: ( ( ( rule__Filter__NameAssignment_1 ) ) )
-            // InternalSorting.g:1939:1: ( ( rule__Filter__NameAssignment_1 ) )
+            // InternalSorting.g:1911:1: ( ( ( rule__Filter__NameAssignment_1 ) ) )
+            // InternalSorting.g:1912:1: ( ( rule__Filter__NameAssignment_1 ) )
             {
-            // InternalSorting.g:1939:1: ( ( rule__Filter__NameAssignment_1 ) )
-            // InternalSorting.g:1940:2: ( rule__Filter__NameAssignment_1 )
+            // InternalSorting.g:1912:1: ( ( rule__Filter__NameAssignment_1 ) )
+            // InternalSorting.g:1913:2: ( rule__Filter__NameAssignment_1 )
             {
              before(grammarAccess.getFilterAccess().getNameAssignment_1()); 
-            // InternalSorting.g:1941:2: ( rule__Filter__NameAssignment_1 )
-            // InternalSorting.g:1941:3: rule__Filter__NameAssignment_1
+            // InternalSorting.g:1914:2: ( rule__Filter__NameAssignment_1 )
+            // InternalSorting.g:1914:3: rule__Filter__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Filter__NameAssignment_1();
@@ -5948,14 +5856,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__2"
-    // InternalSorting.g:1949:1: rule__Filter__Group__2 : rule__Filter__Group__2__Impl rule__Filter__Group__3 ;
+    // InternalSorting.g:1922:1: rule__Filter__Group__2 : rule__Filter__Group__2__Impl rule__Filter__Group__3 ;
     public final void rule__Filter__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1953:1: ( rule__Filter__Group__2__Impl rule__Filter__Group__3 )
-            // InternalSorting.g:1954:2: rule__Filter__Group__2__Impl rule__Filter__Group__3
+            // InternalSorting.g:1926:1: ( rule__Filter__Group__2__Impl rule__Filter__Group__3 )
+            // InternalSorting.g:1927:2: rule__Filter__Group__2__Impl rule__Filter__Group__3
             {
             pushFollow(FOLLOW_26);
             rule__Filter__Group__2__Impl();
@@ -5986,17 +5894,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__2__Impl"
-    // InternalSorting.g:1961:1: rule__Filter__Group__2__Impl : ( '{' ) ;
+    // InternalSorting.g:1934:1: rule__Filter__Group__2__Impl : ( '{' ) ;
     public final void rule__Filter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1965:1: ( ( '{' ) )
-            // InternalSorting.g:1966:1: ( '{' )
+            // InternalSorting.g:1938:1: ( ( '{' ) )
+            // InternalSorting.g:1939:1: ( '{' )
             {
-            // InternalSorting.g:1966:1: ( '{' )
-            // InternalSorting.g:1967:2: '{'
+            // InternalSorting.g:1939:1: ( '{' )
+            // InternalSorting.g:1940:2: '{'
             {
              before(grammarAccess.getFilterAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,30,FOLLOW_2); 
@@ -6023,14 +5931,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__3"
-    // InternalSorting.g:1976:1: rule__Filter__Group__3 : rule__Filter__Group__3__Impl rule__Filter__Group__4 ;
+    // InternalSorting.g:1949:1: rule__Filter__Group__3 : rule__Filter__Group__3__Impl rule__Filter__Group__4 ;
     public final void rule__Filter__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1980:1: ( rule__Filter__Group__3__Impl rule__Filter__Group__4 )
-            // InternalSorting.g:1981:2: rule__Filter__Group__3__Impl rule__Filter__Group__4
+            // InternalSorting.g:1953:1: ( rule__Filter__Group__3__Impl rule__Filter__Group__4 )
+            // InternalSorting.g:1954:2: rule__Filter__Group__3__Impl rule__Filter__Group__4
             {
             pushFollow(FOLLOW_22);
             rule__Filter__Group__3__Impl();
@@ -6061,20 +5969,20 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__3__Impl"
-    // InternalSorting.g:1988:1: rule__Filter__Group__3__Impl : ( 'in:' ) ;
+    // InternalSorting.g:1961:1: rule__Filter__Group__3__Impl : ( 'in:' ) ;
     public final void rule__Filter__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:1992:1: ( ( 'in:' ) )
-            // InternalSorting.g:1993:1: ( 'in:' )
+            // InternalSorting.g:1965:1: ( ( 'in:' ) )
+            // InternalSorting.g:1966:1: ( 'in:' )
             {
-            // InternalSorting.g:1993:1: ( 'in:' )
-            // InternalSorting.g:1994:2: 'in:'
+            // InternalSorting.g:1966:1: ( 'in:' )
+            // InternalSorting.g:1967:2: 'in:'
             {
              before(grammarAccess.getFilterAccess().getInKeyword_3()); 
-            match(input,42,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getFilterAccess().getInKeyword_3()); 
 
             }
@@ -6098,14 +6006,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__4"
-    // InternalSorting.g:2003:1: rule__Filter__Group__4 : rule__Filter__Group__4__Impl rule__Filter__Group__5 ;
+    // InternalSorting.g:1976:1: rule__Filter__Group__4 : rule__Filter__Group__4__Impl rule__Filter__Group__5 ;
     public final void rule__Filter__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2007:1: ( rule__Filter__Group__4__Impl rule__Filter__Group__5 )
-            // InternalSorting.g:2008:2: rule__Filter__Group__4__Impl rule__Filter__Group__5
+            // InternalSorting.g:1980:1: ( rule__Filter__Group__4__Impl rule__Filter__Group__5 )
+            // InternalSorting.g:1981:2: rule__Filter__Group__4__Impl rule__Filter__Group__5
             {
             pushFollow(FOLLOW_27);
             rule__Filter__Group__4__Impl();
@@ -6136,24 +6044,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__4__Impl"
-    // InternalSorting.g:2015:1: rule__Filter__Group__4__Impl : ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) ) ;
+    // InternalSorting.g:1988:1: rule__Filter__Group__4__Impl : ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) ) ;
     public final void rule__Filter__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2019:1: ( ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) ) )
-            // InternalSorting.g:2020:1: ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) )
+            // InternalSorting.g:1992:1: ( ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) ) )
+            // InternalSorting.g:1993:1: ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) )
             {
-            // InternalSorting.g:2020:1: ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) )
-            // InternalSorting.g:2021:2: ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* )
+            // InternalSorting.g:1993:1: ( ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* ) )
+            // InternalSorting.g:1994:2: ( ( rule__Filter__InPortsAssignment_4 ) ) ( ( rule__Filter__InPortsAssignment_4 )* )
             {
-            // InternalSorting.g:2021:2: ( ( rule__Filter__InPortsAssignment_4 ) )
-            // InternalSorting.g:2022:3: ( rule__Filter__InPortsAssignment_4 )
+            // InternalSorting.g:1994:2: ( ( rule__Filter__InPortsAssignment_4 ) )
+            // InternalSorting.g:1995:3: ( rule__Filter__InPortsAssignment_4 )
             {
              before(grammarAccess.getFilterAccess().getInPortsAssignment_4()); 
-            // InternalSorting.g:2023:3: ( rule__Filter__InPortsAssignment_4 )
-            // InternalSorting.g:2023:4: rule__Filter__InPortsAssignment_4
+            // InternalSorting.g:1996:3: ( rule__Filter__InPortsAssignment_4 )
+            // InternalSorting.g:1996:4: rule__Filter__InPortsAssignment_4
             {
             pushFollow(FOLLOW_24);
             rule__Filter__InPortsAssignment_4();
@@ -6167,24 +6075,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalSorting.g:2026:2: ( ( rule__Filter__InPortsAssignment_4 )* )
-            // InternalSorting.g:2027:3: ( rule__Filter__InPortsAssignment_4 )*
+            // InternalSorting.g:1999:2: ( ( rule__Filter__InPortsAssignment_4 )* )
+            // InternalSorting.g:2000:3: ( rule__Filter__InPortsAssignment_4 )*
             {
              before(grammarAccess.getFilterAccess().getInPortsAssignment_4()); 
-            // InternalSorting.g:2028:3: ( rule__Filter__InPortsAssignment_4 )*
-            loop15:
+            // InternalSorting.g:2001:3: ( rule__Filter__InPortsAssignment_4 )*
+            loop14:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA15_0==39) ) {
-                    alt15=1;
+                if ( (LA14_0==39) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalSorting.g:2028:4: rule__Filter__InPortsAssignment_4
+            	    // InternalSorting.g:2001:4: rule__Filter__InPortsAssignment_4
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__Filter__InPortsAssignment_4();
@@ -6196,7 +6104,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop14;
                 }
             } while (true);
 
@@ -6226,14 +6134,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__5"
-    // InternalSorting.g:2037:1: rule__Filter__Group__5 : rule__Filter__Group__5__Impl rule__Filter__Group__6 ;
+    // InternalSorting.g:2010:1: rule__Filter__Group__5 : rule__Filter__Group__5__Impl rule__Filter__Group__6 ;
     public final void rule__Filter__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2041:1: ( rule__Filter__Group__5__Impl rule__Filter__Group__6 )
-            // InternalSorting.g:2042:2: rule__Filter__Group__5__Impl rule__Filter__Group__6
+            // InternalSorting.g:2014:1: ( rule__Filter__Group__5__Impl rule__Filter__Group__6 )
+            // InternalSorting.g:2015:2: rule__Filter__Group__5__Impl rule__Filter__Group__6
             {
             pushFollow(FOLLOW_22);
             rule__Filter__Group__5__Impl();
@@ -6264,17 +6172,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__5__Impl"
-    // InternalSorting.g:2049:1: rule__Filter__Group__5__Impl : ( 'out:' ) ;
+    // InternalSorting.g:2022:1: rule__Filter__Group__5__Impl : ( 'out:' ) ;
     public final void rule__Filter__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2053:1: ( ( 'out:' ) )
-            // InternalSorting.g:2054:1: ( 'out:' )
+            // InternalSorting.g:2026:1: ( ( 'out:' ) )
+            // InternalSorting.g:2027:1: ( 'out:' )
             {
-            // InternalSorting.g:2054:1: ( 'out:' )
-            // InternalSorting.g:2055:2: 'out:'
+            // InternalSorting.g:2027:1: ( 'out:' )
+            // InternalSorting.g:2028:2: 'out:'
             {
              before(grammarAccess.getFilterAccess().getOutKeyword_5()); 
             match(input,41,FOLLOW_2); 
@@ -6301,14 +6209,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__6"
-    // InternalSorting.g:2064:1: rule__Filter__Group__6 : rule__Filter__Group__6__Impl rule__Filter__Group__7 ;
+    // InternalSorting.g:2037:1: rule__Filter__Group__6 : rule__Filter__Group__6__Impl rule__Filter__Group__7 ;
     public final void rule__Filter__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2068:1: ( rule__Filter__Group__6__Impl rule__Filter__Group__7 )
-            // InternalSorting.g:2069:2: rule__Filter__Group__6__Impl rule__Filter__Group__7
+            // InternalSorting.g:2041:1: ( rule__Filter__Group__6__Impl rule__Filter__Group__7 )
+            // InternalSorting.g:2042:2: rule__Filter__Group__6__Impl rule__Filter__Group__7
             {
             pushFollow(FOLLOW_23);
             rule__Filter__Group__6__Impl();
@@ -6339,24 +6247,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__6__Impl"
-    // InternalSorting.g:2076:1: rule__Filter__Group__6__Impl : ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) ) ;
+    // InternalSorting.g:2049:1: rule__Filter__Group__6__Impl : ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) ) ;
     public final void rule__Filter__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2080:1: ( ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) ) )
-            // InternalSorting.g:2081:1: ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) )
+            // InternalSorting.g:2053:1: ( ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) ) )
+            // InternalSorting.g:2054:1: ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) )
             {
-            // InternalSorting.g:2081:1: ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) )
-            // InternalSorting.g:2082:2: ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* )
+            // InternalSorting.g:2054:1: ( ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* ) )
+            // InternalSorting.g:2055:2: ( ( rule__Filter__OutPortsAssignment_6 ) ) ( ( rule__Filter__OutPortsAssignment_6 )* )
             {
-            // InternalSorting.g:2082:2: ( ( rule__Filter__OutPortsAssignment_6 ) )
-            // InternalSorting.g:2083:3: ( rule__Filter__OutPortsAssignment_6 )
+            // InternalSorting.g:2055:2: ( ( rule__Filter__OutPortsAssignment_6 ) )
+            // InternalSorting.g:2056:3: ( rule__Filter__OutPortsAssignment_6 )
             {
              before(grammarAccess.getFilterAccess().getOutPortsAssignment_6()); 
-            // InternalSorting.g:2084:3: ( rule__Filter__OutPortsAssignment_6 )
-            // InternalSorting.g:2084:4: rule__Filter__OutPortsAssignment_6
+            // InternalSorting.g:2057:3: ( rule__Filter__OutPortsAssignment_6 )
+            // InternalSorting.g:2057:4: rule__Filter__OutPortsAssignment_6
             {
             pushFollow(FOLLOW_24);
             rule__Filter__OutPortsAssignment_6();
@@ -6370,24 +6278,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalSorting.g:2087:2: ( ( rule__Filter__OutPortsAssignment_6 )* )
-            // InternalSorting.g:2088:3: ( rule__Filter__OutPortsAssignment_6 )*
+            // InternalSorting.g:2060:2: ( ( rule__Filter__OutPortsAssignment_6 )* )
+            // InternalSorting.g:2061:3: ( rule__Filter__OutPortsAssignment_6 )*
             {
              before(grammarAccess.getFilterAccess().getOutPortsAssignment_6()); 
-            // InternalSorting.g:2089:3: ( rule__Filter__OutPortsAssignment_6 )*
-            loop16:
+            // InternalSorting.g:2062:3: ( rule__Filter__OutPortsAssignment_6 )*
+            loop15:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA16_0==39) ) {
-                    alt16=1;
+                if ( (LA15_0==39) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt15) {
             	case 1 :
-            	    // InternalSorting.g:2089:4: rule__Filter__OutPortsAssignment_6
+            	    // InternalSorting.g:2062:4: rule__Filter__OutPortsAssignment_6
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__Filter__OutPortsAssignment_6();
@@ -6399,7 +6307,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop15;
                 }
             } while (true);
 
@@ -6429,16 +6337,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__7"
-    // InternalSorting.g:2098:1: rule__Filter__Group__7 : rule__Filter__Group__7__Impl rule__Filter__Group__8 ;
+    // InternalSorting.g:2071:1: rule__Filter__Group__7 : rule__Filter__Group__7__Impl rule__Filter__Group__8 ;
     public final void rule__Filter__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2102:1: ( rule__Filter__Group__7__Impl rule__Filter__Group__8 )
-            // InternalSorting.g:2103:2: rule__Filter__Group__7__Impl rule__Filter__Group__8
+            // InternalSorting.g:2075:1: ( rule__Filter__Group__7__Impl rule__Filter__Group__8 )
+            // InternalSorting.g:2076:2: rule__Filter__Group__7__Impl rule__Filter__Group__8
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__Filter__Group__7__Impl();
 
             state._fsp--;
@@ -6467,42 +6375,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__7__Impl"
-    // InternalSorting.g:2110:1: rule__Filter__Group__7__Impl : ( ( rule__Filter__Group_7__0 )? ) ;
+    // InternalSorting.g:2083:1: rule__Filter__Group__7__Impl : ( 'method:' ) ;
     public final void rule__Filter__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2114:1: ( ( ( rule__Filter__Group_7__0 )? ) )
-            // InternalSorting.g:2115:1: ( ( rule__Filter__Group_7__0 )? )
+            // InternalSorting.g:2087:1: ( ( 'method:' ) )
+            // InternalSorting.g:2088:1: ( 'method:' )
             {
-            // InternalSorting.g:2115:1: ( ( rule__Filter__Group_7__0 )? )
-            // InternalSorting.g:2116:2: ( rule__Filter__Group_7__0 )?
+            // InternalSorting.g:2088:1: ( 'method:' )
+            // InternalSorting.g:2089:2: 'method:'
             {
-             before(grammarAccess.getFilterAccess().getGroup_7()); 
-            // InternalSorting.g:2117:2: ( rule__Filter__Group_7__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
-
-            if ( (LA17_0==43) ) {
-                alt17=1;
-            }
-            switch (alt17) {
-                case 1 :
-                    // InternalSorting.g:2117:3: rule__Filter__Group_7__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Filter__Group_7__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getFilterAccess().getGroup_7()); 
+             before(grammarAccess.getFilterAccess().getMethodKeyword_7()); 
+            match(input,42,FOLLOW_2); 
+             after(grammarAccess.getFilterAccess().getMethodKeyword_7()); 
 
             }
 
@@ -6525,17 +6412,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__8"
-    // InternalSorting.g:2125:1: rule__Filter__Group__8 : rule__Filter__Group__8__Impl ;
+    // InternalSorting.g:2098:1: rule__Filter__Group__8 : rule__Filter__Group__8__Impl rule__Filter__Group__9 ;
     public final void rule__Filter__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2129:1: ( rule__Filter__Group__8__Impl )
-            // InternalSorting.g:2130:2: rule__Filter__Group__8__Impl
+            // InternalSorting.g:2102:1: ( rule__Filter__Group__8__Impl rule__Filter__Group__9 )
+            // InternalSorting.g:2103:2: rule__Filter__Group__8__Impl rule__Filter__Group__9
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_9);
             rule__Filter__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Filter__Group__9();
 
             state._fsp--;
 
@@ -6558,21 +6450,31 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__Group__8__Impl"
-    // InternalSorting.g:2136:1: rule__Filter__Group__8__Impl : ( '}' ) ;
+    // InternalSorting.g:2110:1: rule__Filter__Group__8__Impl : ( ( rule__Filter__CodeAssignment_8 ) ) ;
     public final void rule__Filter__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2140:1: ( ( '}' ) )
-            // InternalSorting.g:2141:1: ( '}' )
+            // InternalSorting.g:2114:1: ( ( ( rule__Filter__CodeAssignment_8 ) ) )
+            // InternalSorting.g:2115:1: ( ( rule__Filter__CodeAssignment_8 ) )
             {
-            // InternalSorting.g:2141:1: ( '}' )
-            // InternalSorting.g:2142:2: '}'
+            // InternalSorting.g:2115:1: ( ( rule__Filter__CodeAssignment_8 ) )
+            // InternalSorting.g:2116:2: ( rule__Filter__CodeAssignment_8 )
             {
-             before(grammarAccess.getFilterAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getFilterAccess().getRightCurlyBracketKeyword_8()); 
+             before(grammarAccess.getFilterAccess().getCodeAssignment_8()); 
+            // InternalSorting.g:2117:2: ( rule__Filter__CodeAssignment_8 )
+            // InternalSorting.g:2117:3: rule__Filter__CodeAssignment_8
+            {
+            pushFollow(FOLLOW_2);
+            rule__Filter__CodeAssignment_8();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFilterAccess().getCodeAssignment_8()); 
 
             }
 
@@ -6594,93 +6496,18 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Filter__Group__8__Impl"
 
 
-    // $ANTLR start "rule__Filter__Group_7__0"
-    // InternalSorting.g:2152:1: rule__Filter__Group_7__0 : rule__Filter__Group_7__0__Impl rule__Filter__Group_7__1 ;
-    public final void rule__Filter__Group_7__0() throws RecognitionException {
+    // $ANTLR start "rule__Filter__Group__9"
+    // InternalSorting.g:2125:1: rule__Filter__Group__9 : rule__Filter__Group__9__Impl ;
+    public final void rule__Filter__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2156:1: ( rule__Filter__Group_7__0__Impl rule__Filter__Group_7__1 )
-            // InternalSorting.g:2157:2: rule__Filter__Group_7__0__Impl rule__Filter__Group_7__1
-            {
-            pushFollow(FOLLOW_25);
-            rule__Filter__Group_7__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Filter__Group_7__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Filter__Group_7__0"
-
-
-    // $ANTLR start "rule__Filter__Group_7__0__Impl"
-    // InternalSorting.g:2164:1: rule__Filter__Group_7__0__Impl : ( 'method:' ) ;
-    public final void rule__Filter__Group_7__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2168:1: ( ( 'method:' ) )
-            // InternalSorting.g:2169:1: ( 'method:' )
-            {
-            // InternalSorting.g:2169:1: ( 'method:' )
-            // InternalSorting.g:2170:2: 'method:'
-            {
-             before(grammarAccess.getFilterAccess().getMethodKeyword_7_0()); 
-            match(input,43,FOLLOW_2); 
-             after(grammarAccess.getFilterAccess().getMethodKeyword_7_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Filter__Group_7__0__Impl"
-
-
-    // $ANTLR start "rule__Filter__Group_7__1"
-    // InternalSorting.g:2179:1: rule__Filter__Group_7__1 : rule__Filter__Group_7__1__Impl ;
-    public final void rule__Filter__Group_7__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2183:1: ( rule__Filter__Group_7__1__Impl )
-            // InternalSorting.g:2184:2: rule__Filter__Group_7__1__Impl
+            // InternalSorting.g:2129:1: ( rule__Filter__Group__9__Impl )
+            // InternalSorting.g:2130:2: rule__Filter__Group__9__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Filter__Group_7__1__Impl();
+            rule__Filter__Group__9__Impl();
 
             state._fsp--;
 
@@ -6699,35 +6526,25 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Filter__Group_7__1"
+    // $ANTLR end "rule__Filter__Group__9"
 
 
-    // $ANTLR start "rule__Filter__Group_7__1__Impl"
-    // InternalSorting.g:2190:1: rule__Filter__Group_7__1__Impl : ( ( rule__Filter__CodeAssignment_7_1 ) ) ;
-    public final void rule__Filter__Group_7__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Filter__Group__9__Impl"
+    // InternalSorting.g:2136:1: rule__Filter__Group__9__Impl : ( '}' ) ;
+    public final void rule__Filter__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2194:1: ( ( ( rule__Filter__CodeAssignment_7_1 ) ) )
-            // InternalSorting.g:2195:1: ( ( rule__Filter__CodeAssignment_7_1 ) )
+            // InternalSorting.g:2140:1: ( ( '}' ) )
+            // InternalSorting.g:2141:1: ( '}' )
             {
-            // InternalSorting.g:2195:1: ( ( rule__Filter__CodeAssignment_7_1 ) )
-            // InternalSorting.g:2196:2: ( rule__Filter__CodeAssignment_7_1 )
+            // InternalSorting.g:2141:1: ( '}' )
+            // InternalSorting.g:2142:2: '}'
             {
-             before(grammarAccess.getFilterAccess().getCodeAssignment_7_1()); 
-            // InternalSorting.g:2197:2: ( rule__Filter__CodeAssignment_7_1 )
-            // InternalSorting.g:2197:3: rule__Filter__CodeAssignment_7_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Filter__CodeAssignment_7_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFilterAccess().getCodeAssignment_7_1()); 
+             before(grammarAccess.getFilterAccess().getRightCurlyBracketKeyword_9()); 
+            match(input,32,FOLLOW_2); 
+             after(grammarAccess.getFilterAccess().getRightCurlyBracketKeyword_9()); 
 
             }
 
@@ -6746,18 +6563,18 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Filter__Group_7__1__Impl"
+    // $ANTLR end "rule__Filter__Group__9__Impl"
 
 
     // $ANTLR start "rule__Sink__Group__0"
-    // InternalSorting.g:2206:1: rule__Sink__Group__0 : rule__Sink__Group__0__Impl rule__Sink__Group__1 ;
+    // InternalSorting.g:2152:1: rule__Sink__Group__0 : rule__Sink__Group__0__Impl rule__Sink__Group__1 ;
     public final void rule__Sink__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2210:1: ( rule__Sink__Group__0__Impl rule__Sink__Group__1 )
-            // InternalSorting.g:2211:2: rule__Sink__Group__0__Impl rule__Sink__Group__1
+            // InternalSorting.g:2156:1: ( rule__Sink__Group__0__Impl rule__Sink__Group__1 )
+            // InternalSorting.g:2157:2: rule__Sink__Group__0__Impl rule__Sink__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Sink__Group__0__Impl();
@@ -6788,17 +6605,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__0__Impl"
-    // InternalSorting.g:2218:1: rule__Sink__Group__0__Impl : ( 'sink' ) ;
+    // InternalSorting.g:2164:1: rule__Sink__Group__0__Impl : ( 'sink' ) ;
     public final void rule__Sink__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2222:1: ( ( 'sink' ) )
-            // InternalSorting.g:2223:1: ( 'sink' )
+            // InternalSorting.g:2168:1: ( ( 'sink' ) )
+            // InternalSorting.g:2169:1: ( 'sink' )
             {
-            // InternalSorting.g:2223:1: ( 'sink' )
-            // InternalSorting.g:2224:2: 'sink'
+            // InternalSorting.g:2169:1: ( 'sink' )
+            // InternalSorting.g:2170:2: 'sink'
             {
              before(grammarAccess.getSinkAccess().getSinkKeyword_0()); 
             match(input,45,FOLLOW_2); 
@@ -6825,14 +6642,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__1"
-    // InternalSorting.g:2233:1: rule__Sink__Group__1 : rule__Sink__Group__1__Impl rule__Sink__Group__2 ;
+    // InternalSorting.g:2179:1: rule__Sink__Group__1 : rule__Sink__Group__1__Impl rule__Sink__Group__2 ;
     public final void rule__Sink__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2237:1: ( rule__Sink__Group__1__Impl rule__Sink__Group__2 )
-            // InternalSorting.g:2238:2: rule__Sink__Group__1__Impl rule__Sink__Group__2
+            // InternalSorting.g:2183:1: ( rule__Sink__Group__1__Impl rule__Sink__Group__2 )
+            // InternalSorting.g:2184:2: rule__Sink__Group__1__Impl rule__Sink__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Sink__Group__1__Impl();
@@ -6863,21 +6680,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__1__Impl"
-    // InternalSorting.g:2245:1: rule__Sink__Group__1__Impl : ( ( rule__Sink__NameAssignment_1 ) ) ;
+    // InternalSorting.g:2191:1: rule__Sink__Group__1__Impl : ( ( rule__Sink__NameAssignment_1 ) ) ;
     public final void rule__Sink__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2249:1: ( ( ( rule__Sink__NameAssignment_1 ) ) )
-            // InternalSorting.g:2250:1: ( ( rule__Sink__NameAssignment_1 ) )
+            // InternalSorting.g:2195:1: ( ( ( rule__Sink__NameAssignment_1 ) ) )
+            // InternalSorting.g:2196:1: ( ( rule__Sink__NameAssignment_1 ) )
             {
-            // InternalSorting.g:2250:1: ( ( rule__Sink__NameAssignment_1 ) )
-            // InternalSorting.g:2251:2: ( rule__Sink__NameAssignment_1 )
+            // InternalSorting.g:2196:1: ( ( rule__Sink__NameAssignment_1 ) )
+            // InternalSorting.g:2197:2: ( rule__Sink__NameAssignment_1 )
             {
              before(grammarAccess.getSinkAccess().getNameAssignment_1()); 
-            // InternalSorting.g:2252:2: ( rule__Sink__NameAssignment_1 )
-            // InternalSorting.g:2252:3: rule__Sink__NameAssignment_1
+            // InternalSorting.g:2198:2: ( rule__Sink__NameAssignment_1 )
+            // InternalSorting.g:2198:3: rule__Sink__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Sink__NameAssignment_1();
@@ -6910,14 +6727,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__2"
-    // InternalSorting.g:2260:1: rule__Sink__Group__2 : rule__Sink__Group__2__Impl rule__Sink__Group__3 ;
+    // InternalSorting.g:2206:1: rule__Sink__Group__2 : rule__Sink__Group__2__Impl rule__Sink__Group__3 ;
     public final void rule__Sink__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2264:1: ( rule__Sink__Group__2__Impl rule__Sink__Group__3 )
-            // InternalSorting.g:2265:2: rule__Sink__Group__2__Impl rule__Sink__Group__3
+            // InternalSorting.g:2210:1: ( rule__Sink__Group__2__Impl rule__Sink__Group__3 )
+            // InternalSorting.g:2211:2: rule__Sink__Group__2__Impl rule__Sink__Group__3
             {
             pushFollow(FOLLOW_26);
             rule__Sink__Group__2__Impl();
@@ -6948,17 +6765,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__2__Impl"
-    // InternalSorting.g:2272:1: rule__Sink__Group__2__Impl : ( '{' ) ;
+    // InternalSorting.g:2218:1: rule__Sink__Group__2__Impl : ( '{' ) ;
     public final void rule__Sink__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2276:1: ( ( '{' ) )
-            // InternalSorting.g:2277:1: ( '{' )
+            // InternalSorting.g:2222:1: ( ( '{' ) )
+            // InternalSorting.g:2223:1: ( '{' )
             {
-            // InternalSorting.g:2277:1: ( '{' )
-            // InternalSorting.g:2278:2: '{'
+            // InternalSorting.g:2223:1: ( '{' )
+            // InternalSorting.g:2224:2: '{'
             {
              before(grammarAccess.getSinkAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,30,FOLLOW_2); 
@@ -6985,14 +6802,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__3"
-    // InternalSorting.g:2287:1: rule__Sink__Group__3 : rule__Sink__Group__3__Impl rule__Sink__Group__4 ;
+    // InternalSorting.g:2233:1: rule__Sink__Group__3 : rule__Sink__Group__3__Impl rule__Sink__Group__4 ;
     public final void rule__Sink__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2291:1: ( rule__Sink__Group__3__Impl rule__Sink__Group__4 )
-            // InternalSorting.g:2292:2: rule__Sink__Group__3__Impl rule__Sink__Group__4
+            // InternalSorting.g:2237:1: ( rule__Sink__Group__3__Impl rule__Sink__Group__4 )
+            // InternalSorting.g:2238:2: rule__Sink__Group__3__Impl rule__Sink__Group__4
             {
             pushFollow(FOLLOW_22);
             rule__Sink__Group__3__Impl();
@@ -7023,20 +6840,20 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__3__Impl"
-    // InternalSorting.g:2299:1: rule__Sink__Group__3__Impl : ( 'in:' ) ;
+    // InternalSorting.g:2245:1: rule__Sink__Group__3__Impl : ( 'in:' ) ;
     public final void rule__Sink__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2303:1: ( ( 'in:' ) )
-            // InternalSorting.g:2304:1: ( 'in:' )
+            // InternalSorting.g:2249:1: ( ( 'in:' ) )
+            // InternalSorting.g:2250:1: ( 'in:' )
             {
-            // InternalSorting.g:2304:1: ( 'in:' )
-            // InternalSorting.g:2305:2: 'in:'
+            // InternalSorting.g:2250:1: ( 'in:' )
+            // InternalSorting.g:2251:2: 'in:'
             {
              before(grammarAccess.getSinkAccess().getInKeyword_3()); 
-            match(input,42,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getSinkAccess().getInKeyword_3()); 
 
             }
@@ -7060,14 +6877,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__4"
-    // InternalSorting.g:2314:1: rule__Sink__Group__4 : rule__Sink__Group__4__Impl rule__Sink__Group__5 ;
+    // InternalSorting.g:2260:1: rule__Sink__Group__4 : rule__Sink__Group__4__Impl rule__Sink__Group__5 ;
     public final void rule__Sink__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2318:1: ( rule__Sink__Group__4__Impl rule__Sink__Group__5 )
-            // InternalSorting.g:2319:2: rule__Sink__Group__4__Impl rule__Sink__Group__5
+            // InternalSorting.g:2264:1: ( rule__Sink__Group__4__Impl rule__Sink__Group__5 )
+            // InternalSorting.g:2265:2: rule__Sink__Group__4__Impl rule__Sink__Group__5
             {
             pushFollow(FOLLOW_28);
             rule__Sink__Group__4__Impl();
@@ -7098,24 +6915,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__4__Impl"
-    // InternalSorting.g:2326:1: rule__Sink__Group__4__Impl : ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) ) ;
+    // InternalSorting.g:2272:1: rule__Sink__Group__4__Impl : ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) ) ;
     public final void rule__Sink__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2330:1: ( ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) ) )
-            // InternalSorting.g:2331:1: ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) )
+            // InternalSorting.g:2276:1: ( ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) ) )
+            // InternalSorting.g:2277:1: ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) )
             {
-            // InternalSorting.g:2331:1: ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) )
-            // InternalSorting.g:2332:2: ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* )
+            // InternalSorting.g:2277:1: ( ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* ) )
+            // InternalSorting.g:2278:2: ( ( rule__Sink__InPortsAssignment_4 ) ) ( ( rule__Sink__InPortsAssignment_4 )* )
             {
-            // InternalSorting.g:2332:2: ( ( rule__Sink__InPortsAssignment_4 ) )
-            // InternalSorting.g:2333:3: ( rule__Sink__InPortsAssignment_4 )
+            // InternalSorting.g:2278:2: ( ( rule__Sink__InPortsAssignment_4 ) )
+            // InternalSorting.g:2279:3: ( rule__Sink__InPortsAssignment_4 )
             {
              before(grammarAccess.getSinkAccess().getInPortsAssignment_4()); 
-            // InternalSorting.g:2334:3: ( rule__Sink__InPortsAssignment_4 )
-            // InternalSorting.g:2334:4: rule__Sink__InPortsAssignment_4
+            // InternalSorting.g:2280:3: ( rule__Sink__InPortsAssignment_4 )
+            // InternalSorting.g:2280:4: rule__Sink__InPortsAssignment_4
             {
             pushFollow(FOLLOW_24);
             rule__Sink__InPortsAssignment_4();
@@ -7129,24 +6946,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalSorting.g:2337:2: ( ( rule__Sink__InPortsAssignment_4 )* )
-            // InternalSorting.g:2338:3: ( rule__Sink__InPortsAssignment_4 )*
+            // InternalSorting.g:2283:2: ( ( rule__Sink__InPortsAssignment_4 )* )
+            // InternalSorting.g:2284:3: ( rule__Sink__InPortsAssignment_4 )*
             {
              before(grammarAccess.getSinkAccess().getInPortsAssignment_4()); 
-            // InternalSorting.g:2339:3: ( rule__Sink__InPortsAssignment_4 )*
-            loop18:
+            // InternalSorting.g:2285:3: ( rule__Sink__InPortsAssignment_4 )*
+            loop16:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA18_0==39) ) {
-                    alt18=1;
+                if ( (LA16_0==39) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt16) {
             	case 1 :
-            	    // InternalSorting.g:2339:4: rule__Sink__InPortsAssignment_4
+            	    // InternalSorting.g:2285:4: rule__Sink__InPortsAssignment_4
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__Sink__InPortsAssignment_4();
@@ -7158,7 +6975,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop18;
+            	    break loop16;
                 }
             } while (true);
 
@@ -7188,14 +7005,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__5"
-    // InternalSorting.g:2348:1: rule__Sink__Group__5 : rule__Sink__Group__5__Impl rule__Sink__Group__6 ;
+    // InternalSorting.g:2294:1: rule__Sink__Group__5 : rule__Sink__Group__5__Impl rule__Sink__Group__6 ;
     public final void rule__Sink__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2352:1: ( rule__Sink__Group__5__Impl rule__Sink__Group__6 )
-            // InternalSorting.g:2353:2: rule__Sink__Group__5__Impl rule__Sink__Group__6
+            // InternalSorting.g:2298:1: ( rule__Sink__Group__5__Impl rule__Sink__Group__6 )
+            // InternalSorting.g:2299:2: rule__Sink__Group__5__Impl rule__Sink__Group__6
             {
             pushFollow(FOLLOW_28);
             rule__Sink__Group__5__Impl();
@@ -7226,29 +7043,29 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__5__Impl"
-    // InternalSorting.g:2360:1: rule__Sink__Group__5__Impl : ( ( rule__Sink__Group_5__0 )? ) ;
+    // InternalSorting.g:2306:1: rule__Sink__Group__5__Impl : ( ( rule__Sink__Group_5__0 )? ) ;
     public final void rule__Sink__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2364:1: ( ( ( rule__Sink__Group_5__0 )? ) )
-            // InternalSorting.g:2365:1: ( ( rule__Sink__Group_5__0 )? )
+            // InternalSorting.g:2310:1: ( ( ( rule__Sink__Group_5__0 )? ) )
+            // InternalSorting.g:2311:1: ( ( rule__Sink__Group_5__0 )? )
             {
-            // InternalSorting.g:2365:1: ( ( rule__Sink__Group_5__0 )? )
-            // InternalSorting.g:2366:2: ( rule__Sink__Group_5__0 )?
+            // InternalSorting.g:2311:1: ( ( rule__Sink__Group_5__0 )? )
+            // InternalSorting.g:2312:2: ( rule__Sink__Group_5__0 )?
             {
              before(grammarAccess.getSinkAccess().getGroup_5()); 
-            // InternalSorting.g:2367:2: ( rule__Sink__Group_5__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalSorting.g:2313:2: ( rule__Sink__Group_5__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA19_0==41) ) {
-                alt19=1;
+            if ( (LA17_0==41) ) {
+                alt17=1;
             }
-            switch (alt19) {
+            switch (alt17) {
                 case 1 :
-                    // InternalSorting.g:2367:3: rule__Sink__Group_5__0
+                    // InternalSorting.g:2313:3: rule__Sink__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Sink__Group_5__0();
@@ -7284,16 +7101,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__6"
-    // InternalSorting.g:2375:1: rule__Sink__Group__6 : rule__Sink__Group__6__Impl rule__Sink__Group__7 ;
+    // InternalSorting.g:2321:1: rule__Sink__Group__6 : rule__Sink__Group__6__Impl rule__Sink__Group__7 ;
     public final void rule__Sink__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2379:1: ( rule__Sink__Group__6__Impl rule__Sink__Group__7 )
-            // InternalSorting.g:2380:2: rule__Sink__Group__6__Impl rule__Sink__Group__7
+            // InternalSorting.g:2325:1: ( rule__Sink__Group__6__Impl rule__Sink__Group__7 )
+            // InternalSorting.g:2326:2: rule__Sink__Group__6__Impl rule__Sink__Group__7
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_25);
             rule__Sink__Group__6__Impl();
 
             state._fsp--;
@@ -7322,42 +7139,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__6__Impl"
-    // InternalSorting.g:2387:1: rule__Sink__Group__6__Impl : ( ( rule__Sink__Group_6__0 )? ) ;
+    // InternalSorting.g:2333:1: rule__Sink__Group__6__Impl : ( 'method:' ) ;
     public final void rule__Sink__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2391:1: ( ( ( rule__Sink__Group_6__0 )? ) )
-            // InternalSorting.g:2392:1: ( ( rule__Sink__Group_6__0 )? )
+            // InternalSorting.g:2337:1: ( ( 'method:' ) )
+            // InternalSorting.g:2338:1: ( 'method:' )
             {
-            // InternalSorting.g:2392:1: ( ( rule__Sink__Group_6__0 )? )
-            // InternalSorting.g:2393:2: ( rule__Sink__Group_6__0 )?
+            // InternalSorting.g:2338:1: ( 'method:' )
+            // InternalSorting.g:2339:2: 'method:'
             {
-             before(grammarAccess.getSinkAccess().getGroup_6()); 
-            // InternalSorting.g:2394:2: ( rule__Sink__Group_6__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
-
-            if ( (LA20_0==43) ) {
-                alt20=1;
-            }
-            switch (alt20) {
-                case 1 :
-                    // InternalSorting.g:2394:3: rule__Sink__Group_6__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Sink__Group_6__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getSinkAccess().getGroup_6()); 
+             before(grammarAccess.getSinkAccess().getMethodKeyword_6()); 
+            match(input,42,FOLLOW_2); 
+             after(grammarAccess.getSinkAccess().getMethodKeyword_6()); 
 
             }
 
@@ -7380,17 +7176,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__7"
-    // InternalSorting.g:2402:1: rule__Sink__Group__7 : rule__Sink__Group__7__Impl ;
+    // InternalSorting.g:2348:1: rule__Sink__Group__7 : rule__Sink__Group__7__Impl rule__Sink__Group__8 ;
     public final void rule__Sink__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2406:1: ( rule__Sink__Group__7__Impl )
-            // InternalSorting.g:2407:2: rule__Sink__Group__7__Impl
+            // InternalSorting.g:2352:1: ( rule__Sink__Group__7__Impl rule__Sink__Group__8 )
+            // InternalSorting.g:2353:2: rule__Sink__Group__7__Impl rule__Sink__Group__8
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_9);
             rule__Sink__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Sink__Group__8();
 
             state._fsp--;
 
@@ -7413,21 +7214,31 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group__7__Impl"
-    // InternalSorting.g:2413:1: rule__Sink__Group__7__Impl : ( '}' ) ;
+    // InternalSorting.g:2360:1: rule__Sink__Group__7__Impl : ( ( rule__Sink__CodeAssignment_7 ) ) ;
     public final void rule__Sink__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2417:1: ( ( '}' ) )
-            // InternalSorting.g:2418:1: ( '}' )
+            // InternalSorting.g:2364:1: ( ( ( rule__Sink__CodeAssignment_7 ) ) )
+            // InternalSorting.g:2365:1: ( ( rule__Sink__CodeAssignment_7 ) )
             {
-            // InternalSorting.g:2418:1: ( '}' )
-            // InternalSorting.g:2419:2: '}'
+            // InternalSorting.g:2365:1: ( ( rule__Sink__CodeAssignment_7 ) )
+            // InternalSorting.g:2366:2: ( rule__Sink__CodeAssignment_7 )
             {
-             before(grammarAccess.getSinkAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getSinkAccess().getRightCurlyBracketKeyword_7()); 
+             before(grammarAccess.getSinkAccess().getCodeAssignment_7()); 
+            // InternalSorting.g:2367:2: ( rule__Sink__CodeAssignment_7 )
+            // InternalSorting.g:2367:3: rule__Sink__CodeAssignment_7
+            {
+            pushFollow(FOLLOW_2);
+            rule__Sink__CodeAssignment_7();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSinkAccess().getCodeAssignment_7()); 
 
             }
 
@@ -7449,15 +7260,85 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Sink__Group__7__Impl"
 
 
+    // $ANTLR start "rule__Sink__Group__8"
+    // InternalSorting.g:2375:1: rule__Sink__Group__8 : rule__Sink__Group__8__Impl ;
+    public final void rule__Sink__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSorting.g:2379:1: ( rule__Sink__Group__8__Impl )
+            // InternalSorting.g:2380:2: rule__Sink__Group__8__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Sink__Group__8__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Sink__Group__8"
+
+
+    // $ANTLR start "rule__Sink__Group__8__Impl"
+    // InternalSorting.g:2386:1: rule__Sink__Group__8__Impl : ( '}' ) ;
+    public final void rule__Sink__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSorting.g:2390:1: ( ( '}' ) )
+            // InternalSorting.g:2391:1: ( '}' )
+            {
+            // InternalSorting.g:2391:1: ( '}' )
+            // InternalSorting.g:2392:2: '}'
+            {
+             before(grammarAccess.getSinkAccess().getRightCurlyBracketKeyword_8()); 
+            match(input,32,FOLLOW_2); 
+             after(grammarAccess.getSinkAccess().getRightCurlyBracketKeyword_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Sink__Group__8__Impl"
+
+
     // $ANTLR start "rule__Sink__Group_5__0"
-    // InternalSorting.g:2429:1: rule__Sink__Group_5__0 : rule__Sink__Group_5__0__Impl rule__Sink__Group_5__1 ;
+    // InternalSorting.g:2402:1: rule__Sink__Group_5__0 : rule__Sink__Group_5__0__Impl rule__Sink__Group_5__1 ;
     public final void rule__Sink__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2433:1: ( rule__Sink__Group_5__0__Impl rule__Sink__Group_5__1 )
-            // InternalSorting.g:2434:2: rule__Sink__Group_5__0__Impl rule__Sink__Group_5__1
+            // InternalSorting.g:2406:1: ( rule__Sink__Group_5__0__Impl rule__Sink__Group_5__1 )
+            // InternalSorting.g:2407:2: rule__Sink__Group_5__0__Impl rule__Sink__Group_5__1
             {
             pushFollow(FOLLOW_22);
             rule__Sink__Group_5__0__Impl();
@@ -7488,17 +7369,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group_5__0__Impl"
-    // InternalSorting.g:2441:1: rule__Sink__Group_5__0__Impl : ( 'out:' ) ;
+    // InternalSorting.g:2414:1: rule__Sink__Group_5__0__Impl : ( 'out:' ) ;
     public final void rule__Sink__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2445:1: ( ( 'out:' ) )
-            // InternalSorting.g:2446:1: ( 'out:' )
+            // InternalSorting.g:2418:1: ( ( 'out:' ) )
+            // InternalSorting.g:2419:1: ( 'out:' )
             {
-            // InternalSorting.g:2446:1: ( 'out:' )
-            // InternalSorting.g:2447:2: 'out:'
+            // InternalSorting.g:2419:1: ( 'out:' )
+            // InternalSorting.g:2420:2: 'out:'
             {
              before(grammarAccess.getSinkAccess().getOutKeyword_5_0()); 
             match(input,41,FOLLOW_2); 
@@ -7525,14 +7406,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group_5__1"
-    // InternalSorting.g:2456:1: rule__Sink__Group_5__1 : rule__Sink__Group_5__1__Impl ;
+    // InternalSorting.g:2429:1: rule__Sink__Group_5__1 : rule__Sink__Group_5__1__Impl ;
     public final void rule__Sink__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2460:1: ( rule__Sink__Group_5__1__Impl )
-            // InternalSorting.g:2461:2: rule__Sink__Group_5__1__Impl
+            // InternalSorting.g:2433:1: ( rule__Sink__Group_5__1__Impl )
+            // InternalSorting.g:2434:2: rule__Sink__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Sink__Group_5__1__Impl();
@@ -7558,24 +7439,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__Group_5__1__Impl"
-    // InternalSorting.g:2467:1: rule__Sink__Group_5__1__Impl : ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) ) ;
+    // InternalSorting.g:2440:1: rule__Sink__Group_5__1__Impl : ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) ) ;
     public final void rule__Sink__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2471:1: ( ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) ) )
-            // InternalSorting.g:2472:1: ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) )
+            // InternalSorting.g:2444:1: ( ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) ) )
+            // InternalSorting.g:2445:1: ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) )
             {
-            // InternalSorting.g:2472:1: ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) )
-            // InternalSorting.g:2473:2: ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* )
+            // InternalSorting.g:2445:1: ( ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* ) )
+            // InternalSorting.g:2446:2: ( ( rule__Sink__OutPortsAssignment_5_1 ) ) ( ( rule__Sink__OutPortsAssignment_5_1 )* )
             {
-            // InternalSorting.g:2473:2: ( ( rule__Sink__OutPortsAssignment_5_1 ) )
-            // InternalSorting.g:2474:3: ( rule__Sink__OutPortsAssignment_5_1 )
+            // InternalSorting.g:2446:2: ( ( rule__Sink__OutPortsAssignment_5_1 ) )
+            // InternalSorting.g:2447:3: ( rule__Sink__OutPortsAssignment_5_1 )
             {
              before(grammarAccess.getSinkAccess().getOutPortsAssignment_5_1()); 
-            // InternalSorting.g:2475:3: ( rule__Sink__OutPortsAssignment_5_1 )
-            // InternalSorting.g:2475:4: rule__Sink__OutPortsAssignment_5_1
+            // InternalSorting.g:2448:3: ( rule__Sink__OutPortsAssignment_5_1 )
+            // InternalSorting.g:2448:4: rule__Sink__OutPortsAssignment_5_1
             {
             pushFollow(FOLLOW_24);
             rule__Sink__OutPortsAssignment_5_1();
@@ -7589,24 +7470,24 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalSorting.g:2478:2: ( ( rule__Sink__OutPortsAssignment_5_1 )* )
-            // InternalSorting.g:2479:3: ( rule__Sink__OutPortsAssignment_5_1 )*
+            // InternalSorting.g:2451:2: ( ( rule__Sink__OutPortsAssignment_5_1 )* )
+            // InternalSorting.g:2452:3: ( rule__Sink__OutPortsAssignment_5_1 )*
             {
              before(grammarAccess.getSinkAccess().getOutPortsAssignment_5_1()); 
-            // InternalSorting.g:2480:3: ( rule__Sink__OutPortsAssignment_5_1 )*
-            loop21:
+            // InternalSorting.g:2453:3: ( rule__Sink__OutPortsAssignment_5_1 )*
+            loop18:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA21_0==39) ) {
-                    alt21=1;
+                if ( (LA18_0==39) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalSorting.g:2480:4: rule__Sink__OutPortsAssignment_5_1
+            	    // InternalSorting.g:2453:4: rule__Sink__OutPortsAssignment_5_1
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__Sink__OutPortsAssignment_5_1();
@@ -7618,7 +7499,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop18;
                 }
             } while (true);
 
@@ -7647,170 +7528,15 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Sink__Group_5__1__Impl"
 
 
-    // $ANTLR start "rule__Sink__Group_6__0"
-    // InternalSorting.g:2490:1: rule__Sink__Group_6__0 : rule__Sink__Group_6__0__Impl rule__Sink__Group_6__1 ;
-    public final void rule__Sink__Group_6__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2494:1: ( rule__Sink__Group_6__0__Impl rule__Sink__Group_6__1 )
-            // InternalSorting.g:2495:2: rule__Sink__Group_6__0__Impl rule__Sink__Group_6__1
-            {
-            pushFollow(FOLLOW_25);
-            rule__Sink__Group_6__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Sink__Group_6__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Sink__Group_6__0"
-
-
-    // $ANTLR start "rule__Sink__Group_6__0__Impl"
-    // InternalSorting.g:2502:1: rule__Sink__Group_6__0__Impl : ( 'method:' ) ;
-    public final void rule__Sink__Group_6__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2506:1: ( ( 'method:' ) )
-            // InternalSorting.g:2507:1: ( 'method:' )
-            {
-            // InternalSorting.g:2507:1: ( 'method:' )
-            // InternalSorting.g:2508:2: 'method:'
-            {
-             before(grammarAccess.getSinkAccess().getMethodKeyword_6_0()); 
-            match(input,43,FOLLOW_2); 
-             after(grammarAccess.getSinkAccess().getMethodKeyword_6_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Sink__Group_6__0__Impl"
-
-
-    // $ANTLR start "rule__Sink__Group_6__1"
-    // InternalSorting.g:2517:1: rule__Sink__Group_6__1 : rule__Sink__Group_6__1__Impl ;
-    public final void rule__Sink__Group_6__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2521:1: ( rule__Sink__Group_6__1__Impl )
-            // InternalSorting.g:2522:2: rule__Sink__Group_6__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Sink__Group_6__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Sink__Group_6__1"
-
-
-    // $ANTLR start "rule__Sink__Group_6__1__Impl"
-    // InternalSorting.g:2528:1: rule__Sink__Group_6__1__Impl : ( ( rule__Sink__CodeAssignment_6_1 ) ) ;
-    public final void rule__Sink__Group_6__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2532:1: ( ( ( rule__Sink__CodeAssignment_6_1 ) ) )
-            // InternalSorting.g:2533:1: ( ( rule__Sink__CodeAssignment_6_1 ) )
-            {
-            // InternalSorting.g:2533:1: ( ( rule__Sink__CodeAssignment_6_1 ) )
-            // InternalSorting.g:2534:2: ( rule__Sink__CodeAssignment_6_1 )
-            {
-             before(grammarAccess.getSinkAccess().getCodeAssignment_6_1()); 
-            // InternalSorting.g:2535:2: ( rule__Sink__CodeAssignment_6_1 )
-            // InternalSorting.g:2535:3: rule__Sink__CodeAssignment_6_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Sink__CodeAssignment_6_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSinkAccess().getCodeAssignment_6_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Sink__Group_6__1__Impl"
-
-
     // $ANTLR start "rule__Instance__Group__0"
-    // InternalSorting.g:2544:1: rule__Instance__Group__0 : rule__Instance__Group__0__Impl rule__Instance__Group__1 ;
+    // InternalSorting.g:2463:1: rule__Instance__Group__0 : rule__Instance__Group__0__Impl rule__Instance__Group__1 ;
     public final void rule__Instance__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2548:1: ( rule__Instance__Group__0__Impl rule__Instance__Group__1 )
-            // InternalSorting.g:2549:2: rule__Instance__Group__0__Impl rule__Instance__Group__1
+            // InternalSorting.g:2467:1: ( rule__Instance__Group__0__Impl rule__Instance__Group__1 )
+            // InternalSorting.g:2468:2: rule__Instance__Group__0__Impl rule__Instance__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Instance__Group__0__Impl();
@@ -7841,21 +7567,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instance__Group__0__Impl"
-    // InternalSorting.g:2556:1: rule__Instance__Group__0__Impl : ( ( rule__Instance__ComponentAssignment_0 ) ) ;
+    // InternalSorting.g:2475:1: rule__Instance__Group__0__Impl : ( ( rule__Instance__ComponentAssignment_0 ) ) ;
     public final void rule__Instance__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2560:1: ( ( ( rule__Instance__ComponentAssignment_0 ) ) )
-            // InternalSorting.g:2561:1: ( ( rule__Instance__ComponentAssignment_0 ) )
+            // InternalSorting.g:2479:1: ( ( ( rule__Instance__ComponentAssignment_0 ) ) )
+            // InternalSorting.g:2480:1: ( ( rule__Instance__ComponentAssignment_0 ) )
             {
-            // InternalSorting.g:2561:1: ( ( rule__Instance__ComponentAssignment_0 ) )
-            // InternalSorting.g:2562:2: ( rule__Instance__ComponentAssignment_0 )
+            // InternalSorting.g:2480:1: ( ( rule__Instance__ComponentAssignment_0 ) )
+            // InternalSorting.g:2481:2: ( rule__Instance__ComponentAssignment_0 )
             {
              before(grammarAccess.getInstanceAccess().getComponentAssignment_0()); 
-            // InternalSorting.g:2563:2: ( rule__Instance__ComponentAssignment_0 )
-            // InternalSorting.g:2563:3: rule__Instance__ComponentAssignment_0
+            // InternalSorting.g:2482:2: ( rule__Instance__ComponentAssignment_0 )
+            // InternalSorting.g:2482:3: rule__Instance__ComponentAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Instance__ComponentAssignment_0();
@@ -7888,16 +7614,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instance__Group__1"
-    // InternalSorting.g:2571:1: rule__Instance__Group__1 : rule__Instance__Group__1__Impl rule__Instance__Group__2 ;
+    // InternalSorting.g:2490:1: rule__Instance__Group__1 : rule__Instance__Group__1__Impl rule__Instance__Group__2 ;
     public final void rule__Instance__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2575:1: ( rule__Instance__Group__1__Impl rule__Instance__Group__2 )
-            // InternalSorting.g:2576:2: rule__Instance__Group__1__Impl rule__Instance__Group__2
+            // InternalSorting.g:2494:1: ( rule__Instance__Group__1__Impl rule__Instance__Group__2 )
+            // InternalSorting.g:2495:2: rule__Instance__Group__1__Impl rule__Instance__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_25);
             rule__Instance__Group__1__Impl();
 
             state._fsp--;
@@ -7926,21 +7652,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instance__Group__1__Impl"
-    // InternalSorting.g:2583:1: rule__Instance__Group__1__Impl : ( ( rule__Instance__NameAssignment_1 ) ) ;
+    // InternalSorting.g:2502:1: rule__Instance__Group__1__Impl : ( ( rule__Instance__NameAssignment_1 ) ) ;
     public final void rule__Instance__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2587:1: ( ( ( rule__Instance__NameAssignment_1 ) ) )
-            // InternalSorting.g:2588:1: ( ( rule__Instance__NameAssignment_1 ) )
+            // InternalSorting.g:2506:1: ( ( ( rule__Instance__NameAssignment_1 ) ) )
+            // InternalSorting.g:2507:1: ( ( rule__Instance__NameAssignment_1 ) )
             {
-            // InternalSorting.g:2588:1: ( ( rule__Instance__NameAssignment_1 ) )
-            // InternalSorting.g:2589:2: ( rule__Instance__NameAssignment_1 )
+            // InternalSorting.g:2507:1: ( ( rule__Instance__NameAssignment_1 ) )
+            // InternalSorting.g:2508:2: ( rule__Instance__NameAssignment_1 )
             {
              before(grammarAccess.getInstanceAccess().getNameAssignment_1()); 
-            // InternalSorting.g:2590:2: ( rule__Instance__NameAssignment_1 )
-            // InternalSorting.g:2590:3: rule__Instance__NameAssignment_1
+            // InternalSorting.g:2509:2: ( rule__Instance__NameAssignment_1 )
+            // InternalSorting.g:2509:3: rule__Instance__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Instance__NameAssignment_1();
@@ -7973,22 +7699,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instance__Group__2"
-    // InternalSorting.g:2598:1: rule__Instance__Group__2 : rule__Instance__Group__2__Impl rule__Instance__Group__3 ;
+    // InternalSorting.g:2517:1: rule__Instance__Group__2 : rule__Instance__Group__2__Impl ;
     public final void rule__Instance__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2602:1: ( rule__Instance__Group__2__Impl rule__Instance__Group__3 )
-            // InternalSorting.g:2603:2: rule__Instance__Group__2__Impl rule__Instance__Group__3
+            // InternalSorting.g:2521:1: ( rule__Instance__Group__2__Impl )
+            // InternalSorting.g:2522:2: rule__Instance__Group__2__Impl
             {
-            pushFollow(FOLLOW_25);
-            rule__Instance__Group__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Instance__Group__3();
+            rule__Instance__Group__2__Impl();
 
             state._fsp--;
 
@@ -8011,21 +7732,42 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instance__Group__2__Impl"
-    // InternalSorting.g:2610:1: rule__Instance__Group__2__Impl : ( 'call:' ) ;
+    // InternalSorting.g:2528:1: rule__Instance__Group__2__Impl : ( ( rule__Instance__CodeAssignment_2 )? ) ;
     public final void rule__Instance__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2614:1: ( ( 'call:' ) )
-            // InternalSorting.g:2615:1: ( 'call:' )
+            // InternalSorting.g:2532:1: ( ( ( rule__Instance__CodeAssignment_2 )? ) )
+            // InternalSorting.g:2533:1: ( ( rule__Instance__CodeAssignment_2 )? )
             {
-            // InternalSorting.g:2615:1: ( 'call:' )
-            // InternalSorting.g:2616:2: 'call:'
+            // InternalSorting.g:2533:1: ( ( rule__Instance__CodeAssignment_2 )? )
+            // InternalSorting.g:2534:2: ( rule__Instance__CodeAssignment_2 )?
             {
-             before(grammarAccess.getInstanceAccess().getCallKeyword_2()); 
-            match(input,46,FOLLOW_2); 
-             after(grammarAccess.getInstanceAccess().getCallKeyword_2()); 
+             before(grammarAccess.getInstanceAccess().getCodeAssignment_2()); 
+            // InternalSorting.g:2535:2: ( rule__Instance__CodeAssignment_2 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
+
+            if ( (LA19_0==RULE_CODE) ) {
+                alt19=1;
+            }
+            switch (alt19) {
+                case 1 :
+                    // InternalSorting.g:2535:3: rule__Instance__CodeAssignment_2
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Instance__CodeAssignment_2();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getInstanceAccess().getCodeAssignment_2()); 
 
             }
 
@@ -8047,95 +7789,15 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Instance__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Instance__Group__3"
-    // InternalSorting.g:2625:1: rule__Instance__Group__3 : rule__Instance__Group__3__Impl ;
-    public final void rule__Instance__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2629:1: ( rule__Instance__Group__3__Impl )
-            // InternalSorting.g:2630:2: rule__Instance__Group__3__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Instance__Group__3__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Instance__Group__3"
-
-
-    // $ANTLR start "rule__Instance__Group__3__Impl"
-    // InternalSorting.g:2636:1: rule__Instance__Group__3__Impl : ( ( rule__Instance__CodeAssignment_3 ) ) ;
-    public final void rule__Instance__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSorting.g:2640:1: ( ( ( rule__Instance__CodeAssignment_3 ) ) )
-            // InternalSorting.g:2641:1: ( ( rule__Instance__CodeAssignment_3 ) )
-            {
-            // InternalSorting.g:2641:1: ( ( rule__Instance__CodeAssignment_3 ) )
-            // InternalSorting.g:2642:2: ( rule__Instance__CodeAssignment_3 )
-            {
-             before(grammarAccess.getInstanceAccess().getCodeAssignment_3()); 
-            // InternalSorting.g:2643:2: ( rule__Instance__CodeAssignment_3 )
-            // InternalSorting.g:2643:3: rule__Instance__CodeAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Instance__CodeAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getInstanceAccess().getCodeAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Instance__Group__3__Impl"
-
-
     // $ANTLR start "rule__Transition__Group__0"
-    // InternalSorting.g:2652:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
+    // InternalSorting.g:2544:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
     public final void rule__Transition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2656:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
-            // InternalSorting.g:2657:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
+            // InternalSorting.g:2548:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
+            // InternalSorting.g:2549:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Transition__Group__0__Impl();
@@ -8166,17 +7828,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__0__Impl"
-    // InternalSorting.g:2664:1: rule__Transition__Group__0__Impl : ( '[' ) ;
+    // InternalSorting.g:2556:1: rule__Transition__Group__0__Impl : ( '[' ) ;
     public final void rule__Transition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2668:1: ( ( '[' ) )
-            // InternalSorting.g:2669:1: ( '[' )
+            // InternalSorting.g:2560:1: ( ( '[' ) )
+            // InternalSorting.g:2561:1: ( '[' )
             {
-            // InternalSorting.g:2669:1: ( '[' )
-            // InternalSorting.g:2670:2: '['
+            // InternalSorting.g:2561:1: ( '[' )
+            // InternalSorting.g:2562:2: '['
             {
              before(grammarAccess.getTransitionAccess().getLeftSquareBracketKeyword_0()); 
             match(input,18,FOLLOW_2); 
@@ -8203,16 +7865,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__1"
-    // InternalSorting.g:2679:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
+    // InternalSorting.g:2571:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
     public final void rule__Transition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2683:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
-            // InternalSorting.g:2684:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
+            // InternalSorting.g:2575:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
+            // InternalSorting.g:2576:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__Transition__Group__1__Impl();
 
             state._fsp--;
@@ -8241,21 +7903,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__1__Impl"
-    // InternalSorting.g:2691:1: rule__Transition__Group__1__Impl : ( ( rule__Transition__SourceAssignment_1 ) ) ;
+    // InternalSorting.g:2583:1: rule__Transition__Group__1__Impl : ( ( rule__Transition__SourceAssignment_1 ) ) ;
     public final void rule__Transition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2695:1: ( ( ( rule__Transition__SourceAssignment_1 ) ) )
-            // InternalSorting.g:2696:1: ( ( rule__Transition__SourceAssignment_1 ) )
+            // InternalSorting.g:2587:1: ( ( ( rule__Transition__SourceAssignment_1 ) ) )
+            // InternalSorting.g:2588:1: ( ( rule__Transition__SourceAssignment_1 ) )
             {
-            // InternalSorting.g:2696:1: ( ( rule__Transition__SourceAssignment_1 ) )
-            // InternalSorting.g:2697:2: ( rule__Transition__SourceAssignment_1 )
+            // InternalSorting.g:2588:1: ( ( rule__Transition__SourceAssignment_1 ) )
+            // InternalSorting.g:2589:2: ( rule__Transition__SourceAssignment_1 )
             {
              before(grammarAccess.getTransitionAccess().getSourceAssignment_1()); 
-            // InternalSorting.g:2698:2: ( rule__Transition__SourceAssignment_1 )
-            // InternalSorting.g:2698:3: rule__Transition__SourceAssignment_1
+            // InternalSorting.g:2590:2: ( rule__Transition__SourceAssignment_1 )
+            // InternalSorting.g:2590:3: rule__Transition__SourceAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__SourceAssignment_1();
@@ -8288,14 +7950,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__2"
-    // InternalSorting.g:2706:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
+    // InternalSorting.g:2598:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
     public final void rule__Transition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2710:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
-            // InternalSorting.g:2711:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
+            // InternalSorting.g:2602:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
+            // InternalSorting.g:2603:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__Transition__Group__2__Impl();
@@ -8326,17 +7988,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__2__Impl"
-    // InternalSorting.g:2718:1: rule__Transition__Group__2__Impl : ( ',' ) ;
+    // InternalSorting.g:2610:1: rule__Transition__Group__2__Impl : ( ',' ) ;
     public final void rule__Transition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2722:1: ( ( ',' ) )
-            // InternalSorting.g:2723:1: ( ',' )
+            // InternalSorting.g:2614:1: ( ( ',' ) )
+            // InternalSorting.g:2615:1: ( ',' )
             {
-            // InternalSorting.g:2723:1: ( ',' )
-            // InternalSorting.g:2724:2: ','
+            // InternalSorting.g:2615:1: ( ',' )
+            // InternalSorting.g:2616:2: ','
             {
              before(grammarAccess.getTransitionAccess().getCommaKeyword_2()); 
             match(input,14,FOLLOW_2); 
@@ -8363,16 +8025,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__3"
-    // InternalSorting.g:2733:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl rule__Transition__Group__4 ;
+    // InternalSorting.g:2625:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl rule__Transition__Group__4 ;
     public final void rule__Transition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2737:1: ( rule__Transition__Group__3__Impl rule__Transition__Group__4 )
-            // InternalSorting.g:2738:2: rule__Transition__Group__3__Impl rule__Transition__Group__4
+            // InternalSorting.g:2629:1: ( rule__Transition__Group__3__Impl rule__Transition__Group__4 )
+            // InternalSorting.g:2630:2: rule__Transition__Group__3__Impl rule__Transition__Group__4
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__Transition__Group__3__Impl();
 
             state._fsp--;
@@ -8401,31 +8063,31 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__3__Impl"
-    // InternalSorting.g:2745:1: rule__Transition__Group__3__Impl : ( ( rule__Transition__TargetPortAssignment_3 ) ) ;
+    // InternalSorting.g:2637:1: rule__Transition__Group__3__Impl : ( ( rule__Transition__SourcePortAssignment_3 ) ) ;
     public final void rule__Transition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2749:1: ( ( ( rule__Transition__TargetPortAssignment_3 ) ) )
-            // InternalSorting.g:2750:1: ( ( rule__Transition__TargetPortAssignment_3 ) )
+            // InternalSorting.g:2641:1: ( ( ( rule__Transition__SourcePortAssignment_3 ) ) )
+            // InternalSorting.g:2642:1: ( ( rule__Transition__SourcePortAssignment_3 ) )
             {
-            // InternalSorting.g:2750:1: ( ( rule__Transition__TargetPortAssignment_3 ) )
-            // InternalSorting.g:2751:2: ( rule__Transition__TargetPortAssignment_3 )
+            // InternalSorting.g:2642:1: ( ( rule__Transition__SourcePortAssignment_3 ) )
+            // InternalSorting.g:2643:2: ( rule__Transition__SourcePortAssignment_3 )
             {
-             before(grammarAccess.getTransitionAccess().getTargetPortAssignment_3()); 
-            // InternalSorting.g:2752:2: ( rule__Transition__TargetPortAssignment_3 )
-            // InternalSorting.g:2752:3: rule__Transition__TargetPortAssignment_3
+             before(grammarAccess.getTransitionAccess().getSourcePortAssignment_3()); 
+            // InternalSorting.g:2644:2: ( rule__Transition__SourcePortAssignment_3 )
+            // InternalSorting.g:2644:3: rule__Transition__SourcePortAssignment_3
             {
             pushFollow(FOLLOW_2);
-            rule__Transition__TargetPortAssignment_3();
+            rule__Transition__SourcePortAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTransitionAccess().getTargetPortAssignment_3()); 
+             after(grammarAccess.getTransitionAccess().getSourcePortAssignment_3()); 
 
             }
 
@@ -8448,16 +8110,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__4"
-    // InternalSorting.g:2760:1: rule__Transition__Group__4 : rule__Transition__Group__4__Impl rule__Transition__Group__5 ;
+    // InternalSorting.g:2652:1: rule__Transition__Group__4 : rule__Transition__Group__4__Impl rule__Transition__Group__5 ;
     public final void rule__Transition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2764:1: ( rule__Transition__Group__4__Impl rule__Transition__Group__5 )
-            // InternalSorting.g:2765:2: rule__Transition__Group__4__Impl rule__Transition__Group__5
+            // InternalSorting.g:2656:1: ( rule__Transition__Group__4__Impl rule__Transition__Group__5 )
+            // InternalSorting.g:2657:2: rule__Transition__Group__4__Impl rule__Transition__Group__5
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__Transition__Group__4__Impl();
 
             state._fsp--;
@@ -8486,17 +8148,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__4__Impl"
-    // InternalSorting.g:2772:1: rule__Transition__Group__4__Impl : ( ']' ) ;
+    // InternalSorting.g:2664:1: rule__Transition__Group__4__Impl : ( ']' ) ;
     public final void rule__Transition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2776:1: ( ( ']' ) )
-            // InternalSorting.g:2777:1: ( ']' )
+            // InternalSorting.g:2668:1: ( ( ']' ) )
+            // InternalSorting.g:2669:1: ( ']' )
             {
-            // InternalSorting.g:2777:1: ( ']' )
-            // InternalSorting.g:2778:2: ']'
+            // InternalSorting.g:2669:1: ( ']' )
+            // InternalSorting.g:2670:2: ']'
             {
              before(grammarAccess.getTransitionAccess().getRightSquareBracketKeyword_4()); 
             match(input,19,FOLLOW_2); 
@@ -8523,14 +8185,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__5"
-    // InternalSorting.g:2787:1: rule__Transition__Group__5 : rule__Transition__Group__5__Impl rule__Transition__Group__6 ;
+    // InternalSorting.g:2679:1: rule__Transition__Group__5 : rule__Transition__Group__5__Impl rule__Transition__Group__6 ;
     public final void rule__Transition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2791:1: ( rule__Transition__Group__5__Impl rule__Transition__Group__6 )
-            // InternalSorting.g:2792:2: rule__Transition__Group__5__Impl rule__Transition__Group__6
+            // InternalSorting.g:2683:1: ( rule__Transition__Group__5__Impl rule__Transition__Group__6 )
+            // InternalSorting.g:2684:2: rule__Transition__Group__5__Impl rule__Transition__Group__6
             {
             pushFollow(FOLLOW_14);
             rule__Transition__Group__5__Impl();
@@ -8561,20 +8223,20 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__5__Impl"
-    // InternalSorting.g:2799:1: rule__Transition__Group__5__Impl : ( '->' ) ;
+    // InternalSorting.g:2691:1: rule__Transition__Group__5__Impl : ( '->' ) ;
     public final void rule__Transition__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2803:1: ( ( '->' ) )
-            // InternalSorting.g:2804:1: ( '->' )
+            // InternalSorting.g:2695:1: ( ( '->' ) )
+            // InternalSorting.g:2696:1: ( '->' )
             {
-            // InternalSorting.g:2804:1: ( '->' )
-            // InternalSorting.g:2805:2: '->'
+            // InternalSorting.g:2696:1: ( '->' )
+            // InternalSorting.g:2697:2: '->'
             {
              before(grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_5()); 
-            match(input,47,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_5()); 
 
             }
@@ -8598,14 +8260,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__6"
-    // InternalSorting.g:2814:1: rule__Transition__Group__6 : rule__Transition__Group__6__Impl rule__Transition__Group__7 ;
+    // InternalSorting.g:2706:1: rule__Transition__Group__6 : rule__Transition__Group__6__Impl rule__Transition__Group__7 ;
     public final void rule__Transition__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2818:1: ( rule__Transition__Group__6__Impl rule__Transition__Group__7 )
-            // InternalSorting.g:2819:2: rule__Transition__Group__6__Impl rule__Transition__Group__7
+            // InternalSorting.g:2710:1: ( rule__Transition__Group__6__Impl rule__Transition__Group__7 )
+            // InternalSorting.g:2711:2: rule__Transition__Group__6__Impl rule__Transition__Group__7
             {
             pushFollow(FOLLOW_6);
             rule__Transition__Group__6__Impl();
@@ -8636,17 +8298,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__6__Impl"
-    // InternalSorting.g:2826:1: rule__Transition__Group__6__Impl : ( '[' ) ;
+    // InternalSorting.g:2718:1: rule__Transition__Group__6__Impl : ( '[' ) ;
     public final void rule__Transition__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2830:1: ( ( '[' ) )
-            // InternalSorting.g:2831:1: ( '[' )
+            // InternalSorting.g:2722:1: ( ( '[' ) )
+            // InternalSorting.g:2723:1: ( '[' )
             {
-            // InternalSorting.g:2831:1: ( '[' )
-            // InternalSorting.g:2832:2: '['
+            // InternalSorting.g:2723:1: ( '[' )
+            // InternalSorting.g:2724:2: '['
             {
              before(grammarAccess.getTransitionAccess().getLeftSquareBracketKeyword_6()); 
             match(input,18,FOLLOW_2); 
@@ -8673,16 +8335,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__7"
-    // InternalSorting.g:2841:1: rule__Transition__Group__7 : rule__Transition__Group__7__Impl rule__Transition__Group__8 ;
+    // InternalSorting.g:2733:1: rule__Transition__Group__7 : rule__Transition__Group__7__Impl rule__Transition__Group__8 ;
     public final void rule__Transition__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2845:1: ( rule__Transition__Group__7__Impl rule__Transition__Group__8 )
-            // InternalSorting.g:2846:2: rule__Transition__Group__7__Impl rule__Transition__Group__8
+            // InternalSorting.g:2737:1: ( rule__Transition__Group__7__Impl rule__Transition__Group__8 )
+            // InternalSorting.g:2738:2: rule__Transition__Group__7__Impl rule__Transition__Group__8
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__Transition__Group__7__Impl();
 
             state._fsp--;
@@ -8711,21 +8373,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__7__Impl"
-    // InternalSorting.g:2853:1: rule__Transition__Group__7__Impl : ( ( rule__Transition__TargetAssignment_7 ) ) ;
+    // InternalSorting.g:2745:1: rule__Transition__Group__7__Impl : ( ( rule__Transition__TargetAssignment_7 ) ) ;
     public final void rule__Transition__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2857:1: ( ( ( rule__Transition__TargetAssignment_7 ) ) )
-            // InternalSorting.g:2858:1: ( ( rule__Transition__TargetAssignment_7 ) )
+            // InternalSorting.g:2749:1: ( ( ( rule__Transition__TargetAssignment_7 ) ) )
+            // InternalSorting.g:2750:1: ( ( rule__Transition__TargetAssignment_7 ) )
             {
-            // InternalSorting.g:2858:1: ( ( rule__Transition__TargetAssignment_7 ) )
-            // InternalSorting.g:2859:2: ( rule__Transition__TargetAssignment_7 )
+            // InternalSorting.g:2750:1: ( ( rule__Transition__TargetAssignment_7 ) )
+            // InternalSorting.g:2751:2: ( rule__Transition__TargetAssignment_7 )
             {
              before(grammarAccess.getTransitionAccess().getTargetAssignment_7()); 
-            // InternalSorting.g:2860:2: ( rule__Transition__TargetAssignment_7 )
-            // InternalSorting.g:2860:3: rule__Transition__TargetAssignment_7
+            // InternalSorting.g:2752:2: ( rule__Transition__TargetAssignment_7 )
+            // InternalSorting.g:2752:3: rule__Transition__TargetAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__Transition__TargetAssignment_7();
@@ -8758,14 +8420,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__8"
-    // InternalSorting.g:2868:1: rule__Transition__Group__8 : rule__Transition__Group__8__Impl rule__Transition__Group__9 ;
+    // InternalSorting.g:2760:1: rule__Transition__Group__8 : rule__Transition__Group__8__Impl rule__Transition__Group__9 ;
     public final void rule__Transition__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2872:1: ( rule__Transition__Group__8__Impl rule__Transition__Group__9 )
-            // InternalSorting.g:2873:2: rule__Transition__Group__8__Impl rule__Transition__Group__9
+            // InternalSorting.g:2764:1: ( rule__Transition__Group__8__Impl rule__Transition__Group__9 )
+            // InternalSorting.g:2765:2: rule__Transition__Group__8__Impl rule__Transition__Group__9
             {
             pushFollow(FOLLOW_6);
             rule__Transition__Group__8__Impl();
@@ -8796,17 +8458,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__8__Impl"
-    // InternalSorting.g:2880:1: rule__Transition__Group__8__Impl : ( ',' ) ;
+    // InternalSorting.g:2772:1: rule__Transition__Group__8__Impl : ( ',' ) ;
     public final void rule__Transition__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2884:1: ( ( ',' ) )
-            // InternalSorting.g:2885:1: ( ',' )
+            // InternalSorting.g:2776:1: ( ( ',' ) )
+            // InternalSorting.g:2777:1: ( ',' )
             {
-            // InternalSorting.g:2885:1: ( ',' )
-            // InternalSorting.g:2886:2: ','
+            // InternalSorting.g:2777:1: ( ',' )
+            // InternalSorting.g:2778:2: ','
             {
              before(grammarAccess.getTransitionAccess().getCommaKeyword_8()); 
             match(input,14,FOLLOW_2); 
@@ -8833,16 +8495,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__9"
-    // InternalSorting.g:2895:1: rule__Transition__Group__9 : rule__Transition__Group__9__Impl rule__Transition__Group__10 ;
+    // InternalSorting.g:2787:1: rule__Transition__Group__9 : rule__Transition__Group__9__Impl rule__Transition__Group__10 ;
     public final void rule__Transition__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2899:1: ( rule__Transition__Group__9__Impl rule__Transition__Group__10 )
-            // InternalSorting.g:2900:2: rule__Transition__Group__9__Impl rule__Transition__Group__10
+            // InternalSorting.g:2791:1: ( rule__Transition__Group__9__Impl rule__Transition__Group__10 )
+            // InternalSorting.g:2792:2: rule__Transition__Group__9__Impl rule__Transition__Group__10
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__Transition__Group__9__Impl();
 
             state._fsp--;
@@ -8871,31 +8533,31 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__9__Impl"
-    // InternalSorting.g:2907:1: rule__Transition__Group__9__Impl : ( ( rule__Transition__SourcePortAssignment_9 ) ) ;
+    // InternalSorting.g:2799:1: rule__Transition__Group__9__Impl : ( ( rule__Transition__TargetPortAssignment_9 ) ) ;
     public final void rule__Transition__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2911:1: ( ( ( rule__Transition__SourcePortAssignment_9 ) ) )
-            // InternalSorting.g:2912:1: ( ( rule__Transition__SourcePortAssignment_9 ) )
+            // InternalSorting.g:2803:1: ( ( ( rule__Transition__TargetPortAssignment_9 ) ) )
+            // InternalSorting.g:2804:1: ( ( rule__Transition__TargetPortAssignment_9 ) )
             {
-            // InternalSorting.g:2912:1: ( ( rule__Transition__SourcePortAssignment_9 ) )
-            // InternalSorting.g:2913:2: ( rule__Transition__SourcePortAssignment_9 )
+            // InternalSorting.g:2804:1: ( ( rule__Transition__TargetPortAssignment_9 ) )
+            // InternalSorting.g:2805:2: ( rule__Transition__TargetPortAssignment_9 )
             {
-             before(grammarAccess.getTransitionAccess().getSourcePortAssignment_9()); 
-            // InternalSorting.g:2914:2: ( rule__Transition__SourcePortAssignment_9 )
-            // InternalSorting.g:2914:3: rule__Transition__SourcePortAssignment_9
+             before(grammarAccess.getTransitionAccess().getTargetPortAssignment_9()); 
+            // InternalSorting.g:2806:2: ( rule__Transition__TargetPortAssignment_9 )
+            // InternalSorting.g:2806:3: rule__Transition__TargetPortAssignment_9
             {
             pushFollow(FOLLOW_2);
-            rule__Transition__SourcePortAssignment_9();
+            rule__Transition__TargetPortAssignment_9();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTransitionAccess().getSourcePortAssignment_9()); 
+             after(grammarAccess.getTransitionAccess().getTargetPortAssignment_9()); 
 
             }
 
@@ -8918,14 +8580,14 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__10"
-    // InternalSorting.g:2922:1: rule__Transition__Group__10 : rule__Transition__Group__10__Impl ;
+    // InternalSorting.g:2814:1: rule__Transition__Group__10 : rule__Transition__Group__10__Impl ;
     public final void rule__Transition__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2926:1: ( rule__Transition__Group__10__Impl )
-            // InternalSorting.g:2927:2: rule__Transition__Group__10__Impl
+            // InternalSorting.g:2818:1: ( rule__Transition__Group__10__Impl )
+            // InternalSorting.g:2819:2: rule__Transition__Group__10__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group__10__Impl();
@@ -8951,17 +8613,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Transition__Group__10__Impl"
-    // InternalSorting.g:2933:1: rule__Transition__Group__10__Impl : ( ']' ) ;
+    // InternalSorting.g:2825:1: rule__Transition__Group__10__Impl : ( ']' ) ;
     public final void rule__Transition__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2937:1: ( ( ']' ) )
-            // InternalSorting.g:2938:1: ( ']' )
+            // InternalSorting.g:2829:1: ( ( ']' ) )
+            // InternalSorting.g:2830:1: ( ']' )
             {
-            // InternalSorting.g:2938:1: ( ']' )
-            // InternalSorting.g:2939:2: ']'
+            // InternalSorting.g:2830:1: ( ']' )
+            // InternalSorting.g:2831:2: ']'
             {
              before(grammarAccess.getTransitionAccess().getRightSquareBracketKeyword_10()); 
             match(input,19,FOLLOW_2); 
@@ -8988,17 +8650,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Config__NameAssignment_3"
-    // InternalSorting.g:2949:1: rule__Config__NameAssignment_3 : ( RULE_ID ) ;
+    // InternalSorting.g:2841:1: rule__Config__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__Config__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2953:1: ( ( RULE_ID ) )
-            // InternalSorting.g:2954:2: ( RULE_ID )
+            // InternalSorting.g:2845:1: ( ( RULE_ID ) )
+            // InternalSorting.g:2846:2: ( RULE_ID )
             {
-            // InternalSorting.g:2954:2: ( RULE_ID )
-            // InternalSorting.g:2955:3: RULE_ID
+            // InternalSorting.g:2846:2: ( RULE_ID )
+            // InternalSorting.g:2847:3: RULE_ID
             {
              before(grammarAccess.getConfigAccess().getNameIDTerminalRuleCall_3_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9025,17 +8687,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Config__ParamsAssignment_4_2"
-    // InternalSorting.g:2964:1: rule__Config__ParamsAssignment_4_2 : ( ruleParam ) ;
+    // InternalSorting.g:2856:1: rule__Config__ParamsAssignment_4_2 : ( ruleParam ) ;
     public final void rule__Config__ParamsAssignment_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2968:1: ( ( ruleParam ) )
-            // InternalSorting.g:2969:2: ( ruleParam )
+            // InternalSorting.g:2860:1: ( ( ruleParam ) )
+            // InternalSorting.g:2861:2: ( ruleParam )
             {
-            // InternalSorting.g:2969:2: ( ruleParam )
-            // InternalSorting.g:2970:3: ruleParam
+            // InternalSorting.g:2861:2: ( ruleParam )
+            // InternalSorting.g:2862:3: ruleParam
             {
              before(grammarAccess.getConfigAccess().getParamsParamParserRuleCall_4_2_0()); 
             pushFollow(FOLLOW_2);
@@ -9066,17 +8728,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Config__ImportsAssignment_5_2"
-    // InternalSorting.g:2979:1: rule__Config__ImportsAssignment_5_2 : ( ruleImport ) ;
+    // InternalSorting.g:2871:1: rule__Config__ImportsAssignment_5_2 : ( ruleImport ) ;
     public final void rule__Config__ImportsAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2983:1: ( ( ruleImport ) )
-            // InternalSorting.g:2984:2: ( ruleImport )
+            // InternalSorting.g:2875:1: ( ( ruleImport ) )
+            // InternalSorting.g:2876:2: ( ruleImport )
             {
-            // InternalSorting.g:2984:2: ( ruleImport )
-            // InternalSorting.g:2985:3: ruleImport
+            // InternalSorting.g:2876:2: ( ruleImport )
+            // InternalSorting.g:2877:3: ruleImport
             {
              before(grammarAccess.getConfigAccess().getImportsImportParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
@@ -9107,17 +8769,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Config__ComponentsAssignment_8"
-    // InternalSorting.g:2994:1: rule__Config__ComponentsAssignment_8 : ( ruleComponent ) ;
+    // InternalSorting.g:2886:1: rule__Config__ComponentsAssignment_8 : ( ruleComponent ) ;
     public final void rule__Config__ComponentsAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:2998:1: ( ( ruleComponent ) )
-            // InternalSorting.g:2999:2: ( ruleComponent )
+            // InternalSorting.g:2890:1: ( ( ruleComponent ) )
+            // InternalSorting.g:2891:2: ( ruleComponent )
             {
-            // InternalSorting.g:2999:2: ( ruleComponent )
-            // InternalSorting.g:3000:3: ruleComponent
+            // InternalSorting.g:2891:2: ( ruleComponent )
+            // InternalSorting.g:2892:3: ruleComponent
             {
              before(grammarAccess.getConfigAccess().getComponentsComponentParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -9148,17 +8810,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Config__InstancesAssignment_12"
-    // InternalSorting.g:3009:1: rule__Config__InstancesAssignment_12 : ( ruleInstance ) ;
+    // InternalSorting.g:2901:1: rule__Config__InstancesAssignment_12 : ( ruleInstance ) ;
     public final void rule__Config__InstancesAssignment_12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3013:1: ( ( ruleInstance ) )
-            // InternalSorting.g:3014:2: ( ruleInstance )
+            // InternalSorting.g:2905:1: ( ( ruleInstance ) )
+            // InternalSorting.g:2906:2: ( ruleInstance )
             {
-            // InternalSorting.g:3014:2: ( ruleInstance )
-            // InternalSorting.g:3015:3: ruleInstance
+            // InternalSorting.g:2906:2: ( ruleInstance )
+            // InternalSorting.g:2907:3: ruleInstance
             {
              before(grammarAccess.getConfigAccess().getInstancesInstanceParserRuleCall_12_0()); 
             pushFollow(FOLLOW_2);
@@ -9189,17 +8851,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Config__TransitionsAssignment_16"
-    // InternalSorting.g:3024:1: rule__Config__TransitionsAssignment_16 : ( ruleTransition ) ;
+    // InternalSorting.g:2916:1: rule__Config__TransitionsAssignment_16 : ( ruleTransition ) ;
     public final void rule__Config__TransitionsAssignment_16() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3028:1: ( ( ruleTransition ) )
-            // InternalSorting.g:3029:2: ( ruleTransition )
+            // InternalSorting.g:2920:1: ( ( ruleTransition ) )
+            // InternalSorting.g:2921:2: ( ruleTransition )
             {
-            // InternalSorting.g:3029:2: ( ruleTransition )
-            // InternalSorting.g:3030:3: ruleTransition
+            // InternalSorting.g:2921:2: ( ruleTransition )
+            // InternalSorting.g:2922:3: ruleTransition
             {
              before(grammarAccess.getConfigAccess().getTransitionsTransitionParserRuleCall_16_0()); 
             pushFollow(FOLLOW_2);
@@ -9230,17 +8892,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Param__ValueAssignment_2"
-    // InternalSorting.g:3039:1: rule__Param__ValueAssignment_2 : ( ruleAnything ) ;
+    // InternalSorting.g:2931:1: rule__Param__ValueAssignment_2 : ( ruleAnything ) ;
     public final void rule__Param__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3043:1: ( ( ruleAnything ) )
-            // InternalSorting.g:3044:2: ( ruleAnything )
+            // InternalSorting.g:2935:1: ( ( ruleAnything ) )
+            // InternalSorting.g:2936:2: ( ruleAnything )
             {
-            // InternalSorting.g:3044:2: ( ruleAnything )
-            // InternalSorting.g:3045:3: ruleAnything
+            // InternalSorting.g:2936:2: ( ruleAnything )
+            // InternalSorting.g:2937:3: ruleAnything
             {
              before(grammarAccess.getParamAccess().getValueAnythingParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -9271,17 +8933,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__NameAssignment_1"
-    // InternalSorting.g:3054:1: rule__Import__NameAssignment_1 : ( ruleAnything ) ;
+    // InternalSorting.g:2946:1: rule__Import__NameAssignment_1 : ( ruleAnything ) ;
     public final void rule__Import__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3058:1: ( ( ruleAnything ) )
-            // InternalSorting.g:3059:2: ( ruleAnything )
+            // InternalSorting.g:2950:1: ( ( ruleAnything ) )
+            // InternalSorting.g:2951:2: ( ruleAnything )
             {
-            // InternalSorting.g:3059:2: ( ruleAnything )
-            // InternalSorting.g:3060:3: ruleAnything
+            // InternalSorting.g:2951:2: ( ruleAnything )
+            // InternalSorting.g:2952:3: ruleAnything
             {
              before(grammarAccess.getImportAccess().getNameAnythingParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9312,17 +8974,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Port__NameAssignment_2"
-    // InternalSorting.g:3069:1: rule__Port__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalSorting.g:2961:1: rule__Port__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Port__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3073:1: ( ( RULE_ID ) )
-            // InternalSorting.g:3074:2: ( RULE_ID )
+            // InternalSorting.g:2965:1: ( ( RULE_ID ) )
+            // InternalSorting.g:2966:2: ( RULE_ID )
             {
-            // InternalSorting.g:3074:2: ( RULE_ID )
-            // InternalSorting.g:3075:3: RULE_ID
+            // InternalSorting.g:2966:2: ( RULE_ID )
+            // InternalSorting.g:2967:3: RULE_ID
             {
              before(grammarAccess.getPortAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9349,17 +9011,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Port__TypeAssignment_3"
-    // InternalSorting.g:3084:1: rule__Port__TypeAssignment_3 : ( ruleAnything ) ;
+    // InternalSorting.g:2976:1: rule__Port__TypeAssignment_3 : ( ruleAnything ) ;
     public final void rule__Port__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3088:1: ( ( ruleAnything ) )
-            // InternalSorting.g:3089:2: ( ruleAnything )
+            // InternalSorting.g:2980:1: ( ( ruleAnything ) )
+            // InternalSorting.g:2981:2: ( ruleAnything )
             {
-            // InternalSorting.g:3089:2: ( ruleAnything )
-            // InternalSorting.g:3090:3: ruleAnything
+            // InternalSorting.g:2981:2: ( ruleAnything )
+            // InternalSorting.g:2982:3: ruleAnything
             {
              before(grammarAccess.getPortAccess().getTypeAnythingParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9390,17 +9052,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__NameAssignment_1"
-    // InternalSorting.g:3099:1: rule__Source__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSorting.g:2991:1: rule__Source__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Source__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3103:1: ( ( RULE_ID ) )
-            // InternalSorting.g:3104:2: ( RULE_ID )
+            // InternalSorting.g:2995:1: ( ( RULE_ID ) )
+            // InternalSorting.g:2996:2: ( RULE_ID )
             {
-            // InternalSorting.g:3104:2: ( RULE_ID )
-            // InternalSorting.g:3105:3: RULE_ID
+            // InternalSorting.g:2996:2: ( RULE_ID )
+            // InternalSorting.g:2997:3: RULE_ID
             {
              before(grammarAccess.getSourceAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9427,17 +9089,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__InPortsAssignment_3_1"
-    // InternalSorting.g:3114:1: rule__Source__InPortsAssignment_3_1 : ( rulePort ) ;
+    // InternalSorting.g:3006:1: rule__Source__InPortsAssignment_3_1 : ( rulePort ) ;
     public final void rule__Source__InPortsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3118:1: ( ( rulePort ) )
-            // InternalSorting.g:3119:2: ( rulePort )
+            // InternalSorting.g:3010:1: ( ( rulePort ) )
+            // InternalSorting.g:3011:2: ( rulePort )
             {
-            // InternalSorting.g:3119:2: ( rulePort )
-            // InternalSorting.g:3120:3: rulePort
+            // InternalSorting.g:3011:2: ( rulePort )
+            // InternalSorting.g:3012:3: rulePort
             {
              before(grammarAccess.getSourceAccess().getInPortsPortParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9468,17 +9130,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Source__OutPortsAssignment_5"
-    // InternalSorting.g:3129:1: rule__Source__OutPortsAssignment_5 : ( rulePort ) ;
+    // InternalSorting.g:3021:1: rule__Source__OutPortsAssignment_5 : ( rulePort ) ;
     public final void rule__Source__OutPortsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3133:1: ( ( rulePort ) )
-            // InternalSorting.g:3134:2: ( rulePort )
+            // InternalSorting.g:3025:1: ( ( rulePort ) )
+            // InternalSorting.g:3026:2: ( rulePort )
             {
-            // InternalSorting.g:3134:2: ( rulePort )
-            // InternalSorting.g:3135:3: rulePort
+            // InternalSorting.g:3026:2: ( rulePort )
+            // InternalSorting.g:3027:3: rulePort
             {
              before(grammarAccess.getSourceAccess().getOutPortsPortParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -9508,22 +9170,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Source__OutPortsAssignment_5"
 
 
-    // $ANTLR start "rule__Source__CodeAssignment_6_1"
-    // InternalSorting.g:3144:1: rule__Source__CodeAssignment_6_1 : ( RULE_CODE ) ;
-    public final void rule__Source__CodeAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__Source__CodeAssignment_7"
+    // InternalSorting.g:3036:1: rule__Source__CodeAssignment_7 : ( RULE_CODE ) ;
+    public final void rule__Source__CodeAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3148:1: ( ( RULE_CODE ) )
-            // InternalSorting.g:3149:2: ( RULE_CODE )
+            // InternalSorting.g:3040:1: ( ( RULE_CODE ) )
+            // InternalSorting.g:3041:2: ( RULE_CODE )
             {
-            // InternalSorting.g:3149:2: ( RULE_CODE )
-            // InternalSorting.g:3150:3: RULE_CODE
+            // InternalSorting.g:3041:2: ( RULE_CODE )
+            // InternalSorting.g:3042:3: RULE_CODE
             {
-             before(grammarAccess.getSourceAccess().getCodeCODETerminalRuleCall_6_1_0()); 
+             before(grammarAccess.getSourceAccess().getCodeCODETerminalRuleCall_7_0()); 
             match(input,RULE_CODE,FOLLOW_2); 
-             after(grammarAccess.getSourceAccess().getCodeCODETerminalRuleCall_6_1_0()); 
+             after(grammarAccess.getSourceAccess().getCodeCODETerminalRuleCall_7_0()); 
 
             }
 
@@ -9542,21 +9204,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Source__CodeAssignment_6_1"
+    // $ANTLR end "rule__Source__CodeAssignment_7"
 
 
     // $ANTLR start "rule__Filter__NameAssignment_1"
-    // InternalSorting.g:3159:1: rule__Filter__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSorting.g:3051:1: rule__Filter__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Filter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3163:1: ( ( RULE_ID ) )
-            // InternalSorting.g:3164:2: ( RULE_ID )
+            // InternalSorting.g:3055:1: ( ( RULE_ID ) )
+            // InternalSorting.g:3056:2: ( RULE_ID )
             {
-            // InternalSorting.g:3164:2: ( RULE_ID )
-            // InternalSorting.g:3165:3: RULE_ID
+            // InternalSorting.g:3056:2: ( RULE_ID )
+            // InternalSorting.g:3057:3: RULE_ID
             {
              before(grammarAccess.getFilterAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9583,17 +9245,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__InPortsAssignment_4"
-    // InternalSorting.g:3174:1: rule__Filter__InPortsAssignment_4 : ( rulePort ) ;
+    // InternalSorting.g:3066:1: rule__Filter__InPortsAssignment_4 : ( rulePort ) ;
     public final void rule__Filter__InPortsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3178:1: ( ( rulePort ) )
-            // InternalSorting.g:3179:2: ( rulePort )
+            // InternalSorting.g:3070:1: ( ( rulePort ) )
+            // InternalSorting.g:3071:2: ( rulePort )
             {
-            // InternalSorting.g:3179:2: ( rulePort )
-            // InternalSorting.g:3180:3: rulePort
+            // InternalSorting.g:3071:2: ( rulePort )
+            // InternalSorting.g:3072:3: rulePort
             {
              before(grammarAccess.getFilterAccess().getInPortsPortParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -9624,17 +9286,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__OutPortsAssignment_6"
-    // InternalSorting.g:3189:1: rule__Filter__OutPortsAssignment_6 : ( rulePort ) ;
+    // InternalSorting.g:3081:1: rule__Filter__OutPortsAssignment_6 : ( rulePort ) ;
     public final void rule__Filter__OutPortsAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3193:1: ( ( rulePort ) )
-            // InternalSorting.g:3194:2: ( rulePort )
+            // InternalSorting.g:3085:1: ( ( rulePort ) )
+            // InternalSorting.g:3086:2: ( rulePort )
             {
-            // InternalSorting.g:3194:2: ( rulePort )
-            // InternalSorting.g:3195:3: rulePort
+            // InternalSorting.g:3086:2: ( rulePort )
+            // InternalSorting.g:3087:3: rulePort
             {
              before(grammarAccess.getFilterAccess().getOutPortsPortParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -9664,22 +9326,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Filter__OutPortsAssignment_6"
 
 
-    // $ANTLR start "rule__Filter__CodeAssignment_7_1"
-    // InternalSorting.g:3204:1: rule__Filter__CodeAssignment_7_1 : ( RULE_CODE ) ;
-    public final void rule__Filter__CodeAssignment_7_1() throws RecognitionException {
+    // $ANTLR start "rule__Filter__CodeAssignment_8"
+    // InternalSorting.g:3096:1: rule__Filter__CodeAssignment_8 : ( RULE_CODE ) ;
+    public final void rule__Filter__CodeAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3208:1: ( ( RULE_CODE ) )
-            // InternalSorting.g:3209:2: ( RULE_CODE )
+            // InternalSorting.g:3100:1: ( ( RULE_CODE ) )
+            // InternalSorting.g:3101:2: ( RULE_CODE )
             {
-            // InternalSorting.g:3209:2: ( RULE_CODE )
-            // InternalSorting.g:3210:3: RULE_CODE
+            // InternalSorting.g:3101:2: ( RULE_CODE )
+            // InternalSorting.g:3102:3: RULE_CODE
             {
-             before(grammarAccess.getFilterAccess().getCodeCODETerminalRuleCall_7_1_0()); 
+             before(grammarAccess.getFilterAccess().getCodeCODETerminalRuleCall_8_0()); 
             match(input,RULE_CODE,FOLLOW_2); 
-             after(grammarAccess.getFilterAccess().getCodeCODETerminalRuleCall_7_1_0()); 
+             after(grammarAccess.getFilterAccess().getCodeCODETerminalRuleCall_8_0()); 
 
             }
 
@@ -9698,21 +9360,21 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Filter__CodeAssignment_7_1"
+    // $ANTLR end "rule__Filter__CodeAssignment_8"
 
 
     // $ANTLR start "rule__Sink__NameAssignment_1"
-    // InternalSorting.g:3219:1: rule__Sink__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSorting.g:3111:1: rule__Sink__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Sink__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3223:1: ( ( RULE_ID ) )
-            // InternalSorting.g:3224:2: ( RULE_ID )
+            // InternalSorting.g:3115:1: ( ( RULE_ID ) )
+            // InternalSorting.g:3116:2: ( RULE_ID )
             {
-            // InternalSorting.g:3224:2: ( RULE_ID )
-            // InternalSorting.g:3225:3: RULE_ID
+            // InternalSorting.g:3116:2: ( RULE_ID )
+            // InternalSorting.g:3117:3: RULE_ID
             {
              before(grammarAccess.getSinkAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9739,17 +9401,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__InPortsAssignment_4"
-    // InternalSorting.g:3234:1: rule__Sink__InPortsAssignment_4 : ( rulePort ) ;
+    // InternalSorting.g:3126:1: rule__Sink__InPortsAssignment_4 : ( rulePort ) ;
     public final void rule__Sink__InPortsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3238:1: ( ( rulePort ) )
-            // InternalSorting.g:3239:2: ( rulePort )
+            // InternalSorting.g:3130:1: ( ( rulePort ) )
+            // InternalSorting.g:3131:2: ( rulePort )
             {
-            // InternalSorting.g:3239:2: ( rulePort )
-            // InternalSorting.g:3240:3: rulePort
+            // InternalSorting.g:3131:2: ( rulePort )
+            // InternalSorting.g:3132:3: rulePort
             {
              before(grammarAccess.getSinkAccess().getInPortsPortParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -9780,17 +9442,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sink__OutPortsAssignment_5_1"
-    // InternalSorting.g:3249:1: rule__Sink__OutPortsAssignment_5_1 : ( rulePort ) ;
+    // InternalSorting.g:3141:1: rule__Sink__OutPortsAssignment_5_1 : ( rulePort ) ;
     public final void rule__Sink__OutPortsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3253:1: ( ( rulePort ) )
-            // InternalSorting.g:3254:2: ( rulePort )
+            // InternalSorting.g:3145:1: ( ( rulePort ) )
+            // InternalSorting.g:3146:2: ( rulePort )
             {
-            // InternalSorting.g:3254:2: ( rulePort )
-            // InternalSorting.g:3255:3: rulePort
+            // InternalSorting.g:3146:2: ( rulePort )
+            // InternalSorting.g:3147:3: rulePort
             {
              before(grammarAccess.getSinkAccess().getOutPortsPortParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9820,22 +9482,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Sink__OutPortsAssignment_5_1"
 
 
-    // $ANTLR start "rule__Sink__CodeAssignment_6_1"
-    // InternalSorting.g:3264:1: rule__Sink__CodeAssignment_6_1 : ( RULE_CODE ) ;
-    public final void rule__Sink__CodeAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__Sink__CodeAssignment_7"
+    // InternalSorting.g:3156:1: rule__Sink__CodeAssignment_7 : ( RULE_CODE ) ;
+    public final void rule__Sink__CodeAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3268:1: ( ( RULE_CODE ) )
-            // InternalSorting.g:3269:2: ( RULE_CODE )
+            // InternalSorting.g:3160:1: ( ( RULE_CODE ) )
+            // InternalSorting.g:3161:2: ( RULE_CODE )
             {
-            // InternalSorting.g:3269:2: ( RULE_CODE )
-            // InternalSorting.g:3270:3: RULE_CODE
+            // InternalSorting.g:3161:2: ( RULE_CODE )
+            // InternalSorting.g:3162:3: RULE_CODE
             {
-             before(grammarAccess.getSinkAccess().getCodeCODETerminalRuleCall_6_1_0()); 
+             before(grammarAccess.getSinkAccess().getCodeCODETerminalRuleCall_7_0()); 
             match(input,RULE_CODE,FOLLOW_2); 
-             after(grammarAccess.getSinkAccess().getCodeCODETerminalRuleCall_6_1_0()); 
+             after(grammarAccess.getSinkAccess().getCodeCODETerminalRuleCall_7_0()); 
 
             }
 
@@ -9854,25 +9516,25 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Sink__CodeAssignment_6_1"
+    // $ANTLR end "rule__Sink__CodeAssignment_7"
 
 
     // $ANTLR start "rule__Instance__ComponentAssignment_0"
-    // InternalSorting.g:3279:1: rule__Instance__ComponentAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalSorting.g:3171:1: rule__Instance__ComponentAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Instance__ComponentAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3283:1: ( ( ( RULE_ID ) ) )
-            // InternalSorting.g:3284:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3175:1: ( ( ( RULE_ID ) ) )
+            // InternalSorting.g:3176:2: ( ( RULE_ID ) )
             {
-            // InternalSorting.g:3284:2: ( ( RULE_ID ) )
-            // InternalSorting.g:3285:3: ( RULE_ID )
+            // InternalSorting.g:3176:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3177:3: ( RULE_ID )
             {
              before(grammarAccess.getInstanceAccess().getComponentComponentCrossReference_0_0()); 
-            // InternalSorting.g:3286:3: ( RULE_ID )
-            // InternalSorting.g:3287:4: RULE_ID
+            // InternalSorting.g:3178:3: ( RULE_ID )
+            // InternalSorting.g:3179:4: RULE_ID
             {
              before(grammarAccess.getInstanceAccess().getComponentComponentIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9903,17 +9565,17 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instance__NameAssignment_1"
-    // InternalSorting.g:3298:1: rule__Instance__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSorting.g:3190:1: rule__Instance__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Instance__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3302:1: ( ( RULE_ID ) )
-            // InternalSorting.g:3303:2: ( RULE_ID )
+            // InternalSorting.g:3194:1: ( ( RULE_ID ) )
+            // InternalSorting.g:3195:2: ( RULE_ID )
             {
-            // InternalSorting.g:3303:2: ( RULE_ID )
-            // InternalSorting.g:3304:3: RULE_ID
+            // InternalSorting.g:3195:2: ( RULE_ID )
+            // InternalSorting.g:3196:3: RULE_ID
             {
              before(grammarAccess.getInstanceAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9939,22 +9601,22 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Instance__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Instance__CodeAssignment_3"
-    // InternalSorting.g:3313:1: rule__Instance__CodeAssignment_3 : ( RULE_CODE ) ;
-    public final void rule__Instance__CodeAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Instance__CodeAssignment_2"
+    // InternalSorting.g:3205:1: rule__Instance__CodeAssignment_2 : ( RULE_CODE ) ;
+    public final void rule__Instance__CodeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3317:1: ( ( RULE_CODE ) )
-            // InternalSorting.g:3318:2: ( RULE_CODE )
+            // InternalSorting.g:3209:1: ( ( RULE_CODE ) )
+            // InternalSorting.g:3210:2: ( RULE_CODE )
             {
-            // InternalSorting.g:3318:2: ( RULE_CODE )
-            // InternalSorting.g:3319:3: RULE_CODE
+            // InternalSorting.g:3210:2: ( RULE_CODE )
+            // InternalSorting.g:3211:3: RULE_CODE
             {
-             before(grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_3_0()); 
+             before(grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_2_0()); 
             match(input,RULE_CODE,FOLLOW_2); 
-             after(grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_3_0()); 
+             after(grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_2_0()); 
 
             }
 
@@ -9973,25 +9635,25 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Instance__CodeAssignment_3"
+    // $ANTLR end "rule__Instance__CodeAssignment_2"
 
 
     // $ANTLR start "rule__Transition__SourceAssignment_1"
-    // InternalSorting.g:3328:1: rule__Transition__SourceAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalSorting.g:3220:1: rule__Transition__SourceAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__SourceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3332:1: ( ( ( RULE_ID ) ) )
-            // InternalSorting.g:3333:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3224:1: ( ( ( RULE_ID ) ) )
+            // InternalSorting.g:3225:2: ( ( RULE_ID ) )
             {
-            // InternalSorting.g:3333:2: ( ( RULE_ID ) )
-            // InternalSorting.g:3334:3: ( RULE_ID )
+            // InternalSorting.g:3225:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3226:3: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getSourceInstanceCrossReference_1_0()); 
-            // InternalSorting.g:3335:3: ( RULE_ID )
-            // InternalSorting.g:3336:4: RULE_ID
+            // InternalSorting.g:3227:3: ( RULE_ID )
+            // InternalSorting.g:3228:4: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getSourceInstanceIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -10021,30 +9683,30 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Transition__SourceAssignment_1"
 
 
-    // $ANTLR start "rule__Transition__TargetPortAssignment_3"
-    // InternalSorting.g:3347:1: rule__Transition__TargetPortAssignment_3 : ( ( RULE_ID ) ) ;
-    public final void rule__Transition__TargetPortAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Transition__SourcePortAssignment_3"
+    // InternalSorting.g:3239:1: rule__Transition__SourcePortAssignment_3 : ( ( RULE_ID ) ) ;
+    public final void rule__Transition__SourcePortAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3351:1: ( ( ( RULE_ID ) ) )
-            // InternalSorting.g:3352:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3243:1: ( ( ( RULE_ID ) ) )
+            // InternalSorting.g:3244:2: ( ( RULE_ID ) )
             {
-            // InternalSorting.g:3352:2: ( ( RULE_ID ) )
-            // InternalSorting.g:3353:3: ( RULE_ID )
+            // InternalSorting.g:3244:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3245:3: ( RULE_ID )
             {
-             before(grammarAccess.getTransitionAccess().getTargetPortPortCrossReference_3_0()); 
-            // InternalSorting.g:3354:3: ( RULE_ID )
-            // InternalSorting.g:3355:4: RULE_ID
+             before(grammarAccess.getTransitionAccess().getSourcePortPortCrossReference_3_0()); 
+            // InternalSorting.g:3246:3: ( RULE_ID )
+            // InternalSorting.g:3247:4: RULE_ID
             {
-             before(grammarAccess.getTransitionAccess().getTargetPortPortIDTerminalRuleCall_3_0_1()); 
+             before(grammarAccess.getTransitionAccess().getSourcePortPortIDTerminalRuleCall_3_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getTransitionAccess().getTargetPortPortIDTerminalRuleCall_3_0_1()); 
+             after(grammarAccess.getTransitionAccess().getSourcePortPortIDTerminalRuleCall_3_0_1()); 
 
             }
 
-             after(grammarAccess.getTransitionAccess().getTargetPortPortCrossReference_3_0()); 
+             after(grammarAccess.getTransitionAccess().getSourcePortPortCrossReference_3_0()); 
 
             }
 
@@ -10063,25 +9725,25 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__TargetPortAssignment_3"
+    // $ANTLR end "rule__Transition__SourcePortAssignment_3"
 
 
     // $ANTLR start "rule__Transition__TargetAssignment_7"
-    // InternalSorting.g:3366:1: rule__Transition__TargetAssignment_7 : ( ( RULE_ID ) ) ;
+    // InternalSorting.g:3258:1: rule__Transition__TargetAssignment_7 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__TargetAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3370:1: ( ( ( RULE_ID ) ) )
-            // InternalSorting.g:3371:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3262:1: ( ( ( RULE_ID ) ) )
+            // InternalSorting.g:3263:2: ( ( RULE_ID ) )
             {
-            // InternalSorting.g:3371:2: ( ( RULE_ID ) )
-            // InternalSorting.g:3372:3: ( RULE_ID )
+            // InternalSorting.g:3263:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3264:3: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getTargetInstanceCrossReference_7_0()); 
-            // InternalSorting.g:3373:3: ( RULE_ID )
-            // InternalSorting.g:3374:4: RULE_ID
+            // InternalSorting.g:3265:3: ( RULE_ID )
+            // InternalSorting.g:3266:4: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getTargetInstanceIDTerminalRuleCall_7_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -10111,30 +9773,30 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Transition__TargetAssignment_7"
 
 
-    // $ANTLR start "rule__Transition__SourcePortAssignment_9"
-    // InternalSorting.g:3385:1: rule__Transition__SourcePortAssignment_9 : ( ( RULE_ID ) ) ;
-    public final void rule__Transition__SourcePortAssignment_9() throws RecognitionException {
+    // $ANTLR start "rule__Transition__TargetPortAssignment_9"
+    // InternalSorting.g:3277:1: rule__Transition__TargetPortAssignment_9 : ( ( RULE_ID ) ) ;
+    public final void rule__Transition__TargetPortAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSorting.g:3389:1: ( ( ( RULE_ID ) ) )
-            // InternalSorting.g:3390:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3281:1: ( ( ( RULE_ID ) ) )
+            // InternalSorting.g:3282:2: ( ( RULE_ID ) )
             {
-            // InternalSorting.g:3390:2: ( ( RULE_ID ) )
-            // InternalSorting.g:3391:3: ( RULE_ID )
+            // InternalSorting.g:3282:2: ( ( RULE_ID ) )
+            // InternalSorting.g:3283:3: ( RULE_ID )
             {
-             before(grammarAccess.getTransitionAccess().getSourcePortPortCrossReference_9_0()); 
-            // InternalSorting.g:3392:3: ( RULE_ID )
-            // InternalSorting.g:3393:4: RULE_ID
+             before(grammarAccess.getTransitionAccess().getTargetPortPortCrossReference_9_0()); 
+            // InternalSorting.g:3284:3: ( RULE_ID )
+            // InternalSorting.g:3285:4: RULE_ID
             {
-             before(grammarAccess.getTransitionAccess().getSourcePortPortIDTerminalRuleCall_9_0_1()); 
+             before(grammarAccess.getTransitionAccess().getTargetPortPortIDTerminalRuleCall_9_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getTransitionAccess().getSourcePortPortIDTerminalRuleCall_9_0_1()); 
+             after(grammarAccess.getTransitionAccess().getTargetPortPortIDTerminalRuleCall_9_0_1()); 
 
             }
 
-             after(grammarAccess.getTransitionAccess().getSourcePortPortCrossReference_9_0()); 
+             after(grammarAccess.getTransitionAccess().getTargetPortPortCrossReference_9_0()); 
 
             }
 
@@ -10153,7 +9815,7 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__SourcePortAssignment_9"
+    // $ANTLR end "rule__Transition__TargetPortAssignment_9"
 
     // Delegated rules
 
@@ -10180,17 +9842,16 @@ public class InternalSortingParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000004000000002L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x000000001FFFF0F0L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x00000A0000000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000080100000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000008000000002L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x00000A0100000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000400000000000L});
 
 }

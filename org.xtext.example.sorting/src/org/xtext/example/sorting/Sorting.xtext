@@ -42,7 +42,7 @@ Source:
 	'source' name=ID '{'
 	('in:' inPorts+=Port+)?
 	'out:' outPorts+=Port+
-	('method:' code=CODE)?
+	'method:' code=CODE
 	'}'
 	//TODO foreach N (param ou unknown)
 ;
@@ -51,7 +51,7 @@ Filter:
 	'filter' name=ID '{'
 	'in:' inPorts+=Port+
 	'out:' outPorts+=Port+
-	('method:' code=CODE)?
+	'method:' code=CODE
 	'}'
 ;	
 
@@ -59,24 +59,21 @@ Sink:
 	'sink' name=ID '{'
 	'in:' inPorts+=Port+
 	('out:' outPorts+=Port+)?
-	('method:' code=CODE)?
+	'method:' code=CODE
 	'}'
 ;
 	
 
 Instance:
 	component=[Component] name=ID 
-	'call:'  code=CODE 
+	(code=CODE)?
 	
 ;
 Transition:
 	//(source=[Source]|source=[Filter]) "=>" (target=[Filter]|target=[Sink])|
 	//source=[Instance] "=>" target=[Instance] /*sem Instance no Component*/
-	'['source=[Instance]',' targetPort=[Port]']''->' '['target=[Instance] ',' sourcePort=[Port]']'  
+	'['source=[Instance]',' sourcePort=[Port]']''->' '['target=[Instance] ',' targetPort=[Port]']'  
 ;
 
-//TODO name da port único?
 //TODO dot
 //TODO type das ports
-//TODO params
-//TODO método e result - onde guardar? como ir buscar? atualiza em todas as portas?

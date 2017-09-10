@@ -37,7 +37,12 @@ class SortingGenerator extends AbstractGenerator {
 			
 			public abstract class Component extends PipeStages implements Comparable<Component>{
 				protected int level = 0;
+				protected String name;
 				Runnable call;
+				Runnable assign;
+				protected Graph graph;
+				public Graph getGraph(){return graph;};
+				public void setGraph(Graph g){graph=g;};
 				protected HashMap<String, Port> inPorts = new HashMap<String, Port>();
 				protected HashMap<String, Port> outPorts = new HashMap<String, Port>();				
 				public Port getPort(String name){
@@ -61,6 +66,7 @@ class SortingGenerator extends AbstractGenerator {
 				public void setCall(Runnable r) {
 					call=r;
 				}
+				public String getName(){return name;};
 			}''');
 		 fsa.generateFile("Source.java", 
 		 	'''
@@ -174,27 +180,55 @@ class SortingGenerator extends AbstractGenerator {
 			public class «source.name» extends Source{
 			«FOR port : source.inPorts»
 				private «port.type» «port.name»;
+				public «port.type» get«port.name»() {return «port.name»;};
+				public void set«port.name»(«port.type» val) {«port.name» = val;};
 			«ENDFOR»
 			«FOR port : source.outPorts»
 				private «port.type» «port.name»;
+				public «port.type» get«port.name»() {return «port.name»;};
+				public void set«port.name»(«port.type» val) {«port.name» = val;};
 			«ENDFOR»
 				public «source.name»(String name){
+					this.name=name;
+					switch (name) {
+					«FOR instance : resource.allContents.toIterable.filter(Instance)»
+					«IF instance.component.name==source.name»
+					«IF instance.code!==null»
+						case "«instance.name»":
+						call = () -> {«instance.code.substring(2, instance.code.length - 2)» };
+						break;
+						«ENDIF»
+					«ENDIF»
+					«ENDFOR»
+					default:
+					«source.code.substring(2, source.code.length - 2)»
+					break;					
+					}
 					switch (name) {
 					«FOR instance : resource.allContents.toIterable.filter(Instance)»
 					«IF instance.component.name==source.name»
 						case "«instance.name»":
-						call = () -> {«instance.code.substring(2, instance.code.length - 2)»};
+						assign = () -> {
+							«FOR transition : resource.allContents.toIterable.filter(Transition)»
+							«IF transition.target.name == instance.name»
+								«transition.targetPort.name» = ((«transition.source.component.name»)graph.getComponent("«transition.source.name»")).get«transition.sourcePort.name»();
+							«ENDIF»
+							«ENDFOR»
+						};
 						break;
-					«ENDIF»
+						«ENDIF»
 					«ENDFOR»
-					}
+					default:
+					assign = () -> {};
+					break;					
+					}					
 					«FOR port : source.inPorts»
 						inPorts.put("«port.name»", new Port("«port.name»",this));
-					«ENDFOR»					«FOR port : source.outPorts»
+					«ENDFOR»					
+					«FOR port : source.outPorts»
 						outPorts.put("«port.name»", new Port("«port.name»",this));
 					«ENDFOR»
 				}
-				«source.code.substring(2, source.code.length - 2)»
 
 			} ''')}
 		 	for(filter: resource.allContents.toIterable.filter(Filter)){
@@ -204,11 +238,16 @@ class SortingGenerator extends AbstractGenerator {
 				public class «filter.name» extends Filter{
 				«FOR port : filter.inPorts»
 					private «port.type» «port.name»;
+					public «port.type» get«port.name»() {return «port.name»;};
+					public void set«port.name»(«port.type» val) {«port.name» = val;};
 				«ENDFOR»
 				«FOR port : filter.outPorts»
 					private «port.type» «port.name»;
+					public «port.type» get«port.name»() {return «port.name»;};
+					public void set«port.name»(«port.type» val) {«port.name» = val;};
 				«ENDFOR»
 				public «filter.name»(String name){
+					this.name=name;
 					switch (name) {
 					«FOR instance : resource.allContents.toIterable.filter(Instance)»
 					«IF instance.component.name==filter.name»
@@ -217,6 +256,26 @@ class SortingGenerator extends AbstractGenerator {
 						break;
 					«ENDIF»
 					«ENDFOR»
+					default:
+					call = () -> {«filter.code.substring(2, filter.code.length - 2)»};
+					break;}
+					switch (name) {
+					«FOR instance : resource.allContents.toIterable.filter(Instance)»
+					«IF instance.component.name==filter.name»
+						case "«instance.name»":
+						assign = () -> {
+							«FOR transition : resource.allContents.toIterable.filter(Transition)»
+							«IF transition.target.name == instance.name»
+								«transition.targetPort.name» = ((«transition.source.component.name»)graph.getComponent("«transition.source.name»")).get«transition.sourcePort.name»();
+							«ENDIF»
+							«ENDFOR»
+						}
+						break;
+						«ENDIF»
+					«ENDFOR»
+					default:
+					assign = () -> {};
+					break;					
 					}
 					«FOR port : filter.inPorts»
 						inPorts.put("«port.name»", new Port("«port.name»",this));
@@ -225,7 +284,6 @@ class SortingGenerator extends AbstractGenerator {
 						outPorts.put("«port.name»", new Port("«port.name»",this));
 					«ENDFOR»					
 					}
-					«filter.code.substring(2, filter.code.length - 2)»
 
 				}''')}
 				
@@ -234,21 +292,48 @@ class SortingGenerator extends AbstractGenerator {
 		 			'''
 				package «packname»;
 				public class «sink.name» extends Sink{
+
 				«FOR port : sink.inPorts»
 					private «port.type» «port.name»;
+					public «port.type» get«port.name»() {return «port.name»;};
+					public void set«port.name»(«port.type» val) {«port.name» = val;};
 				«ENDFOR»
 				«FOR port : sink.outPorts»
 					private «port.type» «port.name»;
+					public «port.type» get«port.name»() {return «port.name»;};
+					public void set«port.name»(«port.type» val) {«port.name» = val;};
 				«ENDFOR»
 					public «sink.name»(String name){
+					this.name=name;
 					switch (name) {
 					«FOR instance : resource.allContents.toIterable.filter(Instance)»
 					«IF instance.component.name==sink.name»
 						case "«instance.name»":
 						call = () -> {«instance.code.substring(2, instance.code.length - 2)»};
 						break;
-					«ENDIF»
+					«ENDIF»				
 					«ENDFOR»
+					default:
+					call = () -> {«sink.code.substring(2, sink.code.length - 2)»};
+					break;	
+					}
+					switch (name) {
+					«FOR instance : resource.allContents.toIterable.filter(Instance)»
+					«IF instance.component.name==sink.name»
+						case "«instance.name»":
+						assign = () -> {
+							«FOR transition : resource.allContents.toIterable.filter(Transition)»
+							«IF transition.target.name == instance.name»
+								«transition.targetPort.name» = ((«transition.source.component.name»)graph.getComponent("«transition.source.name»")).get«transition.sourcePort.name»();
+							«ENDIF»
+							«ENDFOR»
+						};
+						break;
+						«ENDIF»
+					«ENDFOR»
+					default:
+					assign = () -> {};
+					break;					
 					}
 				«FOR port : sink.inPorts»
 					inPorts.put("«port.name»", new Port("«port.name»",this));
@@ -257,7 +342,6 @@ class SortingGenerator extends AbstractGenerator {
 					outPorts.put("«port.name»", new Port("«port.name»",this));
 				«ENDFOR»
 				}
-				«sink.code.substring(2, sink.code.length - 2)»
 
 				}
 		 	'''
@@ -307,6 +391,7 @@ class SortingGenerator extends AbstractGenerator {
 		private ArrayList<Edge> edges = new ArrayList<Edge>();
 		private HashMap<String,Component> nodes = new HashMap<String,Component>();
 		private PriorityQueue<Component> components = new PriorityQueue<Component>();		
+		public Component getComponent(String comp) {return nodes.get(comp);};
 		
 		public void addEdge(String from, String pfrom, String to, String pto){
 			Component csource = nodes.get(from);
@@ -322,6 +407,7 @@ class SortingGenerator extends AbstractGenerator {
 		public Graph() {
 			«FOR instance : config.instances»
 				nodes.put("«instance.name»", new «instance.component.name»("«instance.name»"));
+				nodes.get("«instance.name»").setGraph(this);			
 				components.add(nodes.get("«instance.name»"));
 			«ENDFOR»
 			«FOR t : config.transitions»

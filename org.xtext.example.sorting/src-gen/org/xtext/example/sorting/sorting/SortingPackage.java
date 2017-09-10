@@ -509,13 +509,13 @@ public interface SortingPackage extends EPackage
   int TRANSITION__SOURCE = 0;
 
   /**
-   * The feature id for the '<em><b>Target Port</b></em>' reference.
+   * The feature id for the '<em><b>Source Port</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSITION__TARGET_PORT = 1;
+  int TRANSITION__SOURCE_PORT = 1;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -527,13 +527,13 @@ public interface SortingPackage extends EPackage
   int TRANSITION__TARGET = 2;
 
   /**
-   * The feature id for the '<em><b>Source Port</b></em>' reference.
+   * The feature id for the '<em><b>Target Port</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSITION__SOURCE_PORT = 3;
+  int TRANSITION__TARGET_PORT = 3;
 
   /**
    * The number of structural features of the '<em>Transition</em>' class.
@@ -844,15 +844,15 @@ public interface SortingPackage extends EPackage
   EReference getTransition_Source();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.example.sorting.sorting.Transition#getTargetPort <em>Target Port</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.sorting.sorting.Transition#getSourcePort <em>Source Port</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Target Port</em>'.
-   * @see org.xtext.example.sorting.sorting.Transition#getTargetPort()
+   * @return the meta object for the reference '<em>Source Port</em>'.
+   * @see org.xtext.example.sorting.sorting.Transition#getSourcePort()
    * @see #getTransition()
    * @generated
    */
-  EReference getTransition_TargetPort();
+  EReference getTransition_SourcePort();
 
   /**
    * Returns the meta object for the reference '{@link org.xtext.example.sorting.sorting.Transition#getTarget <em>Target</em>}'.
@@ -866,15 +866,15 @@ public interface SortingPackage extends EPackage
   EReference getTransition_Target();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.example.sorting.sorting.Transition#getSourcePort <em>Source Port</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.sorting.sorting.Transition#getTargetPort <em>Target Port</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Source Port</em>'.
-   * @see org.xtext.example.sorting.sorting.Transition#getSourcePort()
+   * @return the meta object for the reference '<em>Target Port</em>'.
+   * @see org.xtext.example.sorting.sorting.Transition#getTargetPort()
    * @see #getTransition()
    * @generated
    */
-  EReference getTransition_SourcePort();
+  EReference getTransition_TargetPort();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1144,12 +1144,12 @@ public interface SortingPackage extends EPackage
     EReference TRANSITION__SOURCE = eINSTANCE.getTransition_Source();
 
     /**
-     * The meta object literal for the '<em><b>Target Port</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Source Port</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSITION__TARGET_PORT = eINSTANCE.getTransition_TargetPort();
+    EReference TRANSITION__SOURCE_PORT = eINSTANCE.getTransition_SourcePort();
 
     /**
      * The meta object literal for the '<em><b>Target</b></em>' reference feature.
@@ -1160,12 +1160,12 @@ public interface SortingPackage extends EPackage
     EReference TRANSITION__TARGET = eINSTANCE.getTransition_Target();
 
     /**
-     * The meta object literal for the '<em><b>Source Port</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Target Port</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSITION__SOURCE_PORT = eINSTANCE.getTransition_SourcePort();
+    EReference TRANSITION__TARGET_PORT = eINSTANCE.getTransition_TargetPort();
 
   }
 

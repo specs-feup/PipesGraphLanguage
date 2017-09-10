@@ -43,8 +43,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Instance"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPort" eType="#//Port"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Instance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePort" eType="#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Instance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPort" eType="#//Port"/>
   </eClassifiers>
 </ecore:EPackage>

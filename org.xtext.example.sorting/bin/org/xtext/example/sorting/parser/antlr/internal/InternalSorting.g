@@ -722,33 +722,31 @@ ruleSource returns [EObject current=null]
 				}
 			)
 		)+
+		otherlv_7='method:'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getSourceAccess().getMethodKeyword_6());
+		}
 		(
-			otherlv_7='method:'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getSourceAccess().getMethodKeyword_6_0());
-			}
 			(
-				(
-					lv_code_8_0=RULE_CODE
-					{
-						newLeafNode(lv_code_8_0, grammarAccess.getSourceAccess().getCodeCODETerminalRuleCall_6_1_0());
+				lv_code_8_0=RULE_CODE
+				{
+					newLeafNode(lv_code_8_0, grammarAccess.getSourceAccess().getCodeCODETerminalRuleCall_7_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSourceRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSourceRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"code",
-							lv_code_8_0,
-							"org.xtext.example.sorting.Sorting.CODE");
-					}
-				)
+					setWithLastConsumed(
+						$current,
+						"code",
+						lv_code_8_0,
+						"org.xtext.example.sorting.Sorting.CODE");
+				}
 			)
-		)?
+		)
 		otherlv_9='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getSourceAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getSourceAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -841,33 +839,31 @@ ruleFilter returns [EObject current=null]
 				}
 			)
 		)+
+		otherlv_7='method:'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getFilterAccess().getMethodKeyword_7());
+		}
 		(
-			otherlv_7='method:'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getFilterAccess().getMethodKeyword_7_0());
-			}
 			(
-				(
-					lv_code_8_0=RULE_CODE
-					{
-						newLeafNode(lv_code_8_0, grammarAccess.getFilterAccess().getCodeCODETerminalRuleCall_7_1_0());
+				lv_code_8_0=RULE_CODE
+				{
+					newLeafNode(lv_code_8_0, grammarAccess.getFilterAccess().getCodeCODETerminalRuleCall_8_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFilterRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getFilterRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"code",
-							lv_code_8_0,
-							"org.xtext.example.sorting.Sorting.CODE");
-					}
-				)
+					setWithLastConsumed(
+						$current,
+						"code",
+						lv_code_8_0,
+						"org.xtext.example.sorting.Sorting.CODE");
+				}
 			)
-		)?
+		)
 		otherlv_9='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getFilterAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_9, grammarAccess.getFilterAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -962,33 +958,31 @@ ruleSink returns [EObject current=null]
 				)
 			)+
 		)?
+		otherlv_7='method:'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getSinkAccess().getMethodKeyword_6());
+		}
 		(
-			otherlv_7='method:'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getSinkAccess().getMethodKeyword_6_0());
-			}
 			(
-				(
-					lv_code_8_0=RULE_CODE
-					{
-						newLeafNode(lv_code_8_0, grammarAccess.getSinkAccess().getCodeCODETerminalRuleCall_6_1_0());
+				lv_code_8_0=RULE_CODE
+				{
+					newLeafNode(lv_code_8_0, grammarAccess.getSinkAccess().getCodeCODETerminalRuleCall_7_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSinkRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSinkRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"code",
-							lv_code_8_0,
-							"org.xtext.example.sorting.Sorting.CODE");
-					}
-				)
+					setWithLastConsumed(
+						$current,
+						"code",
+						lv_code_8_0,
+						"org.xtext.example.sorting.Sorting.CODE");
+				}
 			)
-		)?
+		)
 		otherlv_9='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getSinkAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getSinkAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -1040,15 +1034,11 @@ ruleInstance returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='call:'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getInstanceAccess().getCallKeyword_2());
-		}
 		(
 			(
-				lv_code_3_0=RULE_CODE
+				lv_code_2_0=RULE_CODE
 				{
-					newLeafNode(lv_code_3_0, grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_3_0());
+					newLeafNode(lv_code_2_0, grammarAccess.getInstanceAccess().getCodeCODETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -1057,11 +1047,11 @@ ruleInstance returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"code",
-						lv_code_3_0,
+						lv_code_2_0,
 						"org.xtext.example.sorting.Sorting.CODE");
 				}
 			)
-		)
+		)?
 	)
 ;
 
@@ -1111,7 +1101,7 @@ ruleTransition returns [EObject current=null]
 				}
 				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getTargetPortPortCrossReference_3_0());
+					newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getSourcePortPortCrossReference_3_0());
 				}
 			)
 		)
@@ -1153,7 +1143,7 @@ ruleTransition returns [EObject current=null]
 				}
 				otherlv_9=RULE_ID
 				{
-					newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getSourcePortPortCrossReference_9_0());
+					newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getTargetPortPortCrossReference_9_0());
 				}
 			)
 		)

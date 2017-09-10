@@ -41,12 +41,9 @@ public class SortingParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPortAccess().getGroup(), "rule__Port__Group__0");
 					put(grammarAccess.getSourceAccess().getGroup(), "rule__Source__Group__0");
 					put(grammarAccess.getSourceAccess().getGroup_3(), "rule__Source__Group_3__0");
-					put(grammarAccess.getSourceAccess().getGroup_6(), "rule__Source__Group_6__0");
 					put(grammarAccess.getFilterAccess().getGroup(), "rule__Filter__Group__0");
-					put(grammarAccess.getFilterAccess().getGroup_7(), "rule__Filter__Group_7__0");
 					put(grammarAccess.getSinkAccess().getGroup(), "rule__Sink__Group__0");
 					put(grammarAccess.getSinkAccess().getGroup_5(), "rule__Sink__Group_5__0");
-					put(grammarAccess.getSinkAccess().getGroup_6(), "rule__Sink__Group_6__0");
 					put(grammarAccess.getInstanceAccess().getGroup(), "rule__Instance__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getConfigAccess().getNameAssignment_3(), "rule__Config__NameAssignment_3");
@@ -62,22 +59,22 @@ public class SortingParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSourceAccess().getNameAssignment_1(), "rule__Source__NameAssignment_1");
 					put(grammarAccess.getSourceAccess().getInPortsAssignment_3_1(), "rule__Source__InPortsAssignment_3_1");
 					put(grammarAccess.getSourceAccess().getOutPortsAssignment_5(), "rule__Source__OutPortsAssignment_5");
-					put(grammarAccess.getSourceAccess().getCodeAssignment_6_1(), "rule__Source__CodeAssignment_6_1");
+					put(grammarAccess.getSourceAccess().getCodeAssignment_7(), "rule__Source__CodeAssignment_7");
 					put(grammarAccess.getFilterAccess().getNameAssignment_1(), "rule__Filter__NameAssignment_1");
 					put(grammarAccess.getFilterAccess().getInPortsAssignment_4(), "rule__Filter__InPortsAssignment_4");
 					put(grammarAccess.getFilterAccess().getOutPortsAssignment_6(), "rule__Filter__OutPortsAssignment_6");
-					put(grammarAccess.getFilterAccess().getCodeAssignment_7_1(), "rule__Filter__CodeAssignment_7_1");
+					put(grammarAccess.getFilterAccess().getCodeAssignment_8(), "rule__Filter__CodeAssignment_8");
 					put(grammarAccess.getSinkAccess().getNameAssignment_1(), "rule__Sink__NameAssignment_1");
 					put(grammarAccess.getSinkAccess().getInPortsAssignment_4(), "rule__Sink__InPortsAssignment_4");
 					put(grammarAccess.getSinkAccess().getOutPortsAssignment_5_1(), "rule__Sink__OutPortsAssignment_5_1");
-					put(grammarAccess.getSinkAccess().getCodeAssignment_6_1(), "rule__Sink__CodeAssignment_6_1");
+					put(grammarAccess.getSinkAccess().getCodeAssignment_7(), "rule__Sink__CodeAssignment_7");
 					put(grammarAccess.getInstanceAccess().getComponentAssignment_0(), "rule__Instance__ComponentAssignment_0");
 					put(grammarAccess.getInstanceAccess().getNameAssignment_1(), "rule__Instance__NameAssignment_1");
-					put(grammarAccess.getInstanceAccess().getCodeAssignment_3(), "rule__Instance__CodeAssignment_3");
+					put(grammarAccess.getInstanceAccess().getCodeAssignment_2(), "rule__Instance__CodeAssignment_2");
 					put(grammarAccess.getTransitionAccess().getSourceAssignment_1(), "rule__Transition__SourceAssignment_1");
-					put(grammarAccess.getTransitionAccess().getTargetPortAssignment_3(), "rule__Transition__TargetPortAssignment_3");
+					put(grammarAccess.getTransitionAccess().getSourcePortAssignment_3(), "rule__Transition__SourcePortAssignment_3");
 					put(grammarAccess.getTransitionAccess().getTargetAssignment_7(), "rule__Transition__TargetAssignment_7");
-					put(grammarAccess.getTransitionAccess().getSourcePortAssignment_9(), "rule__Transition__SourcePortAssignment_9");
+					put(grammarAccess.getTransitionAccess().getTargetPortAssignment_9(), "rule__Transition__TargetPortAssignment_9");
 				}
 			};
 		}

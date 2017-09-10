@@ -449,7 +449,7 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransition_TargetPort()
+  public EReference getTransition_SourcePort()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(1);
   }
@@ -469,7 +469,7 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransition_SourcePort()
+  public EReference getTransition_TargetPort()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(3);
   }
@@ -541,9 +541,9 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
 
     transitionEClass = createEClass(TRANSITION);
     createEReference(transitionEClass, TRANSITION__SOURCE);
-    createEReference(transitionEClass, TRANSITION__TARGET_PORT);
-    createEReference(transitionEClass, TRANSITION__TARGET);
     createEReference(transitionEClass, TRANSITION__SOURCE_PORT);
+    createEReference(transitionEClass, TRANSITION__TARGET);
+    createEReference(transitionEClass, TRANSITION__TARGET_PORT);
   }
 
   /**
@@ -617,9 +617,9 @@ public class SortingPackageImpl extends EPackageImpl implements SortingPackage
 
     initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransition_Source(), this.getInstance(), null, "source", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransition_TargetPort(), this.getPort(), null, "targetPort", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransition_Target(), this.getInstance(), null, "target", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_SourcePort(), this.getPort(), null, "sourcePort", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Target(), this.getInstance(), null, "target", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_TargetPort(), this.getPort(), null, "targetPort", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
