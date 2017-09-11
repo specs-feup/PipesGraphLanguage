@@ -132,6 +132,9 @@ public class SortingGenerator extends AbstractGenerator {
     _builder.append("public void invoke(){");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("assign.run();");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("call.run();");
     _builder.newLine();
     _builder.append("\t");
@@ -502,11 +505,13 @@ public class SortingGenerator extends AbstractGenerator {
       _builder_6.append("default:");
       _builder_6.newLine();
       _builder_6.append("\t\t");
+      _builder_6.append("call = () -> {");
       String _code_2 = source.getCode();
       int _length_1 = source.getCode().length();
       int _minus_1 = (_length_1 - 2);
       String _substring_1 = _code_2.substring(2, _minus_1);
       _builder_6.append(_substring_1, "\t\t");
+      _builder_6.append("};");
       _builder_6.newLineIfNotEmpty();
       _builder_6.append("\t\t");
       _builder_6.append("break;\t\t\t\t\t");
@@ -721,24 +726,30 @@ public class SortingGenerator extends AbstractGenerator {
             String _name_43 = filter.getName();
             boolean _equals_3 = Objects.equal(_name_42, _name_43);
             if (_equals_3) {
-              _builder_7.append("\t");
-              _builder_7.append("case \"");
-              String _name_44 = instance_2.getName();
-              _builder_7.append(_name_44, "\t");
-              _builder_7.append("\":");
-              _builder_7.newLineIfNotEmpty();
-              _builder_7.append("\t");
-              _builder_7.append("call = () -> {");
-              String _code_3 = instance_2.getCode();
-              int _length_2 = instance_2.getCode().length();
-              int _minus_2 = (_length_2 - 2);
-              String _substring_2 = _code_3.substring(2, _minus_2);
-              _builder_7.append(_substring_2, "\t");
-              _builder_7.append("};");
-              _builder_7.newLineIfNotEmpty();
-              _builder_7.append("\t");
-              _builder_7.append("break;");
-              _builder_7.newLine();
+              {
+                String _code_3 = instance_2.getCode();
+                boolean _tripleNotEquals_1 = (_code_3 != null);
+                if (_tripleNotEquals_1) {
+                  _builder_7.append("\t");
+                  _builder_7.append("case \"");
+                  String _name_44 = instance_2.getName();
+                  _builder_7.append(_name_44, "\t");
+                  _builder_7.append("\":");
+                  _builder_7.newLineIfNotEmpty();
+                  _builder_7.append("\t");
+                  _builder_7.append("call = () -> {");
+                  String _code_4 = instance_2.getCode();
+                  int _length_2 = instance_2.getCode().length();
+                  int _minus_2 = (_length_2 - 2);
+                  String _substring_2 = _code_4.substring(2, _minus_2);
+                  _builder_7.append(_substring_2, "\t");
+                  _builder_7.append("};");
+                  _builder_7.newLineIfNotEmpty();
+                  _builder_7.append("\t");
+                  _builder_7.append("break;");
+                  _builder_7.newLine();
+                }
+              }
             }
           }
         }
@@ -748,10 +759,10 @@ public class SortingGenerator extends AbstractGenerator {
       _builder_7.newLine();
       _builder_7.append("\t");
       _builder_7.append("call = () -> {");
-      String _code_4 = filter.getCode();
+      String _code_5 = filter.getCode();
       int _length_3 = filter.getCode().length();
       int _minus_3 = (_length_3 - 2);
-      String _substring_3 = _code_4.substring(2, _minus_3);
+      String _substring_3 = _code_5.substring(2, _minus_3);
       _builder_7.append(_substring_3, "\t");
       _builder_7.append("};");
       _builder_7.newLineIfNotEmpty();
@@ -806,7 +817,7 @@ public class SortingGenerator extends AbstractGenerator {
                 }
               }
               _builder_7.append("\t");
-              _builder_7.append("}");
+              _builder_7.append("};");
               _builder_7.newLine();
               _builder_7.append("\t");
               _builder_7.append("break;");
@@ -968,24 +979,30 @@ public class SortingGenerator extends AbstractGenerator {
               String _name_72 = sink.getName();
               boolean _equals_6 = Objects.equal(_name_71, _name_72);
               if (_equals_6) {
-                _builder_8.append("\t");
-                _builder_8.append("case \"");
-                String _name_73 = instance_4.getName();
-                _builder_8.append(_name_73, "\t");
-                _builder_8.append("\":");
-                _builder_8.newLineIfNotEmpty();
-                _builder_8.append("\t");
-                _builder_8.append("call = () -> {");
-                String _code_5 = instance_4.getCode();
-                int _length_4 = instance_4.getCode().length();
-                int _minus_4 = (_length_4 - 2);
-                String _substring_4 = _code_5.substring(2, _minus_4);
-                _builder_8.append(_substring_4, "\t");
-                _builder_8.append("};");
-                _builder_8.newLineIfNotEmpty();
-                _builder_8.append("\t");
-                _builder_8.append("break;");
-                _builder_8.newLine();
+                {
+                  String _code_6 = instance_4.getCode();
+                  boolean _tripleNotEquals_2 = (_code_6 != null);
+                  if (_tripleNotEquals_2) {
+                    _builder_8.append("\t");
+                    _builder_8.append("case \"");
+                    String _name_73 = instance_4.getName();
+                    _builder_8.append(_name_73, "\t");
+                    _builder_8.append("\":");
+                    _builder_8.newLineIfNotEmpty();
+                    _builder_8.append("\t");
+                    _builder_8.append("call = () -> {");
+                    String _code_7 = instance_4.getCode();
+                    int _length_4 = instance_4.getCode().length();
+                    int _minus_4 = (_length_4 - 2);
+                    String _substring_4 = _code_7.substring(2, _minus_4);
+                    _builder_8.append(_substring_4, "\t");
+                    _builder_8.append("};");
+                    _builder_8.newLineIfNotEmpty();
+                    _builder_8.append("\t");
+                    _builder_8.append("break;");
+                    _builder_8.newLine();
+                  }
+                }
               }
             }
           }
@@ -995,10 +1012,10 @@ public class SortingGenerator extends AbstractGenerator {
         _builder_8.newLine();
         _builder_8.append("\t");
         _builder_8.append("call = () -> {");
-        String _code_6 = sink.getCode();
+        String _code_8 = sink.getCode();
         int _length_5 = sink.getCode().length();
         int _minus_5 = (_length_5 - 2);
-        String _substring_5 = _code_6.substring(2, _minus_5);
+        String _substring_5 = _code_8.substring(2, _minus_5);
         _builder_8.append(_substring_5, "\t");
         _builder_8.append("};");
         _builder_8.newLineIfNotEmpty();

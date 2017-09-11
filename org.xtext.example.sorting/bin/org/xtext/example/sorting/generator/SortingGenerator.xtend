@@ -61,6 +61,7 @@ class SortingGenerator extends AbstractGenerator {
 					return Integer.compare(this.level, c.getLevel());
 				}
 				public void invoke(){
+					assign.run();
 					call.run();
 				}
 				public void setCall(Runnable r) {
@@ -201,7 +202,7 @@ class SortingGenerator extends AbstractGenerator {
 					«ENDIF»
 					«ENDFOR»
 					default:
-					«source.code.substring(2, source.code.length - 2)»
+					call = () -> {«source.code.substring(2, source.code.length - 2)»};
 					break;					
 					}
 					switch (name) {
@@ -251,9 +252,11 @@ class SortingGenerator extends AbstractGenerator {
 					switch (name) {
 					«FOR instance : resource.allContents.toIterable.filter(Instance)»
 					«IF instance.component.name==filter.name»
+					«IF instance.code!==null»
 						case "«instance.name»":
 						call = () -> {«instance.code.substring(2, instance.code.length - 2)»};
 						break;
+					«ENDIF»
 					«ENDIF»
 					«ENDFOR»
 					default:
@@ -269,7 +272,7 @@ class SortingGenerator extends AbstractGenerator {
 								«transition.targetPort.name» = ((«transition.source.component.name»)graph.getComponent("«transition.source.name»")).get«transition.sourcePort.name»();
 							«ENDIF»
 							«ENDFOR»
-						}
+						};
 						break;
 						«ENDIF»
 					«ENDFOR»
@@ -308,9 +311,11 @@ class SortingGenerator extends AbstractGenerator {
 					switch (name) {
 					«FOR instance : resource.allContents.toIterable.filter(Instance)»
 					«IF instance.component.name==sink.name»
+					«IF instance.code!==null»
 						case "«instance.name»":
 						call = () -> {«instance.code.substring(2, instance.code.length - 2)»};
 						break;
+					«ENDIF»
 					«ENDIF»				
 					«ENDFOR»
 					default:
