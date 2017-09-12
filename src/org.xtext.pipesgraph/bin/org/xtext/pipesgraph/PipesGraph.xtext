@@ -1,0 +1,76 @@
+grammar org.xtext.pipesgraph.PipesGraph with org.eclipse.xtext.common.Terminals
+
+generate pipesGraph "http://www.xtext.org/pipesgraph/PipesGraph"
+
+Config:
+	{Config}
+	'config''{' name=ID
+	('params' '{' (params+=Param)+ '}')?
+	('imports''{' (imports+=Import)+ '}')?
+	'components''{' (components+=Component)+ '}'
+	'instances' '{'(instances+=Instance)+ '}'
+	'transitions' '{' (transitions+=Transition)+ '}' '}'
+;
+
+Param:
+	'param' '{' value=Anything '}'
+;
+
+Anything:
+	(ID | INT | STRING | WS | '(' | ')' | ',' | '.' | '!' | '?' | '[' | ']' | '+' | '-' | '/' | '*' | '<' | '>' | ':' | '=' | '%')+
+;
+
+terminal CODE:
+	'/#' -> '#/'
+	/*'%{' (~['}'])* '}' ('}' | ~['}','%'] (~['}'])* '}')* '%'*/
+;
+
+Import:
+  'import' name = Anything
+;
+
+Port:
+	'port' '{' name=ID type=Anything '}'
+	;
+
+
+Component:
+	Source|Sink|Filter
+;
+
+Source:
+	'source' name=ID '{'
+	('in:' inPorts+=Port+)?
+	'out:' outPorts+=Port+
+	'method:' code=CODE
+	'}'
+	//TODO foreach N (param ou unknown)
+;
+	
+Filter:
+	'filter' name=ID '{'
+	'in:' inPorts+=Port+
+	'out:' outPorts+=Port+
+	'method:' code=CODE
+	'}'
+;	
+
+Sink:
+	'sink' name=ID '{'
+	'in:' inPorts+=Port+
+	('out:' outPorts+=Port+)?
+	'method:' code=CODE
+	'}'
+;
+	
+
+Instance:
+	component=[Component] name=ID 
+	(code=CODE)?
+	
+;
+Transition:
+
+	'['source=[Instance]',' sourcePort=[Port]']''->' '['target=[Instance] ',' targetPort=[Port]']'  
+;
+
