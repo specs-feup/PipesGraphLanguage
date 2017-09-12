@@ -14,6 +14,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -39,6 +40,7 @@ public class SortingGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     fsa.generateFile("PipeStages.java", this.generatePipeStages(resource));
+    fsa.generateFile("dotfile.dot", this.generateDotFile(resource));
     final Function1<Config, String> _function = (Config it) -> {
       return it.getName();
     };
@@ -1130,6 +1132,164 @@ public class SortingGenerator extends AbstractGenerator {
         fsa.generateFile("Graph.java", this.generate(((Config) _head_1)));
       }
     }
+  }
+  
+  public CharSequence generateDotFile(final Resource resource) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("digraph G {\t");
+    _builder.newLine();
+    {
+      Iterable<Instance> _filter = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+      for(final Instance instance : _filter) {
+        _builder.append("rankdir=TB");
+        _builder.newLine();
+        String _name = instance.getName();
+        _builder.append(_name);
+        _builder.append(" [shape=plaintext ");
+        _builder.newLineIfNotEmpty();
+        _builder.append("label=");
+        _builder.newLine();
+        _builder.append("<<TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"0\" CELLPADDING=\"0\">");
+        _builder.newLine();
+        {
+          int _length = ((Object[])Conversions.unwrapArray(instance.getComponent().getInPorts(), Object.class)).length;
+          boolean _notEquals = (_length != 0);
+          if (_notEquals) {
+            _builder.append("\t");
+            _builder.append("<TR>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("<TD BORDER=\"0\">");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t\t");
+            _builder.append("<TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"0\" CELLPADDING=\"0\">");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.append("<TR>");
+            _builder.newLine();
+            {
+              EList<Port> _inPorts = instance.getComponent().getInPorts();
+              for(final Port port : _inPorts) {
+                _builder.append("\t");
+                _builder.append("\t\t\t");
+                _builder.append("<TD PORT=\"");
+                String _name_1 = port.getName();
+                _builder.append(_name_1, "\t\t\t\t");
+                _builder.append("\" BORDER=\"1\" CELLPADDING=\"1\">");
+                String _name_2 = port.getName();
+                _builder.append(_name_2, "\t\t\t\t");
+                _builder.append("</TD>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.append("</TR>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t\t");
+            _builder.append("</TABLE>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("</TD>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("</TR>");
+            _builder.newLine();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("<TR>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("<TD BORDER=\"1\" CELLPADDING=\"4\" COLOR=\"black\">");
+        String _name_3 = instance.getName();
+        _builder.append(_name_3, "\t\t");
+        _builder.append("</TD>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("</TR>");
+        _builder.newLine();
+        {
+          int _length_1 = ((Object[])Conversions.unwrapArray(instance.getComponent().getOutPorts(), Object.class)).length;
+          boolean _notEquals_1 = (_length_1 != 0);
+          if (_notEquals_1) {
+            _builder.append("\t");
+            _builder.append("<TR>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("<TD BORDER=\"0\">");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t\t");
+            _builder.append("<TABLE BORDER=\"0\" CELLBORDER=\"0\" CELLSPACING=\"0\" CELLPADDING=\"0\">");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.append("<TR>");
+            _builder.newLine();
+            {
+              EList<Port> _outPorts = instance.getComponent().getOutPorts();
+              for(final Port port_1 : _outPorts) {
+                _builder.append("\t");
+                _builder.append("\t\t\t");
+                _builder.append("<TD PORT=\"");
+                String _name_4 = port_1.getName();
+                _builder.append(_name_4, "\t\t\t\t");
+                _builder.append("\" BORDER=\"1\" CELLPADDING=\"1\">");
+                String _name_5 = port_1.getName();
+                _builder.append(_name_5, "\t\t\t\t");
+                _builder.append("</TD>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.append("</TR>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t\t");
+            _builder.append("</TABLE>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("</TD>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("</TR>");
+            _builder.newLine();
+          }
+        }
+        _builder.append("</TABLE>>];");
+        _builder.newLine();
+      }
+    }
+    {
+      Iterable<Transition> _filter_1 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
+      for(final Transition transition : _filter_1) {
+        String _name_6 = transition.getSource().getName();
+        _builder.append(_name_6);
+        _builder.append(":");
+        String _name_7 = transition.getSourcePort().getName();
+        _builder.append(_name_7);
+        _builder.append(" -> ");
+        String _name_8 = transition.getTarget().getName();
+        _builder.append(_name_8);
+        _builder.append(":");
+        String _name_9 = transition.getTargetPort().getName();
+        _builder.append(_name_9);
+        _builder.append(" [style=\"\", arrowhead=\"normal\", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence generateClass(final Config config) {

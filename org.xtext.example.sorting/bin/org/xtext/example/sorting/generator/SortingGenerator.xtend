@@ -27,7 +27,8 @@ class SortingGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 
-		fsa.generateFile("PipeStages.java", generatePipeStages(resource)); 
+		fsa.generateFile("PipeStages.java", generatePipeStages(resource));
+		fsa.generateFile("dotfile.dot", generateDotFile(resource)); 
 		fsa.generateFile(resource.allContents.filter(Config).map[name]+".java", generateClass(resource.contents.head as Config)); 
 			
 		fsa.generateFile("Component.java", 
@@ -358,6 +359,50 @@ class SortingGenerator extends AbstractGenerator {
 		 
 		
 	}
+	
+	def generateDotFile(Resource resource) '''
+	digraph G {	
+	«FOR instance : resource.allContents.toIterable.filter(Instance)»
+	rankdir=TB
+	«instance.name» [shape=plaintext 
+	label=
+	<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+		«IF instance.component.inPorts.length != 0»
+		<TR>
+			<TD BORDER="0">
+				<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+					<TR>
+					«FOR port: instance.component.inPorts»
+						<TD PORT="«port.name»" BORDER="1" CELLPADDING="1">«port.name»</TD>
+					«ENDFOR»
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		«ENDIF»
+		<TR>
+			<TD BORDER="1" CELLPADDING="4" COLOR="black">«instance.name»</TD>
+		</TR>
+		«IF instance.component.outPorts.length != 0»
+		<TR>
+			<TD BORDER="0">
+				<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+					<TR>
+					«FOR port: instance.component.outPorts»
+						<TD PORT="«port.name»" BORDER="1" CELLPADDING="1">«port.name»</TD>
+					«ENDFOR»
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		«ENDIF»
+	</TABLE>>];
+	«ENDFOR»
+	«FOR transition : resource.allContents.toIterable.filter(Transition)»
+	    «transition.source.name»:«transition.sourcePort.name» -> «transition.target.name»:«transition.targetPort.name» [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+	«ENDFOR»
+	}
+	'''
 	
 	def CharSequence generateClass(Config config) '''
 	'''
