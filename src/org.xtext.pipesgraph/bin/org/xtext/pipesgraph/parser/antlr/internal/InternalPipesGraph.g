@@ -108,7 +108,7 @@ ruleConfig returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
-		)
+		)?
 		(
 			otherlv_4='params'
 			{

@@ -29,7 +29,9 @@ class PipesGraphGenerator extends AbstractGenerator {
 
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		
+		if(resource.allContents.filter(Config).map[name].head !== null){
+			packname = resource.allContents.filter(Config).head.name;
+		}
 		/*for(conf : new OutputConfigurationProvider().getOutputConfigurations(resource)){
 			println("Output configuration:");
 			println("Output folder:" + conf.outputDirectory);
@@ -48,7 +50,6 @@ class PipesGraphGenerator extends AbstractGenerator {
 
 		fsa.generateFile(buildFileName("PipeStages"), generatePipeStages(resource));
 		fsa.generateFile("dotfile.dot", generateDotFile(resource)); 
-		fsa.generateFile(buildFileName(resource.allContents.filter(Config).map[name]+""), generateClass(resource.contents.head as Config)); 
 			
 		fsa.generateFile(buildFileName("Component"), 
 			'''
@@ -428,8 +429,6 @@ class PipesGraphGenerator extends AbstractGenerator {
 	}
 	'''
 	
-	def CharSequence generateClass(Config config) '''
-	'''
 	
 	def CharSequence generatePipeStages(Resource resource)'''
 	package «packname»;

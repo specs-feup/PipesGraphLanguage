@@ -593,7 +593,7 @@ rule__Config__Group__3__Impl
 :
 (
 	{ before(grammarAccess.getConfigAccess().getNameAssignment_3()); }
-	(rule__Config__NameAssignment_3)
+	(rule__Config__NameAssignment_3)?
 	{ after(grammarAccess.getConfigAccess().getNameAssignment_3()); }
 )
 ;

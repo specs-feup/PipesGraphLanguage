@@ -4,7 +4,7 @@ generate pipesGraph "http://www.xtext.org/pipesgraph/PipesGraph"
 
 Config:
 	{Config}
-	'config''{' name=ID
+	'config''{' (name=ID)?
 	('params' '{' (params+=Param)+ '}')?
 	('imports''{' (imports+=Import)+ '}')?
 	'components''{' (components+=Component)+ '}'

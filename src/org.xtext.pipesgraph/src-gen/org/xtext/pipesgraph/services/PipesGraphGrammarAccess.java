@@ -63,13 +63,13 @@ public class PipesGraphGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Config:
 		//	{Config}
-		//	'config' '{' name=ID ('params' '{' params+=Param+ '}')? ('imports' '{' imports+=Import+ '}')?
+		//	'config' '{' name=ID? ('params' '{' params+=Param+ '}')? ('imports' '{' imports+=Import+ '}')?
 		//	'components' '{' components+=Component+ '}'
 		//	'instances' '{' instances+=Instance+ '}'
 		//	'transitions' '{' transitions+=Transition+ '}' '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Config} 'config' '{' name=ID ('params' '{' params+=Param+ '}')? ('imports' '{' imports+=Import+ '}')? 'components' '{'
+		//{Config} 'config' '{' name=ID? ('params' '{' params+=Param+ '}')? ('imports' '{' imports+=Import+ '}')? 'components' '{'
 		//components+=Component+ '}' 'instances' '{' instances+=Instance+ '}' 'transitions' '{' transitions+=Transition+ '}' '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -82,7 +82,7 @@ public class PipesGraphGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//name=ID
+		//name=ID?
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
@@ -800,7 +800,7 @@ public class PipesGraphGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Config:
 	//	{Config}
-	//	'config' '{' name=ID ('params' '{' params+=Param+ '}')? ('imports' '{' imports+=Import+ '}')?
+	//	'config' '{' name=ID? ('params' '{' params+=Param+ '}')? ('imports' '{' imports+=Import+ '}')?
 	//	'components' '{' components+=Component+ '}'
 	//	'instances' '{' instances+=Instance+ '}'
 	//	'transitions' '{' transitions+=Transition+ '}' '}';

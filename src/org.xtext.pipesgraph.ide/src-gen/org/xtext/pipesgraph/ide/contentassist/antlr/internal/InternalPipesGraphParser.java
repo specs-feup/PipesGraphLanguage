@@ -1791,7 +1791,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:581:1: ( rule__Config__Group__3__Impl rule__Config__Group__4 )
             // InternalPipesGraph.g:582:2: rule__Config__Group__3__Impl rule__Config__Group__4
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Config__Group__3__Impl();
 
             state._fsp--;
@@ -1820,27 +1820,38 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Config__Group__3__Impl"
-    // InternalPipesGraph.g:589:1: rule__Config__Group__3__Impl : ( ( rule__Config__NameAssignment_3 ) ) ;
+    // InternalPipesGraph.g:589:1: rule__Config__Group__3__Impl : ( ( rule__Config__NameAssignment_3 )? ) ;
     public final void rule__Config__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPipesGraph.g:593:1: ( ( ( rule__Config__NameAssignment_3 ) ) )
-            // InternalPipesGraph.g:594:1: ( ( rule__Config__NameAssignment_3 ) )
+            // InternalPipesGraph.g:593:1: ( ( ( rule__Config__NameAssignment_3 )? ) )
+            // InternalPipesGraph.g:594:1: ( ( rule__Config__NameAssignment_3 )? )
             {
-            // InternalPipesGraph.g:594:1: ( ( rule__Config__NameAssignment_3 ) )
-            // InternalPipesGraph.g:595:2: ( rule__Config__NameAssignment_3 )
+            // InternalPipesGraph.g:594:1: ( ( rule__Config__NameAssignment_3 )? )
+            // InternalPipesGraph.g:595:2: ( rule__Config__NameAssignment_3 )?
             {
              before(grammarAccess.getConfigAccess().getNameAssignment_3()); 
-            // InternalPipesGraph.g:596:2: ( rule__Config__NameAssignment_3 )
-            // InternalPipesGraph.g:596:3: rule__Config__NameAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Config__NameAssignment_3();
+            // InternalPipesGraph.g:596:2: ( rule__Config__NameAssignment_3 )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA4_0==RULE_ID) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalPipesGraph.g:596:3: rule__Config__NameAssignment_3
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Config__NameAssignment_3();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -1876,7 +1887,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:608:1: ( rule__Config__Group__4__Impl rule__Config__Group__5 )
             // InternalPipesGraph.g:609:2: rule__Config__Group__4__Impl rule__Config__Group__5
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Config__Group__4__Impl();
 
             state._fsp--;
@@ -1919,13 +1930,13 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getGroup_4()); 
             // InternalPipesGraph.g:623:2: ( rule__Config__Group_4__0 )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==35) ) {
-                alt4=1;
+            if ( (LA5_0==35) ) {
+                alt5=1;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
                     // InternalPipesGraph.g:623:3: rule__Config__Group_4__0
                     {
@@ -1972,7 +1983,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:635:1: ( rule__Config__Group__5__Impl rule__Config__Group__6 )
             // InternalPipesGraph.g:636:2: rule__Config__Group__5__Impl rule__Config__Group__6
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__Config__Group__5__Impl();
 
             state._fsp--;
@@ -2015,13 +2026,13 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getGroup_5()); 
             // InternalPipesGraph.g:650:2: ( rule__Config__Group_5__0 )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==36) ) {
-                alt5=1;
+            if ( (LA6_0==36) ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
                     // InternalPipesGraph.g:650:3: rule__Config__Group_5__0
                     {
@@ -2143,7 +2154,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:689:1: ( rule__Config__Group__7__Impl rule__Config__Group__8 )
             // InternalPipesGraph.g:690:2: rule__Config__Group__7__Impl rule__Config__Group__8
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_7);
             rule__Config__Group__7__Impl();
 
             state._fsp--;
@@ -2218,7 +2229,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:716:1: ( rule__Config__Group__8__Impl rule__Config__Group__9 )
             // InternalPipesGraph.g:717:2: rule__Config__Group__8__Impl rule__Config__Group__9
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Config__Group__8__Impl();
 
             state._fsp--;
@@ -2266,7 +2277,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:732:3: ( rule__Config__ComponentsAssignment_8 )
             // InternalPipesGraph.g:732:4: rule__Config__ComponentsAssignment_8
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__Config__ComponentsAssignment_8();
 
             state._fsp--;
@@ -2283,21 +2294,21 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getComponentsAssignment_8()); 
             // InternalPipesGraph.g:737:3: ( rule__Config__ComponentsAssignment_8 )*
-            loop6:
+            loop7:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA6_0==40||(LA6_0>=44 && LA6_0<=45)) ) {
-                    alt6=1;
+                if ( (LA7_0==40||(LA7_0>=44 && LA7_0<=45)) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt7) {
             	case 1 :
             	    // InternalPipesGraph.g:737:4: rule__Config__ComponentsAssignment_8
             	    {
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_9);
             	    rule__Config__ComponentsAssignment_8();
 
             	    state._fsp--;
@@ -2307,7 +2318,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop7;
                 }
             } while (true);
 
@@ -2346,7 +2357,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:750:1: ( rule__Config__Group__9__Impl rule__Config__Group__10 )
             // InternalPipesGraph.g:751:2: rule__Config__Group__9__Impl rule__Config__Group__10
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__Config__Group__9__Impl();
 
             state._fsp--;
@@ -2496,7 +2507,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:804:1: ( rule__Config__Group__11__Impl rule__Config__Group__12 )
             // InternalPipesGraph.g:805:2: rule__Config__Group__11__Impl rule__Config__Group__12
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Config__Group__11__Impl();
 
             state._fsp--;
@@ -2571,7 +2582,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:831:1: ( rule__Config__Group__12__Impl rule__Config__Group__13 )
             // InternalPipesGraph.g:832:2: rule__Config__Group__12__Impl rule__Config__Group__13
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Config__Group__12__Impl();
 
             state._fsp--;
@@ -2636,17 +2647,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getInstancesAssignment_12()); 
             // InternalPipesGraph.g:852:3: ( rule__Config__InstancesAssignment_12 )*
-            loop7:
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA7_0==RULE_ID) ) {
-                    alt7=1;
+                if ( (LA8_0==RULE_ID) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
             	    // InternalPipesGraph.g:852:4: rule__Config__InstancesAssignment_12
             	    {
@@ -2660,7 +2671,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop8;
                 }
             } while (true);
 
@@ -2924,7 +2935,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:946:1: ( rule__Config__Group__16__Impl rule__Config__Group__17 )
             // InternalPipesGraph.g:947:2: rule__Config__Group__16__Impl rule__Config__Group__17
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Config__Group__16__Impl();
 
             state._fsp--;
@@ -2989,17 +3000,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getTransitionsAssignment_16()); 
             // InternalPipesGraph.g:967:3: ( rule__Config__TransitionsAssignment_16 )*
-            loop8:
+            loop9:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA8_0==18) ) {
-                    alt8=1;
+                if ( (LA9_0==18) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt9) {
             	case 1 :
             	    // InternalPipesGraph.g:967:4: rule__Config__TransitionsAssignment_16
             	    {
@@ -3013,7 +3024,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop9;
                 }
             } while (true);
 
@@ -3052,7 +3063,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:980:1: ( rule__Config__Group__17__Impl rule__Config__Group__18 )
             // InternalPipesGraph.g:981:2: rule__Config__Group__17__Impl rule__Config__Group__18
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Config__Group__17__Impl();
 
             state._fsp--;
@@ -3347,7 +3358,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1088:1: ( rule__Config__Group_4__2__Impl rule__Config__Group_4__3 )
             // InternalPipesGraph.g:1089:2: rule__Config__Group_4__2__Impl rule__Config__Group_4__3
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Config__Group_4__2__Impl();
 
             state._fsp--;
@@ -3412,17 +3423,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getParamsAssignment_4_2()); 
             // InternalPipesGraph.g:1109:3: ( rule__Config__ParamsAssignment_4_2 )*
-            loop9:
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==37) ) {
-                    alt9=1;
+                if ( (LA10_0==37) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
             	    // InternalPipesGraph.g:1109:4: rule__Config__ParamsAssignment_4_2
             	    {
@@ -3436,7 +3447,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -3695,7 +3706,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1203:1: ( rule__Config__Group_5__2__Impl rule__Config__Group_5__3 )
             // InternalPipesGraph.g:1204:2: rule__Config__Group_5__2__Impl rule__Config__Group_5__3
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Config__Group_5__2__Impl();
 
             state._fsp--;
@@ -3760,17 +3771,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getConfigAccess().getImportsAssignment_5_2()); 
             // InternalPipesGraph.g:1224:3: ( rule__Config__ImportsAssignment_5_2 )*
-            loop10:
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==38) ) {
-                    alt10=1;
+                if ( (LA11_0==38) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
             	    // InternalPipesGraph.g:1224:4: rule__Config__ImportsAssignment_5_2
             	    {
@@ -3784,7 +3795,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -4043,7 +4054,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1318:1: ( rule__Param__Group__2__Impl rule__Param__Group__3 )
             // InternalPipesGraph.g:1319:2: rule__Param__Group__2__Impl rule__Param__Group__3
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Param__Group__2__Impl();
 
             state._fsp--;
@@ -4428,7 +4439,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1453:1: ( rule__Port__Group__1__Impl rule__Port__Group__2 )
             // InternalPipesGraph.g:1454:2: rule__Port__Group__1__Impl rule__Port__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Port__Group__1__Impl();
 
             state._fsp--;
@@ -4588,7 +4599,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1507:1: ( rule__Port__Group__3__Impl rule__Port__Group__4 )
             // InternalPipesGraph.g:1508:2: rule__Port__Group__3__Impl rule__Port__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Port__Group__3__Impl();
 
             state._fsp--;
@@ -4743,7 +4754,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1561:1: ( rule__Source__Group__0__Impl rule__Source__Group__1 )
             // InternalPipesGraph.g:1562:2: rule__Source__Group__0__Impl rule__Source__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Source__Group__0__Impl();
 
             state._fsp--;
@@ -5021,13 +5032,13 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getSourceAccess().getGroup_3()); 
             // InternalPipesGraph.g:1657:2: ( rule__Source__Group_3__0 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==43) ) {
-                alt11=1;
+            if ( (LA12_0==43) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
                     // InternalPipesGraph.g:1657:3: rule__Source__Group_3__0
                     {
@@ -5214,17 +5225,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getSourceAccess().getOutPortsAssignment_5()); 
             // InternalPipesGraph.g:1717:3: ( rule__Source__OutPortsAssignment_5 )*
-            loop12:
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA12_0==39) ) {
-                    alt12=1;
+                if ( (LA13_0==39) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
             	    // InternalPipesGraph.g:1717:4: rule__Source__OutPortsAssignment_5
             	    {
@@ -5238,7 +5249,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
@@ -5352,7 +5363,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1757:1: ( rule__Source__Group__7__Impl rule__Source__Group__8 )
             // InternalPipesGraph.g:1758:2: rule__Source__Group__7__Impl rule__Source__Group__8
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Source__Group__7__Impl();
 
             state._fsp--;
@@ -5642,17 +5653,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getSourceAccess().getInPortsAssignment_3_1()); 
             // InternalPipesGraph.g:1858:3: ( rule__Source__InPortsAssignment_3_1 )*
-            loop13:
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA13_0==39) ) {
-                    alt13=1;
+                if ( (LA14_0==39) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
             	    // InternalPipesGraph.g:1858:4: rule__Source__InPortsAssignment_3_1
             	    {
@@ -5666,7 +5677,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop14;
                 }
             } while (true);
 
@@ -5705,7 +5716,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:1872:1: ( rule__Filter__Group__0__Impl rule__Filter__Group__1 )
             // InternalPipesGraph.g:1873:2: rule__Filter__Group__0__Impl rule__Filter__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Filter__Group__0__Impl();
 
             state._fsp--;
@@ -6080,17 +6091,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getFilterAccess().getInPortsAssignment_4()); 
             // InternalPipesGraph.g:2001:3: ( rule__Filter__InPortsAssignment_4 )*
-            loop14:
+            loop15:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA14_0==39) ) {
-                    alt14=1;
+                if ( (LA15_0==39) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt15) {
             	case 1 :
             	    // InternalPipesGraph.g:2001:4: rule__Filter__InPortsAssignment_4
             	    {
@@ -6104,7 +6115,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop15;
                 }
             } while (true);
 
@@ -6283,17 +6294,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getFilterAccess().getOutPortsAssignment_6()); 
             // InternalPipesGraph.g:2062:3: ( rule__Filter__OutPortsAssignment_6 )*
-            loop15:
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA15_0==39) ) {
-                    alt15=1;
+                if ( (LA16_0==39) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
             	    // InternalPipesGraph.g:2062:4: rule__Filter__OutPortsAssignment_6
             	    {
@@ -6307,7 +6318,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -6421,7 +6432,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2102:1: ( rule__Filter__Group__8__Impl rule__Filter__Group__9 )
             // InternalPipesGraph.g:2103:2: rule__Filter__Group__8__Impl rule__Filter__Group__9
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Filter__Group__8__Impl();
 
             state._fsp--;
@@ -6576,7 +6587,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2156:1: ( rule__Sink__Group__0__Impl rule__Sink__Group__1 )
             // InternalPipesGraph.g:2157:2: rule__Sink__Group__0__Impl rule__Sink__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Sink__Group__0__Impl();
 
             state._fsp--;
@@ -6951,17 +6962,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getSinkAccess().getInPortsAssignment_4()); 
             // InternalPipesGraph.g:2285:3: ( rule__Sink__InPortsAssignment_4 )*
-            loop16:
+            loop17:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA16_0==39) ) {
-                    alt16=1;
+                if ( (LA17_0==39) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt17) {
             	case 1 :
             	    // InternalPipesGraph.g:2285:4: rule__Sink__InPortsAssignment_4
             	    {
@@ -6975,7 +6986,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop17;
                 }
             } while (true);
 
@@ -7057,13 +7068,13 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getSinkAccess().getGroup_5()); 
             // InternalPipesGraph.g:2313:2: ( rule__Sink__Group_5__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==41) ) {
-                alt17=1;
+            if ( (LA18_0==41) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
                     // InternalPipesGraph.g:2313:3: rule__Sink__Group_5__0
                     {
@@ -7185,7 +7196,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2352:1: ( rule__Sink__Group__7__Impl rule__Sink__Group__8 )
             // InternalPipesGraph.g:2353:2: rule__Sink__Group__7__Impl rule__Sink__Group__8
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__Sink__Group__7__Impl();
 
             state._fsp--;
@@ -7475,17 +7486,17 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getSinkAccess().getOutPortsAssignment_5_1()); 
             // InternalPipesGraph.g:2453:3: ( rule__Sink__OutPortsAssignment_5_1 )*
-            loop18:
+            loop19:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA18_0==39) ) {
-                    alt18=1;
+                if ( (LA19_0==39) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt19) {
             	case 1 :
             	    // InternalPipesGraph.g:2453:4: rule__Sink__OutPortsAssignment_5_1
             	    {
@@ -7499,7 +7510,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop18;
+            	    break loop19;
                 }
             } while (true);
 
@@ -7538,7 +7549,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2467:1: ( rule__Instance__Group__0__Impl rule__Instance__Group__1 )
             // InternalPipesGraph.g:2468:2: rule__Instance__Group__0__Impl rule__Instance__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Instance__Group__0__Impl();
 
             state._fsp--;
@@ -7746,13 +7757,13 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getInstanceAccess().getCodeAssignment_2()); 
             // InternalPipesGraph.g:2535:2: ( rule__Instance__CodeAssignment_2 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_CODE) ) {
-                alt19=1;
+            if ( (LA20_0==RULE_CODE) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
                     // InternalPipesGraph.g:2535:3: rule__Instance__CodeAssignment_2
                     {
@@ -7799,7 +7810,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2548:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
             // InternalPipesGraph.g:2549:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Transition__Group__0__Impl();
 
             state._fsp--;
@@ -7959,7 +7970,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2602:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
             // InternalPipesGraph.g:2603:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Transition__Group__2__Impl();
 
             state._fsp--;
@@ -8269,7 +8280,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2710:1: ( rule__Transition__Group__6__Impl rule__Transition__Group__7 )
             // InternalPipesGraph.g:2711:2: rule__Transition__Group__6__Impl rule__Transition__Group__7
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Transition__Group__6__Impl();
 
             state._fsp--;
@@ -8429,7 +8440,7 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
             // InternalPipesGraph.g:2764:1: ( rule__Transition__Group__8__Impl rule__Transition__Group__9 )
             // InternalPipesGraph.g:2765:2: rule__Transition__Group__8__Impl rule__Transition__Group__9
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__Transition__Group__8__Impl();
 
             state._fsp--;
@@ -9827,12 +9838,12 @@ public class InternalPipesGraphParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000001FFFF0F2L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000001880000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000310000000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000310000000002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000001880000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000310000000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000310000000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000040000L});

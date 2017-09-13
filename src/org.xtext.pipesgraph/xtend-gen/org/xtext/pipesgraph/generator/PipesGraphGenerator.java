@@ -6,7 +6,6 @@ package org.xtext.pipesgraph.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
-import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -39,15 +38,16 @@ public class PipesGraphGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    fsa.generateFile(this.buildFileName("PipeStages"), this.generatePipeStages(resource));
-    fsa.generateFile("dotfile.dot", this.generateDotFile(resource));
     final Function1<Config, String> _function = (Config it) -> {
       return it.getName();
     };
-    Iterator<String> _map = IteratorExtensions.<Config, String>map(Iterators.<Config>filter(resource.getAllContents(), Config.class), _function);
-    String _plus = (_map + "");
-    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
-    fsa.generateFile(this.buildFileName(_plus), this.generateClass(((Config) _head)));
+    String _head = IteratorExtensions.<String>head(IteratorExtensions.<Config, String>map(Iterators.<Config>filter(resource.getAllContents(), Config.class), _function));
+    boolean _tripleNotEquals = (_head != null);
+    if (_tripleNotEquals) {
+      this.packname = IteratorExtensions.<Config>head(Iterators.<Config>filter(resource.getAllContents(), Config.class)).getName();
+    }
+    fsa.generateFile(this.buildFileName("PipeStages"), this.generatePipeStages(resource));
+    fsa.generateFile("dotfile.dot", this.generateDotFile(resource));
     String _buildFileName = this.buildFileName("Component");
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
@@ -482,8 +482,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
             if (_equals) {
               {
                 String _code = instance.getCode();
-                boolean _tripleNotEquals = (_code != null);
-                if (_tripleNotEquals) {
+                boolean _tripleNotEquals_1 = (_code != null);
+                if (_tripleNotEquals_1) {
                   _builder_6.append("\t\t");
                   _builder_6.append("case \"");
                   String _name_14 = instance.getName();
@@ -734,8 +734,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
             if (_equals_3) {
               {
                 String _code_3 = instance_2.getCode();
-                boolean _tripleNotEquals_1 = (_code_3 != null);
-                if (_tripleNotEquals_1) {
+                boolean _tripleNotEquals_2 = (_code_3 != null);
+                if (_tripleNotEquals_2) {
                   _builder_7.append("\t");
                   _builder_7.append("case \"");
                   String _name_42 = instance_2.getName();
@@ -986,8 +986,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
               if (_equals_6) {
                 {
                   String _code_6 = instance_4.getCode();
-                  boolean _tripleNotEquals_2 = (_code_6 != null);
-                  if (_tripleNotEquals_2) {
+                  boolean _tripleNotEquals_3 = (_code_6 != null);
+                  if (_tripleNotEquals_3) {
                     _builder_8.append("\t");
                     _builder_8.append("case \"");
                     String _name_70 = instance_4.getName();
@@ -1296,11 +1296,6 @@ public class PipesGraphGenerator extends AbstractGenerator {
     }
     _builder.append("}");
     _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence generateClass(final Config config) {
-    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   

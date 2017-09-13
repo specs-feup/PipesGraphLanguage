@@ -78,7 +78,7 @@ public class PipesGraphSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=ID 
+	 *         name=ID? 
 	 *         params+=Param* 
 	 *         imports+=Import* 
 	 *         components+=Component+ 
