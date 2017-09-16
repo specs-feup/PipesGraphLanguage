@@ -18,25 +18,7 @@ label=
 	</TR>
 </TABLE>>];
 rankdir=TB
-f2 [shape=plaintext 
-label=
-<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
-	<TR>
-		<TD BORDER="1" CELLPADDING="4" COLOR="black">f2</TD>
-	</TR>
-	<TR>
-		<TD BORDER="0">
-			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
-				<TR>
-				<TD PORT="file_out1" BORDER="1" CELLPADDING="1">file_out1</TD>
-				<TD PORT="file_out2" BORDER="1" CELLPADDING="1">file_out2</TD>
-				</TR>
-			</TABLE>
-		</TD>
-	</TR>
-</TABLE>>];
-rankdir=TB
-filter1 [shape=plaintext 
+avg1 [shape=plaintext 
 label=
 <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
 	<TR>
@@ -50,35 +32,7 @@ label=
 		</TD>
 	</TR>
 	<TR>
-		<TD BORDER="1" CELLPADDING="4" COLOR="black">filter1</TD>
-	</TR>
-	<TR>
-		<TD BORDER="0">
-			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
-				<TR>
-				<TD PORT="avg_out1" BORDER="1" CELLPADDING="1">avg_out1</TD>
-				<TD PORT="avg_out2" BORDER="1" CELLPADDING="1">avg_out2</TD>
-				</TR>
-			</TABLE>
-		</TD>
-	</TR>
-</TABLE>>];
-rankdir=TB
-filter2 [shape=plaintext 
-label=
-<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
-	<TR>
-		<TD BORDER="0">
-			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
-				<TR>
-				<TD PORT="avg_in1" BORDER="1" CELLPADDING="1">avg_in1</TD>
-				<TD PORT="avg_in2" BORDER="1" CELLPADDING="1">avg_in2</TD>
-				</TR>
-			</TABLE>
-		</TD>
-	</TR>
-	<TR>
-		<TD BORDER="1" CELLPADDING="4" COLOR="black">filter2</TD>
+		<TD BORDER="1" CELLPADDING="4" COLOR="black">avg1</TD>
 	</TR>
 	<TR>
 		<TD BORDER="0">
@@ -112,6 +66,34 @@ label=
 			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
 				<TR>
 				<TD PORT="sort_out1" BORDER="1" CELLPADDING="1">sort_out1</TD>
+				<TD PORT="sort_out2" BORDER="1" CELLPADDING="1">sort_out2</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>>];
+rankdir=TB
+sort2 [shape=plaintext 
+label=
+<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+	<TR>
+		<TD BORDER="0">
+			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+				<TR>
+				<TD PORT="sort_in1" BORDER="1" CELLPADDING="1">sort_in1</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD BORDER="1" CELLPADDING="4" COLOR="black">sort2</TD>
+	</TR>
+	<TR>
+		<TD BORDER="0">
+			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+				<TR>
+				<TD PORT="sort_out1" BORDER="1" CELLPADDING="1">sort_out1</TD>
+				<TD PORT="sort_out2" BORDER="1" CELLPADDING="1">sort_out2</TD>
 				</TR>
 			</TABLE>
 		</TD>
@@ -126,6 +108,7 @@ label=
 			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
 				<TR>
 				<TD PORT="display_in1" BORDER="1" CELLPADDING="1">display_in1</TD>
+				<TD PORT="display_in2" BORDER="1" CELLPADDING="1">display_in2</TD>
 				</TR>
 			</TABLE>
 		</TD>
@@ -135,7 +118,7 @@ label=
 	</TR>
 </TABLE>>];
 rankdir=TB
-show2 [shape=plaintext 
+sink2 [shape=plaintext 
 label=
 <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
 	<TR>
@@ -143,19 +126,38 @@ label=
 			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
 				<TR>
 				<TD PORT="display_in1" BORDER="1" CELLPADDING="1">display_in1</TD>
+				<TD PORT="display_in2" BORDER="1" CELLPADDING="1">display_in2</TD>
 				</TR>
 			</TABLE>
 		</TD>
 	</TR>
 	<TR>
-		<TD BORDER="1" CELLPADDING="4" COLOR="black">show2</TD>
+		<TD BORDER="1" CELLPADDING="4" COLOR="black">sink2</TD>
 	</TR>
 </TABLE>>];
-f1:file_out1 -> filter1:avg_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
-f2:file_out2 -> sort1:sort_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
-f2:file_out1 -> filter1:avg_in2 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
-filter1:avg_out2 -> filter2:avg_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
-filter1:avg_out1 -> sink1:display_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
-filter2:avg_out1 -> show2:display_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
-sort1:sort_out1 -> filter2:avg_in2 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+rankdir=TB
+sink3 [shape=plaintext 
+label=
+<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+	<TR>
+		<TD BORDER="0">
+			<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+				<TR>
+				<TD PORT="display_in1" BORDER="1" CELLPADDING="1">display_in1</TD>
+				<TD PORT="display_in2" BORDER="1" CELLPADDING="1">display_in2</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD BORDER="1" CELLPADDING="4" COLOR="black">sink3</TD>
+	</TR>
+</TABLE>>];
+f1:file_out1 -> avg1:avg_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+f1:file_out1 -> sort1:sort_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+f1:file_out1 -> sort2:sort_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+avg1:avg_out1 -> sink1:display_in2 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+sort1:sort_out1 -> sink1:display_in1 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+sort1:sort_out2 -> sink2:display_in2 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
+sort2:sort_out2 -> sink3:display_in2 [style="", arrowhead="normal", color=black, headlabel=<>, fontsize=10, labelangle=45, labeldistance=2.0, labelfontcolor=black];
 }

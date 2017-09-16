@@ -189,10 +189,20 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_4.append(this.packname);
       _builder_4.append(";");
       _builder_4.newLineIfNotEmpty();
+      {
+        Iterable<Import> _filter_1 = Iterables.<Import>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Import.class);
+        for(final Import imp : _filter_1) {
+          _builder_4.append("import ");
+          String _name = imp.getName();
+          _builder_4.append(_name);
+          _builder_4.append(";");
+          _builder_4.newLineIfNotEmpty();
+        }
+      }
       _builder_4.newLine();
       _builder_4.append("public class ");
-      String _name = source.getName();
-      _builder_4.append(_name);
+      String _name_1 = source.getName();
+      _builder_4.append(_name_1);
       _builder_4.append(" extends Source{");
       _builder_4.newLineIfNotEmpty();
       {
@@ -202,30 +212,30 @@ public class PipesGraphGenerator extends AbstractGenerator {
           String _type = port.getType();
           _builder_4.append(_type);
           _builder_4.append(" ");
-          String _name_1 = port.getName();
-          _builder_4.append(_name_1);
+          String _name_2 = port.getName();
+          _builder_4.append(_name_2);
           _builder_4.append(";");
           _builder_4.newLineIfNotEmpty();
           _builder_4.append("public ");
           String _type_1 = port.getType();
           _builder_4.append(_type_1);
           _builder_4.append(" get");
-          String _name_2 = port.getName();
-          _builder_4.append(_name_2);
-          _builder_4.append("() {return ");
           String _name_3 = port.getName();
           _builder_4.append(_name_3);
+          _builder_4.append("() {return ");
+          String _name_4 = port.getName();
+          _builder_4.append(_name_4);
           _builder_4.append(";};");
           _builder_4.newLineIfNotEmpty();
           _builder_4.append("public void set");
-          String _name_4 = port.getName();
-          _builder_4.append(_name_4);
+          String _name_5 = port.getName();
+          _builder_4.append(_name_5);
           _builder_4.append("(");
           String _type_2 = port.getType();
           _builder_4.append(_type_2);
           _builder_4.append(" val) {");
-          String _name_5 = port.getName();
-          _builder_4.append(_name_5);
+          String _name_6 = port.getName();
+          _builder_4.append(_name_6);
           _builder_4.append(" = val;};");
           _builder_4.newLineIfNotEmpty();
         }
@@ -237,38 +247,38 @@ public class PipesGraphGenerator extends AbstractGenerator {
           String _type_3 = port_1.getType();
           _builder_4.append(_type_3);
           _builder_4.append(" ");
-          String _name_6 = port_1.getName();
-          _builder_4.append(_name_6);
+          String _name_7 = port_1.getName();
+          _builder_4.append(_name_7);
           _builder_4.append(";");
           _builder_4.newLineIfNotEmpty();
           _builder_4.append("public ");
           String _type_4 = port_1.getType();
           _builder_4.append(_type_4);
           _builder_4.append(" get");
-          String _name_7 = port_1.getName();
-          _builder_4.append(_name_7);
-          _builder_4.append("() {return ");
           String _name_8 = port_1.getName();
           _builder_4.append(_name_8);
+          _builder_4.append("() {return ");
+          String _name_9 = port_1.getName();
+          _builder_4.append(_name_9);
           _builder_4.append(";};");
           _builder_4.newLineIfNotEmpty();
           _builder_4.append("public void set");
-          String _name_9 = port_1.getName();
-          _builder_4.append(_name_9);
+          String _name_10 = port_1.getName();
+          _builder_4.append(_name_10);
           _builder_4.append("(");
           String _type_5 = port_1.getType();
           _builder_4.append(_type_5);
           _builder_4.append(" val) {");
-          String _name_10 = port_1.getName();
-          _builder_4.append(_name_10);
+          String _name_11 = port_1.getName();
+          _builder_4.append(_name_11);
           _builder_4.append(" = val;};");
           _builder_4.newLineIfNotEmpty();
         }
       }
       _builder_4.append("\t");
       _builder_4.append("public ");
-      String _name_11 = source.getName();
-      _builder_4.append(_name_11, "\t");
+      String _name_12 = source.getName();
+      _builder_4.append(_name_12, "\t");
       _builder_4.append("(String name){");
       _builder_4.newLineIfNotEmpty();
       _builder_4.append("\t\t");
@@ -278,12 +288,12 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_4.append("switch (name) {");
       _builder_4.newLine();
       {
-        Iterable<Instance> _filter_1 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
-        for(final Instance instance : _filter_1) {
+        Iterable<Instance> _filter_2 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+        for(final Instance instance : _filter_2) {
           {
-            String _name_12 = instance.getComponent().getName();
-            String _name_13 = source.getName();
-            boolean _equals = Objects.equal(_name_12, _name_13);
+            String _name_13 = instance.getComponent().getName();
+            String _name_14 = source.getName();
+            boolean _equals = Objects.equal(_name_13, _name_14);
             if (_equals) {
               {
                 String _code = instance.getCode();
@@ -291,8 +301,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
                 if (_tripleNotEquals_1) {
                   _builder_4.append("\t\t");
                   _builder_4.append("case \"");
-                  String _name_14 = instance.getName();
-                  _builder_4.append(_name_14, "\t\t");
+                  String _name_15 = instance.getName();
+                  _builder_4.append(_name_15, "\t\t");
                   _builder_4.append("\":");
                   _builder_4.newLineIfNotEmpty();
                   _builder_4.append("\t\t");
@@ -335,43 +345,43 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_4.append("switch (name) {");
       _builder_4.newLine();
       {
-        Iterable<Instance> _filter_2 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
-        for(final Instance instance_1 : _filter_2) {
+        Iterable<Instance> _filter_3 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+        for(final Instance instance_1 : _filter_3) {
           {
-            String _name_15 = instance_1.getComponent().getName();
-            String _name_16 = source.getName();
-            boolean _equals_1 = Objects.equal(_name_15, _name_16);
+            String _name_16 = instance_1.getComponent().getName();
+            String _name_17 = source.getName();
+            boolean _equals_1 = Objects.equal(_name_16, _name_17);
             if (_equals_1) {
               _builder_4.append("\t\t");
               _builder_4.append("case \"");
-              String _name_17 = instance_1.getName();
-              _builder_4.append(_name_17, "\t\t");
+              String _name_18 = instance_1.getName();
+              _builder_4.append(_name_18, "\t\t");
               _builder_4.append("\":");
               _builder_4.newLineIfNotEmpty();
               _builder_4.append("\t\t");
               _builder_4.append("assign = () -> {");
               _builder_4.newLine();
               {
-                Iterable<Transition> _filter_3 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
-                for(final Transition transition : _filter_3) {
+                Iterable<Transition> _filter_4 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
+                for(final Transition transition : _filter_4) {
                   {
-                    String _name_18 = transition.getTarget().getName();
-                    String _name_19 = instance_1.getName();
-                    boolean _equals_2 = Objects.equal(_name_18, _name_19);
+                    String _name_19 = transition.getTarget().getName();
+                    String _name_20 = instance_1.getName();
+                    boolean _equals_2 = Objects.equal(_name_19, _name_20);
                     if (_equals_2) {
                       _builder_4.append("\t\t");
                       _builder_4.append("\t");
-                      String _name_20 = transition.getTargetPort().getName();
-                      _builder_4.append(_name_20, "\t\t\t");
-                      _builder_4.append(" = ((");
-                      String _name_21 = transition.getSource().getComponent().getName();
+                      String _name_21 = transition.getTargetPort().getName();
                       _builder_4.append(_name_21, "\t\t\t");
-                      _builder_4.append(")graph.getComponent(\"");
-                      String _name_22 = transition.getSource().getName();
+                      _builder_4.append(" = ((");
+                      String _name_22 = transition.getSource().getComponent().getName();
                       _builder_4.append(_name_22, "\t\t\t");
-                      _builder_4.append("\")).get");
-                      String _name_23 = transition.getSourcePort().getName();
+                      _builder_4.append(")graph.getComponent(\"");
+                      String _name_23 = transition.getSource().getName();
                       _builder_4.append(_name_23, "\t\t\t");
+                      _builder_4.append("\")).get");
+                      String _name_24 = transition.getSourcePort().getName();
+                      _builder_4.append(_name_24, "\t\t\t");
                       _builder_4.append("();");
                       _builder_4.newLineIfNotEmpty();
                     }
@@ -408,17 +418,27 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_4.append("} ");
       fsa.generateFile(_buildFileName_4, _builder_4);
     }
-    Iterable<Filter> _filter_4 = Iterables.<Filter>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Filter.class);
-    for (final Filter filter : _filter_4) {
+    Iterable<Filter> _filter_5 = Iterables.<Filter>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Filter.class);
+    for (final Filter filter : _filter_5) {
       String _buildFileName_5 = this.buildFileName(filter.getName());
       StringConcatenation _builder_5 = new StringConcatenation();
       _builder_5.append("package ");
       _builder_5.append(this.packname);
       _builder_5.append(";");
       _builder_5.newLineIfNotEmpty();
+      {
+        Iterable<Import> _filter_6 = Iterables.<Import>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Import.class);
+        for(final Import imp_1 : _filter_6) {
+          _builder_5.append("import ");
+          String _name_25 = imp_1.getName();
+          _builder_5.append(_name_25);
+          _builder_5.append(";");
+          _builder_5.newLineIfNotEmpty();
+        }
+      }
       _builder_5.append("public class ");
-      String _name_24 = filter.getName();
-      _builder_5.append(_name_24);
+      String _name_26 = filter.getName();
+      _builder_5.append(_name_26);
       _builder_5.append(" extends Filter{");
       _builder_5.newLineIfNotEmpty();
       {
@@ -428,30 +448,30 @@ public class PipesGraphGenerator extends AbstractGenerator {
           String _type_6 = port_2.getType();
           _builder_5.append(_type_6);
           _builder_5.append(" ");
-          String _name_25 = port_2.getName();
-          _builder_5.append(_name_25);
+          String _name_27 = port_2.getName();
+          _builder_5.append(_name_27);
           _builder_5.append(";");
           _builder_5.newLineIfNotEmpty();
           _builder_5.append("public ");
           String _type_7 = port_2.getType();
           _builder_5.append(_type_7);
           _builder_5.append(" get");
-          String _name_26 = port_2.getName();
-          _builder_5.append(_name_26);
+          String _name_28 = port_2.getName();
+          _builder_5.append(_name_28);
           _builder_5.append("() {return ");
-          String _name_27 = port_2.getName();
-          _builder_5.append(_name_27);
+          String _name_29 = port_2.getName();
+          _builder_5.append(_name_29);
           _builder_5.append(";};");
           _builder_5.newLineIfNotEmpty();
           _builder_5.append("public void set");
-          String _name_28 = port_2.getName();
-          _builder_5.append(_name_28);
+          String _name_30 = port_2.getName();
+          _builder_5.append(_name_30);
           _builder_5.append("(");
           String _type_8 = port_2.getType();
           _builder_5.append(_type_8);
           _builder_5.append(" val) {");
-          String _name_29 = port_2.getName();
-          _builder_5.append(_name_29);
+          String _name_31 = port_2.getName();
+          _builder_5.append(_name_31);
           _builder_5.append(" = val;};");
           _builder_5.newLineIfNotEmpty();
         }
@@ -463,37 +483,37 @@ public class PipesGraphGenerator extends AbstractGenerator {
           String _type_9 = port_3.getType();
           _builder_5.append(_type_9);
           _builder_5.append(" ");
-          String _name_30 = port_3.getName();
-          _builder_5.append(_name_30);
+          String _name_32 = port_3.getName();
+          _builder_5.append(_name_32);
           _builder_5.append(";");
           _builder_5.newLineIfNotEmpty();
           _builder_5.append("public ");
           String _type_10 = port_3.getType();
           _builder_5.append(_type_10);
           _builder_5.append(" get");
-          String _name_31 = port_3.getName();
-          _builder_5.append(_name_31);
+          String _name_33 = port_3.getName();
+          _builder_5.append(_name_33);
           _builder_5.append("() {return ");
-          String _name_32 = port_3.getName();
-          _builder_5.append(_name_32);
+          String _name_34 = port_3.getName();
+          _builder_5.append(_name_34);
           _builder_5.append(";};");
           _builder_5.newLineIfNotEmpty();
           _builder_5.append("public void set");
-          String _name_33 = port_3.getName();
-          _builder_5.append(_name_33);
+          String _name_35 = port_3.getName();
+          _builder_5.append(_name_35);
           _builder_5.append("(");
           String _type_11 = port_3.getType();
           _builder_5.append(_type_11);
           _builder_5.append(" val) {");
-          String _name_34 = port_3.getName();
-          _builder_5.append(_name_34);
+          String _name_36 = port_3.getName();
+          _builder_5.append(_name_36);
           _builder_5.append(" = val;};");
           _builder_5.newLineIfNotEmpty();
         }
       }
       _builder_5.append("public ");
-      String _name_35 = filter.getName();
-      _builder_5.append(_name_35);
+      String _name_37 = filter.getName();
+      _builder_5.append(_name_37);
       _builder_5.append("(String name){");
       _builder_5.newLineIfNotEmpty();
       _builder_5.append("\t");
@@ -503,12 +523,12 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_5.append("switch (name) {");
       _builder_5.newLine();
       {
-        Iterable<Instance> _filter_5 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
-        for(final Instance instance_2 : _filter_5) {
+        Iterable<Instance> _filter_7 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+        for(final Instance instance_2 : _filter_7) {
           {
-            String _name_36 = instance_2.getComponent().getName();
-            String _name_37 = filter.getName();
-            boolean _equals_3 = Objects.equal(_name_36, _name_37);
+            String _name_38 = instance_2.getComponent().getName();
+            String _name_39 = filter.getName();
+            boolean _equals_3 = Objects.equal(_name_38, _name_39);
             if (_equals_3) {
               {
                 String _code_3 = instance_2.getCode();
@@ -516,8 +536,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
                 if (_tripleNotEquals_2) {
                   _builder_5.append("\t");
                   _builder_5.append("case \"");
-                  String _name_38 = instance_2.getName();
-                  _builder_5.append(_name_38, "\t");
+                  String _name_40 = instance_2.getName();
+                  _builder_5.append(_name_40, "\t");
                   _builder_5.append("\":");
                   _builder_5.newLineIfNotEmpty();
                   _builder_5.append("\t");
@@ -557,43 +577,43 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_5.append("switch (name) {");
       _builder_5.newLine();
       {
-        Iterable<Instance> _filter_6 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
-        for(final Instance instance_3 : _filter_6) {
+        Iterable<Instance> _filter_8 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+        for(final Instance instance_3 : _filter_8) {
           {
-            String _name_39 = instance_3.getComponent().getName();
-            String _name_40 = filter.getName();
-            boolean _equals_4 = Objects.equal(_name_39, _name_40);
+            String _name_41 = instance_3.getComponent().getName();
+            String _name_42 = filter.getName();
+            boolean _equals_4 = Objects.equal(_name_41, _name_42);
             if (_equals_4) {
               _builder_5.append("\t");
               _builder_5.append("case \"");
-              String _name_41 = instance_3.getName();
-              _builder_5.append(_name_41, "\t");
+              String _name_43 = instance_3.getName();
+              _builder_5.append(_name_43, "\t");
               _builder_5.append("\":");
               _builder_5.newLineIfNotEmpty();
               _builder_5.append("\t");
               _builder_5.append("assign = () -> {");
               _builder_5.newLine();
               {
-                Iterable<Transition> _filter_7 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
-                for(final Transition transition_1 : _filter_7) {
+                Iterable<Transition> _filter_9 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
+                for(final Transition transition_1 : _filter_9) {
                   {
-                    String _name_42 = transition_1.getTarget().getName();
-                    String _name_43 = instance_3.getName();
-                    boolean _equals_5 = Objects.equal(_name_42, _name_43);
+                    String _name_44 = transition_1.getTarget().getName();
+                    String _name_45 = instance_3.getName();
+                    boolean _equals_5 = Objects.equal(_name_44, _name_45);
                     if (_equals_5) {
                       _builder_5.append("\t");
                       _builder_5.append("\t");
-                      String _name_44 = transition_1.getTargetPort().getName();
-                      _builder_5.append(_name_44, "\t\t");
-                      _builder_5.append(" = ((");
-                      String _name_45 = transition_1.getSource().getComponent().getName();
-                      _builder_5.append(_name_45, "\t\t");
-                      _builder_5.append(")graph.getComponent(\"");
-                      String _name_46 = transition_1.getSource().getName();
+                      String _name_46 = transition_1.getTargetPort().getName();
                       _builder_5.append(_name_46, "\t\t");
-                      _builder_5.append("\")).get");
-                      String _name_47 = transition_1.getSourcePort().getName();
+                      _builder_5.append(" = ((");
+                      String _name_47 = transition_1.getSource().getComponent().getName();
                       _builder_5.append(_name_47, "\t\t");
+                      _builder_5.append(")graph.getComponent(\"");
+                      String _name_48 = transition_1.getSource().getName();
+                      _builder_5.append(_name_48, "\t\t");
+                      _builder_5.append("\")).get");
+                      String _name_49 = transition_1.getSourcePort().getName();
+                      _builder_5.append(_name_49, "\t\t");
                       _builder_5.append("();");
                       _builder_5.newLineIfNotEmpty();
                     }
@@ -630,8 +650,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
       _builder_5.append("}");
       fsa.generateFile(_buildFileName_5, _builder_5);
     }
-    Iterable<Sink> _filter_8 = Iterables.<Sink>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Sink.class);
-    for (final Sink sink : _filter_8) {
+    Iterable<Sink> _filter_10 = Iterables.<Sink>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Sink.class);
+    for (final Sink sink : _filter_10) {
       {
         String _buildFileName_6 = this.buildFileName(sink.getName());
         StringConcatenation _builder_6 = new StringConcatenation();
@@ -639,9 +659,20 @@ public class PipesGraphGenerator extends AbstractGenerator {
         _builder_6.append(this.packname);
         _builder_6.append(";");
         _builder_6.newLineIfNotEmpty();
+        {
+          Iterable<Import> _filter_11 = Iterables.<Import>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Import.class);
+          for(final Import imp_2 : _filter_11) {
+            _builder_6.append("import ");
+            String _name_50 = imp_2.getName();
+            _builder_6.append(_name_50);
+            _builder_6.append(";");
+            _builder_6.newLineIfNotEmpty();
+          }
+        }
+        _builder_6.newLine();
         _builder_6.append("public class ");
-        String _name_48 = sink.getName();
-        _builder_6.append(_name_48);
+        String _name_51 = sink.getName();
+        _builder_6.append(_name_51);
         _builder_6.append(" extends Sink{");
         _builder_6.newLineIfNotEmpty();
         _builder_6.newLine();
@@ -652,30 +683,30 @@ public class PipesGraphGenerator extends AbstractGenerator {
             String _type_12 = port_4.getType();
             _builder_6.append(_type_12);
             _builder_6.append(" ");
-            String _name_49 = port_4.getName();
-            _builder_6.append(_name_49);
+            String _name_52 = port_4.getName();
+            _builder_6.append(_name_52);
             _builder_6.append(";");
             _builder_6.newLineIfNotEmpty();
             _builder_6.append("public ");
             String _type_13 = port_4.getType();
             _builder_6.append(_type_13);
             _builder_6.append(" get");
-            String _name_50 = port_4.getName();
-            _builder_6.append(_name_50);
+            String _name_53 = port_4.getName();
+            _builder_6.append(_name_53);
             _builder_6.append("() {return ");
-            String _name_51 = port_4.getName();
-            _builder_6.append(_name_51);
+            String _name_54 = port_4.getName();
+            _builder_6.append(_name_54);
             _builder_6.append(";};");
             _builder_6.newLineIfNotEmpty();
             _builder_6.append("public void set");
-            String _name_52 = port_4.getName();
-            _builder_6.append(_name_52);
+            String _name_55 = port_4.getName();
+            _builder_6.append(_name_55);
             _builder_6.append("(");
             String _type_14 = port_4.getType();
             _builder_6.append(_type_14);
             _builder_6.append(" val) {");
-            String _name_53 = port_4.getName();
-            _builder_6.append(_name_53);
+            String _name_56 = port_4.getName();
+            _builder_6.append(_name_56);
             _builder_6.append(" = val;};");
             _builder_6.newLineIfNotEmpty();
           }
@@ -687,38 +718,38 @@ public class PipesGraphGenerator extends AbstractGenerator {
             String _type_15 = port_5.getType();
             _builder_6.append(_type_15);
             _builder_6.append(" ");
-            String _name_54 = port_5.getName();
-            _builder_6.append(_name_54);
+            String _name_57 = port_5.getName();
+            _builder_6.append(_name_57);
             _builder_6.append(";");
             _builder_6.newLineIfNotEmpty();
             _builder_6.append("public ");
             String _type_16 = port_5.getType();
             _builder_6.append(_type_16);
             _builder_6.append(" get");
-            String _name_55 = port_5.getName();
-            _builder_6.append(_name_55);
+            String _name_58 = port_5.getName();
+            _builder_6.append(_name_58);
             _builder_6.append("() {return ");
-            String _name_56 = port_5.getName();
-            _builder_6.append(_name_56);
+            String _name_59 = port_5.getName();
+            _builder_6.append(_name_59);
             _builder_6.append(";};");
             _builder_6.newLineIfNotEmpty();
             _builder_6.append("public void set");
-            String _name_57 = port_5.getName();
-            _builder_6.append(_name_57);
+            String _name_60 = port_5.getName();
+            _builder_6.append(_name_60);
             _builder_6.append("(");
             String _type_17 = port_5.getType();
             _builder_6.append(_type_17);
             _builder_6.append(" val) {");
-            String _name_58 = port_5.getName();
-            _builder_6.append(_name_58);
+            String _name_61 = port_5.getName();
+            _builder_6.append(_name_61);
             _builder_6.append(" = val;};");
             _builder_6.newLineIfNotEmpty();
           }
         }
         _builder_6.append("\t");
         _builder_6.append("public ");
-        String _name_59 = sink.getName();
-        _builder_6.append(_name_59, "\t");
+        String _name_62 = sink.getName();
+        _builder_6.append(_name_62, "\t");
         _builder_6.append("(String name){");
         _builder_6.newLineIfNotEmpty();
         _builder_6.append("\t");
@@ -728,12 +759,12 @@ public class PipesGraphGenerator extends AbstractGenerator {
         _builder_6.append("switch (name) {");
         _builder_6.newLine();
         {
-          Iterable<Instance> _filter_9 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
-          for(final Instance instance_4 : _filter_9) {
+          Iterable<Instance> _filter_12 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+          for(final Instance instance_4 : _filter_12) {
             {
-              String _name_60 = instance_4.getComponent().getName();
-              String _name_61 = sink.getName();
-              boolean _equals_6 = Objects.equal(_name_60, _name_61);
+              String _name_63 = instance_4.getComponent().getName();
+              String _name_64 = sink.getName();
+              boolean _equals_6 = Objects.equal(_name_63, _name_64);
               if (_equals_6) {
                 {
                   String _code_6 = instance_4.getCode();
@@ -741,8 +772,8 @@ public class PipesGraphGenerator extends AbstractGenerator {
                   if (_tripleNotEquals_3) {
                     _builder_6.append("\t");
                     _builder_6.append("case \"");
-                    String _name_62 = instance_4.getName();
-                    _builder_6.append(_name_62, "\t");
+                    String _name_65 = instance_4.getName();
+                    _builder_6.append(_name_65, "\t");
                     _builder_6.append("\":");
                     _builder_6.newLineIfNotEmpty();
                     _builder_6.append("\t");
@@ -785,43 +816,43 @@ public class PipesGraphGenerator extends AbstractGenerator {
         _builder_6.append("switch (name) {");
         _builder_6.newLine();
         {
-          Iterable<Instance> _filter_10 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
-          for(final Instance instance_5 : _filter_10) {
+          Iterable<Instance> _filter_13 = Iterables.<Instance>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Instance.class);
+          for(final Instance instance_5 : _filter_13) {
             {
-              String _name_63 = instance_5.getComponent().getName();
-              String _name_64 = sink.getName();
-              boolean _equals_7 = Objects.equal(_name_63, _name_64);
+              String _name_66 = instance_5.getComponent().getName();
+              String _name_67 = sink.getName();
+              boolean _equals_7 = Objects.equal(_name_66, _name_67);
               if (_equals_7) {
                 _builder_6.append("\t");
                 _builder_6.append("case \"");
-                String _name_65 = instance_5.getName();
-                _builder_6.append(_name_65, "\t");
+                String _name_68 = instance_5.getName();
+                _builder_6.append(_name_68, "\t");
                 _builder_6.append("\":");
                 _builder_6.newLineIfNotEmpty();
                 _builder_6.append("\t");
                 _builder_6.append("assign = () -> {");
                 _builder_6.newLine();
                 {
-                  Iterable<Transition> _filter_11 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
-                  for(final Transition transition_2 : _filter_11) {
+                  Iterable<Transition> _filter_14 = Iterables.<Transition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Transition.class);
+                  for(final Transition transition_2 : _filter_14) {
                     {
-                      String _name_66 = transition_2.getTarget().getName();
-                      String _name_67 = instance_5.getName();
-                      boolean _equals_8 = Objects.equal(_name_66, _name_67);
+                      String _name_69 = transition_2.getTarget().getName();
+                      String _name_70 = instance_5.getName();
+                      boolean _equals_8 = Objects.equal(_name_69, _name_70);
                       if (_equals_8) {
                         _builder_6.append("\t");
                         _builder_6.append("\t");
-                        String _name_68 = transition_2.getTargetPort().getName();
-                        _builder_6.append(_name_68, "\t\t");
-                        _builder_6.append(" = ((");
-                        String _name_69 = transition_2.getSource().getComponent().getName();
-                        _builder_6.append(_name_69, "\t\t");
-                        _builder_6.append(")graph.getComponent(\"");
-                        String _name_70 = transition_2.getSource().getName();
-                        _builder_6.append(_name_70, "\t\t");
-                        _builder_6.append("\")).get");
-                        String _name_71 = transition_2.getSourcePort().getName();
+                        String _name_71 = transition_2.getTargetPort().getName();
                         _builder_6.append(_name_71, "\t\t");
+                        _builder_6.append(" = ((");
+                        String _name_72 = transition_2.getSource().getComponent().getName();
+                        _builder_6.append(_name_72, "\t\t");
+                        _builder_6.append(")graph.getComponent(\"");
+                        String _name_73 = transition_2.getSource().getName();
+                        _builder_6.append(_name_73, "\t\t");
+                        _builder_6.append("\")).get");
+                        String _name_74 = transition_2.getSourcePort().getName();
+                        _builder_6.append(_name_74, "\t\t");
                         _builder_6.append("();");
                         _builder_6.newLineIfNotEmpty();
                       }
@@ -1077,15 +1108,7 @@ public class PipesGraphGenerator extends AbstractGenerator {
     _builder.append(this.packname);
     _builder.append(";");
     _builder.newLineIfNotEmpty();
-    {
-      EList<Import> _imports = config.getImports();
-      for(final Import imp : _imports) {
-        _builder.append("import ");
-        String _name = imp.getName();
-        _builder.append(_name);
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.newLine();
     _builder.append("import java.util.ArrayList;");
     _builder.newLine();
     _builder.append("import java.util.HashMap;");
@@ -1133,26 +1156,26 @@ public class PipesGraphGenerator extends AbstractGenerator {
       for(final Instance instance : _instances) {
         _builder.append("\t\t");
         _builder.append("nodes.put(\"");
-        String _name_1 = instance.getName();
-        _builder.append(_name_1, "\t\t");
+        String _name = instance.getName();
+        _builder.append(_name, "\t\t");
         _builder.append("\", new ");
-        String _name_2 = instance.getComponent().getName();
-        _builder.append(_name_2, "\t\t");
+        String _name_1 = instance.getComponent().getName();
+        _builder.append(_name_1, "\t\t");
         _builder.append("(\"");
-        String _name_3 = instance.getName();
-        _builder.append(_name_3, "\t\t");
+        String _name_2 = instance.getName();
+        _builder.append(_name_2, "\t\t");
         _builder.append("\"));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
         _builder.append("nodes.get(\"");
-        String _name_4 = instance.getName();
-        _builder.append(_name_4, "\t\t");
+        String _name_3 = instance.getName();
+        _builder.append(_name_3, "\t\t");
         _builder.append("\").setGraph(this);\t\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
         _builder.append("components.add(nodes.get(\"");
-        String _name_5 = instance.getName();
-        _builder.append(_name_5, "\t\t");
+        String _name_4 = instance.getName();
+        _builder.append(_name_4, "\t\t");
         _builder.append("\"));");
         _builder.newLineIfNotEmpty();
       }
@@ -1162,17 +1185,17 @@ public class PipesGraphGenerator extends AbstractGenerator {
       for(final Transition t : _transitions) {
         _builder.append("\t\t");
         _builder.append("addEdge(\"");
-        String _name_6 = t.getSource().getName();
+        String _name_5 = t.getSource().getName();
+        _builder.append(_name_5, "\t\t");
+        _builder.append("\",\"");
+        String _name_6 = t.getTargetPort().getName();
         _builder.append(_name_6, "\t\t");
         _builder.append("\",\"");
-        String _name_7 = t.getTargetPort().getName();
+        String _name_7 = t.getTarget().getName();
         _builder.append(_name_7, "\t\t");
         _builder.append("\",\"");
-        String _name_8 = t.getTarget().getName();
+        String _name_8 = t.getSourcePort().getName();
         _builder.append(_name_8, "\t\t");
-        _builder.append("\",\"");
-        String _name_9 = t.getSourcePort().getName();
-        _builder.append(_name_9, "\t\t");
         _builder.append("\");");
         _builder.newLineIfNotEmpty();
       }

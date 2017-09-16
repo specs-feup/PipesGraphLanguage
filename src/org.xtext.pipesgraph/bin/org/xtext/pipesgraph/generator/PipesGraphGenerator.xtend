@@ -119,7 +119,10 @@ class PipesGraphGenerator extends AbstractGenerator {
 		 		fsa.generateFile(buildFileName(source.name),
 		 			'''
 			package «packname»;
-			
+			«FOR imp : resource.allContents.toIterable.filter(Import)»
+				import «imp.name»;
+			«ENDFOR»
+
 			public class «source.name» extends Source{
 			«FOR port : source.inPorts»
 				private «port.type» «port.name»;
@@ -173,6 +176,9 @@ class PipesGraphGenerator extends AbstractGenerator {
 		 		fsa.generateFile(buildFileName(filter.name),
 		 			'''
 				package «packname»;
+				«FOR imp : resource.allContents.toIterable.filter(Import)»
+					import «imp.name»;
+				«ENDFOR»
 				public class «filter.name» extends Filter{
 				«FOR port : filter.inPorts»
 					private «port.type» «port.name»;
@@ -226,6 +232,10 @@ class PipesGraphGenerator extends AbstractGenerator {
 		 		fsa.generateFile(buildFileName(sink.name),
 		 			'''
 				package «packname»;
+				«FOR imp : resource.allContents.toIterable.filter(Import)»
+					import «imp.name»;
+				«ENDFOR»
+				
 				public class «sink.name» extends Sink{
 
 				«FOR port : sink.inPorts»
@@ -358,9 +368,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 	
 	def CharSequence generate(Config config)'''
 	package «packname»;
-	«FOR imp : config.imports»
-	import «imp.name»
-	«ENDFOR»
+
 	import java.util.ArrayList;
 	import java.util.HashMap;
 	import java.util.PriorityQueue;
