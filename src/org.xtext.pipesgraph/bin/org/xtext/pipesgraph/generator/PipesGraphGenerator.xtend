@@ -64,13 +64,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 				protected Graph graph;
 				public Graph getGraph(){return graph;};
 				public void setGraph(Graph g){graph=g;};
-				protected HashMap<String, Port> inPorts = new HashMap<String, Port>();
-				protected HashMap<String, Port> outPorts = new HashMap<String, Port>();				
-				public Port getPort(String name){
-					if(inPorts.get(name) != null) 
-						return inPorts.get(name);
-						return outPorts.get(name);
-				}
+
 				public int getLevel() {
 					return level;
 				}
@@ -120,79 +114,6 @@ class PipesGraphGenerator extends AbstractGenerator {
 
 		 	}'''
 		 );
-		 fsa.generateFile(buildFileName("Port"), 
-		 	'''
-		 	package «packname»;
-		 	import java.util.ArrayList;
-		 	
-		 	public class Port{
-		 		protected Component component;
-		 		protected String name;
-		 		protected ArrayList<Edge> edges = new ArrayList<Edge>();
-		 	
-		 		public Port(String name, Component component){
-		 			this.name = name;
-		 			this.component = component;
-		 		}
-		 	
-		 		public Component getComponent() {
-		 			return component;
-		 		}
-		 	
-		 		public void setComponent(Component component) {
-		 			this.component = component;
-		 		}
-		 	
-		 		public String getName() {
-		 			return name;
-		 		}
-		 	
-		 		public void setName(String name) {
-		 			this.name = name;
-		 		}
-		 	
-		 		public ArrayList<Edge> getEdges() {
-		 			return edges;
-		 		}
-		 	
-		 		public void setEdges(ArrayList<Edge> edges) {
-		 			this.edges = edges;
-		 		}
-		 		public void addEdge(Edge edge){
-		 			this.edges.add(edge);
-		 		}
-		 	}
-		 	'''
-		 );
-		  fsa.generateFile(buildFileName("Edge"), 
-		 	'''
-		 	package «packname»;
-		 	public class Edge{
-		 		protected Port source; // <n1.get(p1),n2.get(p2)> 
-		 		protected Port target;
-		 	
-		 		public Edge(Port source, Port target){
-		 			this.source = source;
-		 			this.target = target;
-		 		}
-		 	
-		 		public Port getSource() {
-		 			return source;
-		 		}
-		 	
-		 		public void setSource(Port source) {
-		 			this.source = source;
-		 		}
-		 	
-		 		public Port getTarget() {
-		 			return target;
-		 		}
-		 	
-		 		public void setTarget(Port target) {
-		 			this.target = target;
-		 		}
-		 	}
-		 	''');
 		 	
 		 	for(source: resource.allContents.toIterable.filter(Source)){
 		 		fsa.generateFile(buildFileName(source.name),
@@ -244,12 +165,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 					assign = () -> {};
 					break;					
 					}					
-					«FOR port : source.inPorts»
-						inPorts.put("«port.name»", new Port("«port.name»",this));
-					«ENDFOR»					
-					«FOR port : source.outPorts»
-						outPorts.put("«port.name»", new Port("«port.name»",this));
-					«ENDFOR»
+
 				}
 
 			} ''')}
@@ -301,12 +217,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 					assign = () -> {};
 					break;					
 					}
-					«FOR port : filter.inPorts»
-						inPorts.put("«port.name»", new Port("«port.name»",this));
-					«ENDFOR»
-					«FOR port : filter.outPorts»
-						outPorts.put("«port.name»", new Port("«port.name»",this));
-					«ENDFOR»					
+				
 					}
 
 				}''')}
@@ -361,12 +272,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 					assign = () -> {};
 					break;					
 					}
-				«FOR port : sink.inPorts»
-					inPorts.put("«port.name»", new Port("«port.name»",this));
-				«ENDFOR»
-				«FOR port : sink.outPorts»
-					outPorts.put("«port.name»", new Port("«port.name»",this));
-				«ENDFOR»
+
 				}
 
 				}
@@ -461,7 +367,6 @@ class PipesGraphGenerator extends AbstractGenerator {
 	
 	
 	public class Graph extends PipeStages{
-		private ArrayList<Edge> edges = new ArrayList<Edge>();
 		private HashMap<String,Component> nodes = new HashMap<String,Component>();
 		private PriorityQueue<Component> components = new PriorityQueue<Component>();		
 		public Component getComponent(String comp) {return nodes.get(comp);};
@@ -469,11 +374,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 		public void addEdge(String from, String pfrom, String to, String pto){
 			Component csource = nodes.get(from);
 			Component ctarget = nodes.get(to);
-			
-			Port source = csource.getPort(pfrom);
-			Port target = ctarget.getPort(pto);
-			Edge edge = new Edge(source, target);
-			edges.add(edge);
+
 			ctarget.checkLevel(csource);
 		}
 		

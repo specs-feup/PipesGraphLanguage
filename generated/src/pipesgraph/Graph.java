@@ -5,7 +5,6 @@ import java.util.PriorityQueue;
 
 
 public class Graph extends PipeStages{
-	private ArrayList<Edge> edges = new ArrayList<Edge>();
 	private HashMap<String,Component> nodes = new HashMap<String,Component>();
 	private PriorityQueue<Component> components = new PriorityQueue<Component>();		
 	public Component getComponent(String comp) {return nodes.get(comp);};
@@ -14,10 +13,6 @@ public class Graph extends PipeStages{
 		Component csource = nodes.get(from);
 		Component ctarget = nodes.get(to);
 		
-		Port source = csource.getPort(pfrom);
-		Port target = ctarget.getPort(pto);
-		Edge edge = new Edge(source, target);
-		edges.add(edge);
 		ctarget.checkLevel(csource);
 	}
 	

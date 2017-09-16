@@ -37,10 +37,7 @@ public Avg(String name){
 	assign = () -> {};
 	break;					
 	}
-	inPorts.put("avg_in1", new Port("avg_in1",this));
-	inPorts.put("avg_in2", new Port("avg_in2",this));
-	outPorts.put("avg_out1", new Port("avg_out1",this));
-	outPorts.put("avg_out2", new Port("avg_out2",this));
+
 	}
 
 }

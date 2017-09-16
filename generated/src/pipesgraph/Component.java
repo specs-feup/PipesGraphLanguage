@@ -9,13 +9,7 @@ public abstract class Component extends PipeStages implements Comparable<Compone
 	protected Graph graph;
 	public Graph getGraph(){return graph;};
 	public void setGraph(Graph g){graph=g;};
-	protected HashMap<String, Port> inPorts = new HashMap<String, Port>();
-	protected HashMap<String, Port> outPorts = new HashMap<String, Port>();				
-	public Port getPort(String name){
-		if(inPorts.get(name) != null) 
-			return inPorts.get(name);
-			return outPorts.get(name);
-	}
+
 	public int getLevel() {
 		return level;
 	}

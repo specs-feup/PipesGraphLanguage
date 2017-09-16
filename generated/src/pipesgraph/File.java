@@ -29,8 +29,7 @@ public void setfile_out2(int val) {file_out2 = val;};
 		assign = () -> {};
 		break;					
 		}					
-		outPorts.put("file_out1", new Port("file_out1",this));
-		outPorts.put("file_out2", new Port("file_out2",this));
+
 	}
 
 } 

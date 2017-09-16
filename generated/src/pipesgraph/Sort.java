@@ -22,8 +22,7 @@ public Sort(String name){
 	assign = () -> {};
 	break;					
 	}
-	inPorts.put("sort_in1", new Port("sort_in1",this));
-	outPorts.put("sort_out1", new Port("sort_out1",this));
+
 	}
 
 }

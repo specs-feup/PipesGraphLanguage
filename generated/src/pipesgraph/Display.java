@@ -26,7 +26,6 @@ public void setdisplay_in1(int val) {display_in1 = val;};
 	assign = () -> {};
 	break;					
 	}
-inPorts.put("display_in1", new Port("display_in1",this));
 }
 
 }
