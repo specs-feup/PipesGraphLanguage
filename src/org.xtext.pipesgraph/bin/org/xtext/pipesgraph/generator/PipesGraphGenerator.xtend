@@ -50,7 +50,20 @@ class PipesGraphGenerator extends AbstractGenerator {
 
 		fsa.generateFile(buildFileName("PipeStages"), generatePipeStages(resource));
 		fsa.generateFile("dotfile.dot", generateDotFile(resource)); 
-			
+		
+		fsa.generateFile("main/Main.java", 
+		'''
+		package main;
+		
+		import pipesgraph.PipesGraph;
+		
+		public class Main {
+			public static void main(String[] args) {
+				PipesGraph g = new PipesGraph();
+				g.invoke();
+			}
+		}
+		'''	);
 		fsa.generateFile(buildFileName("Component"), 
 			'''
 			package «packname»;
@@ -61,9 +74,9 @@ class PipesGraphGenerator extends AbstractGenerator {
 				protected String name;
 				Runnable call;
 				Runnable assign;
-				protected Graph graph;
-				public Graph getGraph(){return graph;};
-				public void setGraph(Graph g){graph=g;};
+				protected PipesGraph graph;
+				public PipesGraph getPipesGraph(){return graph;};
+				public void setPipesGraph(PipesGraph g){graph=g;};
 
 				public int getLevel() {
 					return level;
@@ -288,7 +301,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 				}
 		 	'''
 		 	);
-			fsa.generateFile(buildFileName("Graph"), generate(resource.contents.head as Config)); 
+			fsa.generateFile(buildFileName("PipesGraph"), generate(resource.contents.head as Config)); 
 		 	
 		 	}
 		 	
@@ -374,7 +387,7 @@ class PipesGraphGenerator extends AbstractGenerator {
 	import java.util.PriorityQueue;
 	
 	
-	public class Graph extends PipeStages{
+	public class PipesGraph extends PipeStages{
 		private HashMap<String,Component> nodes = new HashMap<String,Component>();
 		private PriorityQueue<Component> components = new PriorityQueue<Component>();		
 		public Component getComponent(String comp) {return nodes.get(comp);};
@@ -386,10 +399,10 @@ class PipesGraphGenerator extends AbstractGenerator {
 			ctarget.checkLevel(csource);
 		}
 		
-		public Graph() {
+		public PipesGraph() {
 			«FOR instance : config.instances»
 				nodes.put("«instance.name»", new «instance.component.name»("«instance.name»"));
-				nodes.get("«instance.name»").setGraph(this);			
+				nodes.get("«instance.name»").setPipesGraph(this);			
 				components.add(nodes.get("«instance.name»"));
 			«ENDFOR»
 			«FOR t : config.transitions»

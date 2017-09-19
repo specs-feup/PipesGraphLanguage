@@ -6,9 +6,9 @@ public abstract class Component extends PipeStages implements Comparable<Compone
 	protected String name;
 	Runnable call;
 	Runnable assign;
-	protected Graph graph;
-	public Graph getGraph(){return graph;};
-	public void setGraph(Graph g){graph=g;};
+	protected PipesGraph graph;
+	public PipesGraph getPipesGraph(){return graph;};
+	public void setPipesGraph(PipesGraph g){graph=g;};
 
 	public int getLevel() {
 		return level;
